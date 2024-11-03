@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hawar Club</title>
+    <title>نعي - نادي الحوار</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Great+Vibes&family=Sixtyfour+Convergence&family=Yellowtail&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <style>
         /* إعداد خلفية متدرجة ديناميكية مع نمط شفاف */
         body {
@@ -20,10 +20,26 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            color: #ffa500;
+            color: #ffffff;
             text-align: center;
             flex-direction: column;
+            padding: 1rem;
         }
+
+        /* طبقة النمط */
+        .pattern-overlay {
+            background-image: url('/patrens.png');
+            background-repeat: repeat;
+            background-size: 450px 450px;
+            opacity: 0.15;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
 
         /* طبقة النمط */
         .pattern-overlay {
@@ -125,17 +141,143 @@
             from { border-color: transparent; }
             to { border-color: #ffffff; }
         }
+        /* طبقة الخلفية للنص والصورة */
+        .content-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding-top: 5rem; /* إفساح مساحة للصورة */
+            padding-bottom: 2rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 600px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-y: hidden;
+            z-index: 50;
+            text-align: center;
+        }
+        /* تنسيق الصورة */
+        .portrait {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #FFA500;
+            position: absolute;
+            top: 15px; /* تثبيت الصورة في أعلى الصندوق */
+            animation: growIn 2s ease forwards;
+        }
+
+        /* نص النعي */
+        .obituary-text {
+            font-family: "Amiri", serif;
+            font-size: 1.6rem;
+            color: #ffffff;
+            white-space: pre-line;
+            text-align: justify;
+            direction: rtl;
+            line-height: 1.8;
+            opacity: 1;
+            overflow: hidden;
+            max-height: 100%;
+            padding-top: 8rem;
+        }
+
+        /* تأثير تكبير الصورة عند الظهور */
+        @keyframes growIn {
+            0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* تنسيق الاسم والتوقيع */
+        .highlight {
+            color: #FFA500;
+            font-weight: bold;
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 1.25rem;
+        }
+
+        /* تنسيق التوقيع */
+        .signature {
+            font-family: "Amiri", serif;
+            font-size: 1.3rem;
+            color: #FFA500;
+            margin-top: 1.5rem;
+            display: none; /* إخفاء التوقيع في البداية */
+            animation: signatureFadeIn 2s forwards; /* تأثير الظهور */
+        }
+
+        /* تأثير الظهور للتوقيع */
+        @keyframes signatureFadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .fade-out {
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
     </style>
 </head>
 <body>
+    
     <div class="pattern-overlay"></div>
 
-    <!-- اسم النادي -->
-    <div class="club-name">
+    <div id="contentBox" class="content-box">
+        <!-- محتوى الصورة والنص الأصلي -->
+        <img src="cropped_image.jpg" alt="الشخصية" class="portrait">
+        <div class="obituary-text" id="obituaryText"></div>
+        <div class="signature" id="signatureText">مجلس إدارة نادي الحوار للألعاب الرياضية</div>
+    </div>
+
+    <!-- المحتوى الجديد "Hawar" و "Coming Soon" -->
+    <div class="club-name" style="display: none;">
         <span>H</span><span>a</span><span>w</span><span>a</span><span>r</span>
     </div>
-    
-    <!-- النص التحتي "Coming Soon" -->
-    <div class="coming-soon">Coming Soon</div>
+    <div class="coming-soon" style="display: none;">Coming Soon</div>
+
+    <script>
+        // النص الكامل للنعي
+        const textContent = `بمشاعر يغمرها الحزن والأسى، ينعى نادي الحوار للألعاب الرياضية بقلوب مؤمنة بقضاء الله وقدره، فقيده الغالي
+المرحوم الحاج / صفوت رمضان فودة
+الذي أفنى عمره في خدمة النادي وأبنائه، وأصبح رمزًا للعطاء والإخلاص، تاركًا إرثًا خالدًا من المحبة والاحترام، و بصمة لا تُمحى في ذاكرة كل من عرفوه. رحل بجسده، وبقيت ذكراه ناصعة في قلوب محبيه، محفورة بحروف من نور في صفحات التاريخ.
+نسأل الله العلي القدير أن يجعل ما قدّمه في ميزان حسناته.`;
+
+const obituaryText = document.getElementById('obituaryText');
+        const signatureText = document.getElementById('signatureText');
+        const contentBox = document.getElementById('contentBox');
+        const clubName = document.querySelector('.club-name');
+        const comingSoon = document.querySelector('.coming-soon');
+
+        let index = 0;
+        const words = textContent.split(" ");
+
+        function displayWords() {
+            if (index < words.length) {
+                obituaryText.innerHTML += words[index] + " ";
+                index++;
+                setTimeout(displayWords, 300); // سرعة الكتابة
+            } else {
+                signatureText.style.display = "block"; // عرض التوقيع بعد انتهاء الكتابة
+                setTimeout(fadeOutContent, 8000); // الانتظار لمدة 2 ثانية بعد التوقيع قبل التلاشي
+            }
+        }
+
+        function fadeOutContent() {
+            contentBox.classList.add('fade-out'); // بدء تأثير التلاشي
+            setTimeout(() => {
+                contentBox.style.display = "none"; // إخفاء الصندوق القديم بعد التلاشي
+                clubName.style.display = "block"; // عرض "Hawar"
+                comingSoon.style.display = "block"; // عرض "Coming Soon"
+            }, 2000); // وقت التلاشي
+        }
+
+        setTimeout(displayWords, 2000); // بدء الكتابة بعد تأثير الصورة
+    </script>
 </body>
 </html>

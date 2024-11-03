@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hawar Sporting Club | نادي الحوار لللألعاب الرياضية</title>
+    <title>Hawar Sporting Club | نادي الحوار للألعاب الرياضية</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Great+Vibes&family=Sixtyfour+Convergence&family=Yellowtail&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Amiri&family=Yellowtail&display=swap" rel="stylesheet">
     <style>
         /* إعداد خلفية متدرجة ديناميكية مع نمط شفاف */
         body {
-            background: linear-gradient(135deg, #0a1931, #122c57, #1c3b72, #0a1931);
+            background: linear-gradient(135deg, #0a1931, #122c57, #173261, #0a1931);
             background-size: 100% 100%;
             position: relative;
             display: flex;
@@ -27,7 +27,6 @@
             padding: 1rem;
         }
 
-        /* طبقة النمط */
         .pattern-overlay {
             background-image: url('/patrens.png');
             background-repeat: repeat;
@@ -41,26 +40,9 @@
             z-index: 1;
         }
 
-
-        /* طبقة النمط */
-        .pattern-overlay {
-            background-image: url('/patrens.png');
-            background-repeat: repeat;
-            background-size: 450px 450px;
-            opacity: 0.15;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        /* تصميم اسم النادي */
         .club-name {
             font-family: "Concert One", sans-serif;
             font-weight: bold;
-            font-size: 8rem;
             color: #ffa500;
             position: relative;
             opacity: 0;
@@ -72,24 +54,7 @@
             white-space: nowrap;
         }
 
-        /* تكبير وتصغير النص حسب الشاشات */
-        @media (min-width: 640px) { /* شاشات صغيرة */
-            .club-name {
-                font-size: 12rem;
-            }
-        }
-        @media (min-width: 768px) { /* شاشات متوسطة */
-            .club-name {
-                font-size: 11rem;
-            }
-        }
-        @media (min-width: 1024px) { /* شاشات كبيرة */
-            .club-name {
-                font-size: 16rem;
-            }
-        }
-
-        /* تأثير الظهور التدريجي */
+        /* Fade-in effect */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -101,7 +66,6 @@
             }
         }
 
-        /* تأثير الرياح على الحروف */
         .club-name span {
             display: inline-block;
             animation: float 2s ease-in-out infinite;
@@ -119,12 +83,10 @@
             100% { transform: translateY(0px); }
         }
 
-        /* تأثير الكتابة لـ "Coming Soon" */
         .coming-soon {
             font-family: "Yellowtail", cursive;
-            font-size: 4rem;
+
             color: #ffffff;
-            margin-top: 1rem;
             overflow: hidden;
             white-space: nowrap;
             border-right: .15em solid #ffffff;
@@ -142,13 +104,10 @@
             from { border-color: transparent; }
             to { border-color: #ffffff; }
         }
-        /* طبقة الخلفية للنص والصورة */
+
         .content-box {
             background: rgba(0, 0, 0, 0.6);
-            padding-top: 5rem; /* إفساح مساحة للصورة */
-            padding-bottom: 2rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
+            padding: 5rem 2rem 2rem 2rem;
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
             width: 90%;
@@ -162,7 +121,7 @@
             z-index: 50;
             text-align: center;
         }
-        /* تنسيق الصورة */
+
         .portrait {
             width: 180px;
             height: 180px;
@@ -170,51 +129,28 @@
             object-fit: cover;
             border: 4px solid #FFA500;
             position: absolute;
-            top: 15px; /* تثبيت الصورة في أعلى الصندوق */
+            top: 15px;
             animation: growIn 2s ease forwards;
         }
 
-        /* نص النعي */
         .obituary-text {
             font-family: "Amiri", serif;
-            font-size: 1.6rem;
+           
             color: #ffffff;
             white-space: pre-line;
             text-align: justify;
             direction: rtl;
-            line-height: 1.8;
-            opacity: 1;
-            overflow: hidden;
+            line-height: 1.8; /* Base line height */
             max-height: 100%;
             padding-top: 8rem;
+            width: 100%; /* Make text responsive */
         }
 
-        /* تأثير تكبير الصورة عند الظهور */
+
         @keyframes growIn {
             0% { opacity: 0; transform: translateY(20px) scale(0.9); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        /* تنسيق الاسم والتوقيع */
-        .highlight {
-            color: #FFA500;
-            font-weight: bold;
-            display: block;
-            margin: 0.5rem 0;
-            font-size: 1.25rem;
-        }
-
-        /* تنسيق التوقيع */
-        .signature {
-            font-family: "Amiri", serif;
-            font-size: 1.3rem;
-            color: #FFA500;
-            margin-top: 1.5rem;
-            display: none; /* إخفاء التوقيع في البداية */
-            animation: signatureFadeIn 2s forwards; /* تأثير الظهور */
-        }
-
-        /* تأثير الظهور للتوقيع */
+        }    /* تأثير الظهور للتوقيع */
         @keyframes signatureFadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -223,32 +159,51 @@
             opacity: 0;
             transition: opacity 2s ease;
         }
+
+        .highlight {
+            color: #FFA500;
+            font-weight: bold;
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 1.25rem;
+        }
+
+        .signature {
+            font-family: "Amiri", serif;
+
+            color: #FFA500;
+            margin-top: 1.5rem;
+            display: none; /* Hidden initially */
+            animation: signatureFadeIn 2s forwards; /* Fade-in effect */
+        }
+       
     </style>
 </head>
 <body>
-    
     <div class="pattern-overlay"></div>
-
     <div id="contentBox" class="content-box">
-        <!-- محتوى الصورة والنص الأصلي -->
         <img src="cropped_image.jpg" alt="الشخصية" class="portrait">
-        <div class="obituary-text" id="obituaryText"></div>
-        <div class="signature" id="signatureText">مجلس إدارة نادي الحوار للألعاب الرياضية</div>
+        <div class="obituary-text text-base md:text-lg lg:text-xl xl:text-2xl" id="obituaryText"></div>
+        <div class="signature text-sm md:text-base lg:text-lg xl:text-xl" id="signatureText">
+            مجلس إدارة نادي الحوار للألعاب الرياضية
+        </div>
     </div>
 
-    <!-- المحتوى الجديد "Hawar" و "Coming Soon" -->
-    <div class="club-name" style="display: none;">
+    <div class="club-name text-6xl md:text-8xl lg:text-9xl xl:text-[10rem]" style="display: none;">
         <span>H</span><span>a</span><span>w</span><span>a</span><span>r</span>
     </div>
-    <div class="coming-soon" style="display: none;">Coming Soon</div>
 
+    
+    <div class="coming-soon text-2xl md:text-3xl lg:text-4xl xl:text-5xl" style="display: none;">
+        Coming Soon
+    </div>
+    
     <script>
         // النص الكامل للنعي
         const textContent = `بمشاعر يغمرها الحزن والأسى، ينعى نادي الحوار للألعاب الرياضية بقلوب مؤمنة بقضاء الله وقدره، فقيده الغالي
-المرحوم الحاج / صفوت رمضان فودة
+المغفور له الحاج / صفوت رمضان فودة
 الذي أفنى عمره في خدمة النادي وأبنائه، وأصبح رمزًا للعطاء والإخلاص، تاركًا إرثًا خالدًا من المحبة والاحترام، و بصمة لا تُمحى في ذاكرة كل من عرفوه. رحل بجسده، وبقيت ذكراه ناصعة في قلوب محبيه، محفورة بحروف من نور في صفحات التاريخ.
 نسأل الله العلي القدير أن يجعل ما قدّمه في ميزان حسناته.`;
-
 const obituaryText = document.getElementById('obituaryText');
         const signatureText = document.getElementById('signatureText');
         const contentBox = document.getElementById('contentBox');

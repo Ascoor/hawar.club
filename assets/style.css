@@ -1,0 +1,380 @@
+/* ==========================================
+   Global Styles
+========================================== */
+
+/* Apply a background gradient and set the basic layout for the body */
+body {
+    background: linear-gradient(135deg, #0a1931, #0d254d, #142b52, #0a1931);
+    background-size: 100% 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    color: #ffffff;
+    text-align: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+
+
+/* ==========================================
+   Header Styles
+========================================== */
+
+/* The header will have a fixed position and gradient background */.header-club {
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+    background: linear-gradient(90deg, #ffb854, #fc9921);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    transform: translateY(-100%);
+transition: transform 0.3s ease-in-out;
+}
+
+.header-club.show {
+transform: translateY(0);
+}
+
+.header-club a {
+    color: #e8e9eb;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.header-club a:hover {
+    color: #0306a0c7;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.header-club a img {
+    width: 150px;
+    height: 80px;
+}
+
+
+/* ==========================================
+   Media Queries
+========================================== */
+
+/* Styles for screens smaller than 768px */
+@media (max-width: 768px) {
+    .header-club {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .header-club .menu-btn {
+        display: inline-block;
+    }
+
+    .side-menu {
+        position: fixed;
+        top:9%;
+        right: -100%;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(90deg, #ffb854, #fc9921);
+        transition: right 0.3s ease-in-out;
+        z-index: 100;
+    }
+
+    .side-menu.show {
+        right: 0;
+    }
+}
+
+/* على الشاشات الكبيرة (أكبر من 768px) */
+@media (min-width: 768px) {
+    .header-club .menu-btn {
+        display: none; /* إخفاء الزر على الشاشات الكبيرة */
+    }
+
+    .side-menu {
+        display: none; /* إخفاء القائمة الجانبية على الشاشات الكبيرة */
+    }
+
+    .header-club .nav-links {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .header-club .nav-links a {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #e8e9eb;
+        margin: 0 1rem;
+        text-decoration: none;
+    }
+
+    .header-club .nav-links a:hover {
+        color: #0306a0c7;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+}
+
+
+
+/* ==========================================
+   Side Menu Styles
+========================================== */
+
+/* Side menu links style */.side-menu a {
+    
+    color: #0306a0c7;
+    padding: 1rem;
+    display: block;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.side-menu a:hover {
+    background-color: #152a76;
+    color: #e8e9eb;
+}
+
+
+/* ==========================================
+   Button Styles
+========================================== */
+
+/* Style for the menu button */
+.menu-btn {
+    font-size: 1.2rem;
+    color: #f7a643;
+    background-color: #152a76;
+    
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 200;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;   /* توسيط الأيقونة عموديًا */
+    justify-content: center; /* توسيط الأيقونة أفقيًا */
+    font-weight: bold;
+    }
+    
+    .menu-btn:hover {
+        background-color: #1c3f97;
+        color: #ffffff;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    
+    .menu-btn:active {
+        transform: translateY(2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+/* ==========================================
+   Decorative Patterns & Overlays
+========================================== */
+
+/* Pattern overlay for a decorative effect */
+.pattern-overlay {
+    background-image: url('../patrens.png');
+    background-repeat: repeat;
+    background-size: 450px 450px;
+    opacity: 0.15;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* ==========================================
+   Club Name Styling
+========================================== */
+
+/* Style for the club name, animated on load */
+.club-name {
+    font-family: "Concert One", sans-serif;
+    font-weight: bold;
+    color: #ffa500;
+    position: relative;
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+    animation: fadeIn 3s ease forwards;
+    animation-delay: 1s;
+    text-transform: uppercase;
+    z-index: 50;
+    white-space: nowrap;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.club-name span {
+    display: inline-block;
+    animation: float 2s ease-in-out infinite;
+}
+.club-name span:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+.club-name span:nth-child(even) {
+    animation-delay: 0.3s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}.coming-soon {
+    font-family: "Yellowtail", cursive;
+
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid #ffffff;
+    opacity: 0;
+    animation: typing 4s steps(30, end) forwards, blink 0.5s step-end infinite alternate;
+    animation-delay: 5s;
+}
+
+@keyframes typing {
+    from { width: 0; opacity: 1; }
+    to { width: 100%; opacity: 1; }
+}
+
+@keyframes blink {
+    from { border-color: transparent; }
+    to { border-color: #ffffff; }
+}
+
+
+
+/* ==========================================
+   Content Box Styling
+========================================== */
+
+/* A content box with dark background */
+
+
+.content-box {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5rem 2rem 2rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 600px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-y: hidden;
+    z-index: 50;
+    text-align: center;
+}
+
+.portrait {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #FFA500;
+    position: absolute;
+    top: 10px;
+    animation: growIn 2s ease forwards;
+}
+.obituary-text {
+    font-family: "Amiri", serif;
+   
+    color: #ffffff;
+    white-space: pre-line;
+    text-align: justify;
+    direction: rtl;
+    line-height: 1.8; /* Base line height */
+    max-height: 100%;
+    padding-top: 8rem;
+    width: 100%; /* Make text responsive */
+}
+
+
+@keyframes growIn {
+    0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}    /* تأثير الظهور للتوقيع */
+@keyframes signatureFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.highlight {
+    color: #FFA500;
+    font-weight: bold;
+    display: block;
+    margin: 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.signature {
+    font-family: "Amiri", serif;
+
+    color: #FFA500;
+    margin-top: 1.5rem;
+    display: none; /* Hidden initially */
+    animation: signatureFadeIn 2s forwards; /* Fade-in effect */
+}
+
+
+/* ==========================================
+   Footer Styling
+========================================== */
+
+/* Footer with gradient background */footer {
+
+z-index: 50;
+background: linear-gradient(90deg, #ffb854, #fc9921);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+color: rgb(22, 63, 117);
+padding: 1rem 0;
+text-align: center;
+position: relative;
+bottom: 0;
+width: 100%;
+
+}
+
+footer p {
+color: #121d81;
+font-size: 1.0rem;
+text-decoration: none;
+}

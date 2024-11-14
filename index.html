@@ -1,70 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-        <!DOCTYPE html>
-        <html lang="ar" dir="rtl">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Hawar Sporting Club | نادي الحوار للألعاب الرياضية</title>
-            <link rel="icon" href="./favicon.ico" type="image/x-icon">
-        
-            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-              <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Amiri&family=Yellowtail&display=swap" rel="stylesheet">
-         
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawar Sporting Club | نادي الحوار للألعاب الرياضية</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Amiri&family=Yellowtail&display=swap"
+        rel="stylesheet">
+
     <link href="./assets/style.css" rel="stylesheet">
-        </head>
-        <body>
-        
-            <header class="header-club shadow-lg fixed top-0">
-                <div class="flex items-center justify-between h-16 w-full">
-                    <a href="#" class="flex-shrink-0">
-                        <img src="./logo.png" alt="Logo">
-                    </a>
-                    <div class="nav-links hidden md:flex flex-1 justify-center">
-                        <a href="#">الرئيسية</a>
-                        <a href="#">الخدمات</a>
-                        <a href="#">الأنشطة الرياضية</a>
-                        <a href="#">البطولات</a>
-                        <a href="#">تواصل معنا</a>
-                    </div>
-                    <button class="menu-btn md:hidden" onclick="toggleMenu()">☰</button>
-                </div>
-            </header>
-            
-            <div class="side-menu" id="sideMenu">
+</head>
+
+<body>
+
+    <header class="header-club shadow-lg fixed top-0">
+        <div class="flex items-center justify-between h-16 w-full">
+            <a href="#" class="flex-shrink-0">
+                <img src="./logo.png" alt="Logo">
+            </a>
+            <div class="nav-links hidden md:flex flex-1 justify-center">
                 <a href="#">الرئيسية</a>
                 <a href="#">الخدمات</a>
                 <a href="#">الأنشطة الرياضية</a>
                 <a href="#">البطولات</a>
                 <a href="#">تواصل معنا</a>
             </div>
-            
-        <div class="pattern-overlay"></div>
-          
-            
-            <div id="contentBox" class="content-box">
-                <img src="cropped_image.jpg" alt="الشخصية" class="portrait">
-                <div class="obituary-text text-base md:text-lg lg:text-xl xl:text-2xl" id="obituaryText"></div>
-                <div class="signature text-sm md:text-base lg:text-lg xl:text-xl" id="signatureText">
-                    مجلس إدارة نادي الحوار للألعاب الرياضية
-                </div>
-            </div>
-        
-            <div class="club-name text-6xl md:text-8xl lg:text-9xl xl:text-[10rem]" style="display: none;">
-                <span>r</span><span>a</span><span>w</span><span>a</span><span>H</span>
-            </div>
-        
-            
-            <div class="coming-soon text-2xl md:text-3xl lg:text-4xl xl:text-5xl" style="display: none;">
-                Coming Soon
-            </div>
-            <footer class="footer  shadow-lg py-4 text-center font-bold fixed bottom-0 w-full">
-                <p>جميع الحقوق محفوظة نادي  الحوار للألعاب الرياضية &copy; 2024 </p>
-            </footer>
-            
-           
+            <button class="menu-btn md:hidden" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <div class="side-menu" id="sideMenu">
+        <a href="#">الرئيسية</a>
+        <a href="#">الخدمات</a>
+        <a href="#">الأنشطة الرياضية</a>
+        <a href="#">البطولات</a>
+        <a href="#">تواصل معنا</a>
+    </div>
+
+    <div class="pattern-overlay"></div>
+
+
+    <div id="contentBox" class="content-box">
+        <img src="cropped_image.jpg" alt="الشخصية" class="portrait">
+        <div class="obituary-text text-base md:text-lg lg:text-xl xl:text-2xl" id="obituaryText"></div>
+        <div class="signature text-sm md:text-base lg:text-lg xl:text-xl" id="signatureText">
+            مجلس إدارة نادي الحوار للألعاب الرياضية
+        </div>
+    </div>
+
+    <div class="club-name text-6xl md:text-8xl lg:text-9xl xl:text-[10rem]" style="display: none;">
+        <span>r</span><span>a</span><span>w</span><span>a</span><span>H</span>
+    </div>
+
+
+    <div class="coming-soon text-2xl md:text-3xl lg:text-4xl xl:text-5xl" style="display: none;">
+        Coming Soon
+    </div>
+    <footer class="footer  shadow-lg py-4 text-center font-bold fixed bottom-0 w-full">
+        <p>جميع الحقوق محفوظة نادي الحوار للألعاب الرياضية &copy; 2024 </p>
+    </footer>
+
+
     <script src="./assets/script.js"></script>
-        </body>
-        </html>
+</body>
+
+</html>

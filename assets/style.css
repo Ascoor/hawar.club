@@ -25,7 +25,8 @@ body {
    Header Styles
 ========================================== */
 
-/* The header will have a fixed position and gradient background */.header-club {
+/* The header will have a fixed position and gradient background */
+.header-club {
     position: fixed;
     width: 100%;
     z-index: 50;
@@ -39,11 +40,11 @@ body {
     padding-right: 1rem;
 
     transform: translateY(-100%);
-transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
 .header-club.show {
-transform: translateY(0);
+    transform: translateY(0);
 }
 
 .header-club a {
@@ -83,7 +84,7 @@ transform: translateY(0);
 
     .side-menu {
         position: fixed;
-        top:9%;
+        top: 9%;
         right: -100%;
         height: 100%;
         width: 100%;
@@ -100,11 +101,13 @@ transform: translateY(0);
 /* على الشاشات الكبيرة (أكبر من 768px) */
 @media (min-width: 768px) {
     .header-club .menu-btn {
-        display: none; /* إخفاء الزر على الشاشات الكبيرة */
+        display: none;
+        /* إخفاء الزر على الشاشات الكبيرة */
     }
 
     .side-menu {
-        display: none; /* إخفاء القائمة الجانبية على الشاشات الكبيرة */
+        display: none;
+        /* إخفاء القائمة الجانبية على الشاشات الكبيرة */
     }
 
     .header-club .nav-links {
@@ -135,8 +138,9 @@ transform: translateY(0);
    Side Menu Styles
 ========================================== */
 
-/* Side menu links style */.side-menu a {
-    
+/* Side menu links style */
+.side-menu a {
+
     color: #0306a0c7;
     padding: 1rem;
     display: block;
@@ -161,7 +165,7 @@ transform: translateY(0);
     font-size: 1.2rem;
     color: #f7a643;
     background-color: #152a76;
-    
+
     border-radius: 50px;
     cursor: pointer;
     z-index: 200;
@@ -171,22 +175,24 @@ transform: translateY(0);
     width: 40px;
     height: 40px;
     display: flex;
-    align-items: center;   /* توسيط الأيقونة عموديًا */
-    justify-content: center; /* توسيط الأيقونة أفقيًا */
+    align-items: center;
+    /* توسيط الأيقونة عموديًا */
+    justify-content: center;
+    /* توسيط الأيقونة أفقيًا */
     font-weight: bold;
-    }
-    
-    .menu-btn:hover {
-        background-color: #1c3f97;
-        color: #ffffff;
-        transform: translateY(-4px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    }
-    
-    .menu-btn:active {
-        transform: translateY(2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
+}
+
+.menu-btn:hover {
+    background-color: #1c3f97;
+    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.menu-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
 
 /* ==========================================
    Decorative Patterns & Overlays
@@ -231,6 +237,7 @@ transform: translateY(0);
         opacity: 0;
         transform: scale(0.8) translateY(30px);
     }
+
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -241,18 +248,30 @@ transform: translateY(0);
     display: inline-block;
     animation: float 2s ease-in-out infinite;
 }
+
 .club-name span:nth-child(odd) {
     animation-delay: 0.1s;
 }
+
 .club-name span:nth-child(even) {
     animation-delay: 0.3s;
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}.coming-soon {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.coming-soon {
     font-family: "Yellowtail", cursive;
 
     color: #ffffff;
@@ -265,13 +284,25 @@ transform: translateY(0);
 }
 
 @keyframes typing {
-    from { width: 0; opacity: 1; }
-    to { width: 100%; opacity: 1; }
+    from {
+        width: 0;
+        opacity: 1;
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+    }
 }
 
 @keyframes blink {
-    from { border-color: transparent; }
-    to { border-color: #ffffff; }
+    from {
+        border-color: transparent;
+    }
+
+    to {
+        border-color: #ffffff;
+    }
 }
 
 
@@ -310,28 +341,46 @@ transform: translateY(0);
     top: 10px;
     animation: growIn 2s ease forwards;
 }
+
 .obituary-text {
     font-family: "Amiri", serif;
-   
+
     color: #ffffff;
     white-space: pre-line;
     text-align: justify;
     direction: rtl;
-    line-height: 1.8; /* Base line height */
+    line-height: 1.8;
+    /* Base line height */
     max-height: 100%;
     padding-top: 8rem;
-    width: 100%; /* Make text responsive */
+    width: 100%;
+    /* Make text responsive */
 }
 
 
 @keyframes growIn {
-    0% { opacity: 0; transform: translateY(20px) scale(0.9); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-}    /* تأثير الظهور للتوقيع */
-@keyframes signatureFadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
+
+/* تأثير الظهور للتوقيع */
+@keyframes signatureFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .fade-out {
     opacity: 0;
     transition: opacity 2s ease;
@@ -350,8 +399,10 @@ transform: translateY(0);
 
     color: #FFA500;
     margin-top: 1.5rem;
-    display: none; /* Hidden initially */
-    animation: signatureFadeIn 2s forwards; /* Fade-in effect */
+    display: none;
+    /* Hidden initially */
+    animation: signatureFadeIn 2s forwards;
+    /* Fade-in effect */
 }
 
 
@@ -359,22 +410,22 @@ transform: translateY(0);
    Footer Styling
 ========================================== */
 
-/* Footer with gradient background */footer {
+/* Footer with gradient background */
+footer {
 
-z-index: 50;
-background: linear-gradient(90deg, #ffb854, #fc9921);
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-color: rgb(22, 63, 117);
-padding: 1rem 0;
-text-align: center;
-position: relative;
-bottom: 0;
-width: 100%;
-
+    z-index: 50;
+    background: #fea637;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: rgb(22, 63, 117);
+    padding: 1rem 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 footer p {
-color: #121d81;
-font-size: 1.0rem;
-text-decoration: none;
+    color: #121d81;
+    font-size: 1.0rem;
+    text-decoration: none;
 }

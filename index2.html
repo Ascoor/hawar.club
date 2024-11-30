@@ -1,20 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hawar Sporting Club | نادي الحوار للألعاب الرياضية</title>
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Amiri&family=Yellowtail&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Amiri&family=Yellowtail&display=swap" rel="stylesheet">
     <style>
-        /* إعداد خلفية متدرجة ديناميكية مع نمط شفاف */
-        body {
+    body {
             background: linear-gradient(135deg, #0a1931, #0d254d, #142b52, #0a1931);
             background-size: 100% 100%;
             position: relative;
@@ -29,180 +27,132 @@
             flex-direction: column;
             padding: 1rem;
         }
-        /* الشريط العلوي */
-.header-club {
-    position: fixed;
-    width: 100%;
-    z-index: 50;
-    background: linear-gradient(90deg, #ffb854, #fc9921); /* نفس الألوان */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    padding: 0.5rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
 
-/* الفوتر */
-footer {
-    z-index: 50;
-    background: linear-gradient(90deg, #ffb854, #fc9921); /* نفس الألوان */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    color: rgb(22, 63, 117);
-    padding: 1rem 0;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-
-     
-
-        .header-club a img {
-            width: 150px;
-            height: 80px;
-        }
-
-        /* على شاشات الموبايل (أقل من 768px) */
-        @media (max-width: 768px) {
-            .header-club {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            .header-club .menu-btn {
-                display: inline-block;
-            }
-
-            .side-menu {
-                position: fixed;
-                top:9%;
-                right: -100%;
-                height: 100%;
-                width: 100%;
-                background: linear-gradient(90deg, #ffb854, #fc9921);
-                transition: right 0.3s ease-in-out;
-                z-index: 100;
-            }
-
-            .side-menu.show {
-                right: 0;
-            }
-        }
-
-        /* على الشاشات الكبيرة (أكبر من 768px) */
-        @media (min-width: 768px) {
-            .header-club .menu-btn {
-                display: none; /* إخفاء الزر على الشاشات الكبيرة */
-            }
-
-            .side-menu {
-                display: none; /* إخفاء القائمة الجانبية على الشاشات الكبيرة */
-            }
-
-            .header-club .nav-links {
-                display: flex;
-                justify-content: center;
-                flex: 1;
-                margin-right: 20px;
-            }
-
-            .header-club .nav-links a {
-                font-size: 1.2rem;
-                font-weight: bold;
-                color: #0306a0c7;
-                margin: 0 1rem;
-                text-decoration: none;
-            }
-
-            .header-club .nav-links a:hover {
-                color: #e8e9eb;
-                border-radius: 4px;
-            }
-        }
-
-        .side-menu a {
-            
-            color: #0306a0c7;
-            padding: 1rem;
-            display: block;
-            text-align: center;
-            font-size: 1.4rem;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .side-menu a:hover {
-            background-color: #152a76;
-            color: #e8e9eb;
-        }
-
-        .menu-btn {
-    font-size: 1.2rem;
-    color: #f7a643;
-    background-color: #152a76;
-  
-    border-radius: 50px;
-    cursor: pointer;
-    z-index: 200;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border: none;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;   /* توسيط الأيقونة عموديًا */
-    justify-content: center; /* توسيط الأيقونة أفقيًا */
-    font-weight: bold;
-}
-
-        .menu-btn:hover {
-            background-color: #1c3f97;
-            color: #ffffff;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-        }
-
-        .menu-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .pattern-overlay {
-            background-image: url('./patrens.png');
-            background-repeat: repeat;
-            background-size: 450px 450px;
-            opacity: 0.15;
-            position: absolute;
-            top: 0;
-            left: 0;
+        .section-background {
+            position: relative;
             width: 100%;
-            height: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #2196F3, #21CBF3);
+        }
+
+        /* تأثير الأمواج المتحركة */
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.4), rgba(0, 123, 255, 0.7));
+            animation: waveEffect 10s infinite linear;
+            opacity: 0.7;
+            top: 0;
+            left: -50%;
             z-index: 1;
         }
 
-footer p {
-    color: #121d81;
-    font-size: 1.0rem;
-    text-decoration: none;
-}
+        .wave:nth-child(2) {
+            animation-duration: 15s;
+            opacity: 0.5;
+        }
 
+        @keyframes waveEffect {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-    </style>
+        /* تأثيرات الأبطال الديناميكية */
+        .athletes {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .athletes .athlete {
+            opacity: 0;
+            animation: fadeInOut 15s infinite;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .athletes .athlete:nth-child(1) { animation-delay: 0s; }
+        .athletes .athlete:nth-child(2) { animation-delay: 3s; }
+        .athletes .athlete:nth-child(3) { animation-delay: 6s; }
+        .athletes .athlete:nth-child(4) { animation-delay: 9s; }
+        .athletes .athlete:nth-child(5) { animation-delay: 12s; }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            20%, 80% { opacity: 1; }
+        }
+
+        /* تخصيص الصور */
+        .athletes .athlete img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 10px;
+            object-fit: cover;
+        }
+
+        /* تأثيرات أخرى للأشكال الهندسية */
+        .circle-effect, .line-effect {
+            position: absolute;
+            z-index: 0;
+        }
+
+        .circle-effect {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255, 165, 0, 0.3);
+            animation: circleEffect 4s infinite;
+            top: 10%;
+            left: 10%;
+        }
+
+        .line-effect {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 165, 0, 0.4);
+            animation: lineEffect 6s infinite;
+            top: 50%;
+            left: 0;
+        }
+
+        @keyframes circleEffect {
+            0% { transform: scale(0); opacity: 0.5; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0.5; }
+        }
+
+        @keyframes lineEffect {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+    </style>    
 </head>
+
 <body>
 
-    <header class="header-club shadow-lg fixed top-0">
-        <div class="flex items-center justify-between h-16 w-full">
+
+    <div class="pattern-overlay"></div>
+    <header class="header-club shadow-lg fixed top-0 left-0 right-0 z-10 bg-white">
+        <div class="flex items-center justify-between h-16 w-full px-4">
             <a href="#" class="flex-shrink-0">
-                <img src="./logo.png" alt="Logo">
+                <img src="./logo.png" alt="Logo" class="h-10">
             </a>
-            <div class="nav-links hidden md:flex flex-1 justify-center">
+            <div class="nav-links hidden md:flex flex-1 justify-center space-x-8">
                 <a href="#">الرئيسية</a>
                 <a href="#">الخدمات</a>
                 <a href="#">الأنشطة الرياضية</a>
@@ -212,7 +162,7 @@ footer p {
             <button class="menu-btn md:hidden" onclick="toggleMenu()">☰</button>
         </div>
     </header>
-    
+
     <div class="side-menu" id="sideMenu">
         <a href="#">الرئيسية</a>
         <a href="#">الخدمات</a>
@@ -220,24 +170,46 @@ footer p {
         <a href="#">البطولات</a>
         <a href="#">تواصل معنا</a>
     </div>
-    
-<div class="pattern-overlay"></div>
-  
-    
- 
-    <footer class="footer  shadow-lg py-4 text-center font-bold fixed bottom-0 w-full">
-        <p>جميع الحقوق محفوظة نادي  الحوار للألعاب الرياضية &copy; 2024 </p>
+
+    <section class="section-background">
+        <!-- تأثير الأمواج -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+
+        <!-- أشكال هندسية -->
+        <div class="circle-effect"></div>
+        <div class="line-effect"></div>
+
+        <!-- قسم الأبطال -->
+        <div class="athletes">
+            <div class="athlete">
+                <img src="./heros/hero-1.jpg" alt="Athlete 1">
+                <div class="name">أحمد</div>
+            </div>
+            <div class="athlete">
+                <img src="./heros/hero-2.png" alt="Athlete 2">
+                <div class="name">محمد</div>
+            </div>
+            <div class="athlete">
+                <img src="./heros/hero-3.png" alt="Athlete 3">
+                <div class="name">سارة</div>
+            </div>
+            <div class="athlete">
+                <img src="./heros/hero-4.png" alt="Athlete 4">
+                <div class="name">فاطمة</div>
+            </div>
+            <div class="athlete">
+                <img src="./heros/hero-5.png" alt="Athlete 5">
+                <div class="name">حسام</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer shadow-lg py-4 text-center font-bold fixed bottom-0 w-full bg-white">
+        <p>جميع الحقوق محفوظة نادي الحوار للألعاب الرياضية &copy; 2024 </p>
     </footer>
-    
-    
-    <script>
 
-        setTimeout(displayWords, 2000); // بدء الكتابة بعد تأثير الصورة
-        function toggleMenu() {
-        const sideMenu = document.getElementById('sideMenu');
-        sideMenu.classList.toggle('show');
-    }
 
-    </script>
 </body>
+
 </html>

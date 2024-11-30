@@ -200,17 +200,35 @@ body {
 
 /* Pattern overlay for a decorative effect */
 .pattern-overlay {
-    background-image: url('../patrens.png');
-    background-repeat: repeat;
-    background-size: 450px 450px;
-    opacity: 0.15;
-    position: absolute;
+    background-image: url('../patrens.png'); /* مسار الصورة */
+    background-size: cover; /* تأكد من أن الصورة تغطي المساحة بالكامل */
+    background-position: center; /* تحديد مكان الصورة داخل العنصر */
+    opacity: 0.15; /* تحديد الشفافية للصورة */
+    position: absolute; /* تأكد من أن الصورة مثبتة فوق العنصر */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    pointer-events: none; /* لتجنب التأثير على التفاعل مع العناصر الأخرى */
+    animation: scalePattern 8s ease-in-out infinite; /* تحديد اسم حركة الصورة وزمنها */
 }
+
+/* تعريف الحركة */
+@keyframes scalePattern {
+    0% {
+        transform: scale(1); /* البداية: الصورة بحجمها الطبيعي */
+        opacity: 0.15; /* الشفافية في البداية */
+    }
+    50% {
+        transform: scale(1.05); /* منتصف الحركة: الصورة تصبح أكبر قليلاً */
+        opacity: 0.2; /* الشفافية في المنتصف */
+    }
+    100% {
+        transform: scale(1); /* النهاية: الصورة تعود لحجمها الطبيعي */
+        opacity: 0.15; /* الشفافية في النهاية */
+    }
+}
+
 
 /* ==========================================
    Club Name Styling
@@ -270,19 +288,76 @@ body {
         transform: translateY(0px);
     }
 }
-
+/* ===== Coming Soon Section ===== */
 .coming-soon {
-    font-family: "Yellowtail", cursive;
-
-    color: #ffffff;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: .15em solid #ffffff;
-    opacity: 0;
-    animation: typing 4s steps(30, end) forwards, blink 0.5s step-end infinite alternate;
-    animation-delay: 5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding: 50px 0;
+    text-align: center;
 }
 
+/* ===== Button Group Container ===== */
+.button-group {
+    display: flex;
+    gap: 20px; /* المسافة بين الأزرار */
+    justify-content: center;
+    flex-wrap: wrap; /* يضمن أن الأزرار ستنتقل لأسطر جديدة في الشاشات الصغيرة */
+}
+
+/* ===== Button Styles ===== */
+.button {
+    border-radius: 8px;
+    height: 50px;  /* ضبط ارتفاع الزر */
+    border: none;
+    
+    background: linear-gradient(90deg, #ffb854, #fc9921);
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 0.7px 0.7px -0.6px #00000026,
+                0 1.8px 1.8px -1.3px #00000025,
+                0 3.6px 3.6px -1.9px #00000023,
+                0 6.9px 6.9px -2.5px #00000020,
+                0 13.6px 13.6px -3.1px #0000001b,
+                0 30px 30px -3.8px #0000000d;
+    font-weight: bold;
+    font-family: Montserrat, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.button:hover {
+    background: #f45c36; /* تأثير hover بتغيير اللون */
+    box-shadow: 0 0.7px 0.7px -0.6px #00000036, 
+                0 2px 2px -1.3px #00000035, 
+                0 4px 4px -1.9px #00000033, 
+                0 8px 8px -2.5px #00000030, 
+                0 16px 16px -3.1px #0000002b, 
+                0 35px 35px -3.8px #00000020;
+}
+
+.button:active {
+    transform: scale(0.95); /* تأثير الضغط على الزر */
+    background: #f58114;
+}
+
+@media (max-width: 768px) {
+    /* تعديل الأزرار لتناسب الشاشات الصغيرة */
+    .button-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .button {
+        width: 100%;  /* الأزرار تملأ العرض في الشاشات الصغيرة */
+        padding: 15px 0;
+    }
+}
 @keyframes typing {
     from {
         width: 0;
@@ -428,4 +503,143 @@ footer p {
     color: #121d81;
     font-size: 1.0rem;
     text-decoration: none;
+}
+ /* خلفية متدرجة لتغطية كامل القسم */
+ .section-background {
+    background: url('../heros/slide.png') no-repeat center center/cover;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* خطوط ومنحنيات ودوريات غير منتظمة */
+@keyframes lineEffect {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.line-effect {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 165, 0, 0.5);
+    border-radius: 50%;
+    animation: lineEffect 3s ease-in-out infinite;
+    z-index: 1;
+    transform-origin: center;
+}
+
+/* دوائر عشوائية */
+@keyframes circleEffect {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) scale(0);
+    }
+    50% {
+        opacity: 0.7;
+        transform: rotate(180deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(360deg) scale(0);
+    }
+}
+
+.circle-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 165, 0, 0.6);
+    border-radius: 50%;
+    animation: circleEffect 4s ease-in-out infinite;
+    z-index: 0;
+}
+
+/* حركة النجوم اللامعة */
+@keyframes starGlow {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.star {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    animation: starGlow 2s infinite;
+    z-index: 0;
+}
+
+.star:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+.star:nth-child(even) {
+    animation-delay: 1s;
+}
+
+/* ظهور واختفاء الأبطال بشكل ديناميكي */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade-in-out {
+    animation: fadeInOut 10s infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fade-in-out:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.fade-in-out:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.fade-in-out:nth-child(3) {
+    animation-delay: 4s;
+}
+
+.fade-in-out:nth-child(4) {
+    animation-delay: 6s;
+}
+
+.fade-in-out:nth-child(5) {
+    animation-delay: 8s;
 }

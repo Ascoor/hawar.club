@@ -293,7 +293,8 @@ body {
     100% {
         transform: translateY(0px);
     }
-    }/* ===== Coming Soon Section ===== */
+    }
+/* ===== Coming Soon Section ===== */
 .coming-soon {
     display: flex;
     flex-direction: column;

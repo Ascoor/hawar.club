@@ -210,7 +210,7 @@ body {
     background-position: center; /* تحديد مكان الصورة داخل العنصر */
     opacity: 0.95; /* تحديد الشفافية للصورة */
     position: absolute; /* تأكد من أن الصورة مثبتة فوق العنصر */
-    top: 0%;
+    top: 10%;
     left: 0;
     z-index: 1;
     width: 100%;
@@ -301,7 +301,7 @@ body {
     align-items: center;
     z-index: 10;
     position: absolute; /* جعل العنصر مثبت */
-    bottom: 190px; /* وضعه بالقرب من الفوتر */
+    bottom: 120px; /* وضعه بالقرب من الفوتر */
     width: 100%; /* عرض 100% ليتناسب مع الصفحة */
     text-align: center;
 }

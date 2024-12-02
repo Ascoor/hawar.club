@@ -1,0 +1,5 @@
+الأعمدة لجدول client_details:
+id, company_id, user_id, name, email, image, mobile, company_name, address, shipping_address, office_phone, city, state, postal_code, website, note, linkedin, facebook, twitter, skype, gst_number, created_at, updated_at, email_notifications, country_id, category_id, sub_category_id
+
+الأعمدة لجدول client_contacts:
+id, company_id, user_id, contact_name, phone, email, created_at, updated_at

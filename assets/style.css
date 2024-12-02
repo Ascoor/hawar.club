@@ -205,7 +205,7 @@ body {
 
 /* Pattern overlay for a decorative effect */
 .pattern-overlay {
-    background-image: url('../heros/patrens/pat-4.webp'); /* مسار الصورة */
+    background-image: url('../heros/patrens/pat-5.png'); /* مسار الصورة */
     background-size: cover; /* تأكد من أن الصورة تغطي المساحة بالكامل */
     background-position: center; /* تحديد مكان الصورة داخل العنصر */
     opacity: 0.95; /* تحديد الشفافية للصورة */

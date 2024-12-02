@@ -209,7 +209,7 @@ body {
     background-size: cover; /* تأكد من أن الصورة تغطي المساحة بالكامل */
     background-position: center; /* تحديد مكان الصورة داخل العنصر */
     opacity: 0.95; /* تحديد الشفافية للصورة */
-    position: absolute; /* تأكد من أن الصورة مثبتة فوق العنصر */
+    position: relative; /* تأكد من أن الصورة مثبتة فوق العنصر */
     top: 10%;
     left: 0;
     z-index: 1;
@@ -293,8 +293,7 @@ body {
     100% {
         transform: translateY(0px);
     }
-    }
-/* ===== Coming Soon Section ===== */
+    }/* ===== Coming Soon Section ===== */
 .coming-soon {
     display: flex;
     flex-direction: column;
@@ -302,7 +301,7 @@ body {
     align-items: center;
     z-index: 10;
     position: absolute; /* جعل العنصر مثبت */
-    bottom: 120px; /* وضعه بالقرب من الفوتر */
+    bottom: 60px; /* وضعه بالقرب من الفوتر */
     width: 100%; /* عرض 100% ليتناسب مع الصفحة */
     text-align: center;
 }
@@ -382,7 +381,7 @@ body {
         flex-wrap: wrap; /* إذا لم تتسع الأزرار ستلتف */
     }
     .coming-soon {
-        bottom: 290px; 
+        bottom: 200px; 
     }
 }
 

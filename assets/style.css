@@ -205,12 +205,12 @@ body {
 
 /* Pattern overlay for a decorative effect */
 .pattern-overlay {
-    background-image: url('../heros/patrens/pat-1.jpg'); /* مسار الصورة */
+    background-image: url('../heros/patrens/pat-4.png'); /* مسار الصورة */
     background-size: cover; /* تأكد من أن الصورة تغطي المساحة بالكامل */
     background-position: center; /* تحديد مكان الصورة داخل العنصر */
     opacity: 0.95; /* تحديد الشفافية للصورة */
     position: absolute; /* تأكد من أن الصورة مثبتة فوق العنصر */
-    top: 0;
+    top: 0%;
     left: 0;
     z-index: 1;
     width: 100%;
@@ -300,24 +300,27 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 10;
-    padding: 50px 0;
+    position: absolute; /* جعل العنصر مثبت */
+    bottom: 190px; /* وضعه بالقرب من الفوتر */
+    width: 100%; /* عرض 100% ليتناسب مع الصفحة */
     text-align: center;
 }
 
-/* ===== Button Group Container ===== */
+/* ===== مجموعة الأزرار ===== */
 .button-group {
     display: flex;
     gap: 20px; /* المسافة بين الأزرار */
     justify-content: center;
     flex-wrap: nowrap; /* لضمان أن الأزرار تظل في سطر واحد */
 }
-/* ===== Button Styles ===== */
+
+/* ===== تصميم الأزرار ===== */
 .button {
     border-radius: 8px;
-    height: 50px;  
+    height: 50px;
     border: none;
     background: linear-gradient(90deg, #ffb854, #fc9921);
-    color: white;
+    color: #123c96;
     padding: 15px 30px;
     box-shadow: 0 0.7px 0.7px -0.6px #00000026,
                 0 1.8px 1.8px -1.3px #00000025,
@@ -344,23 +347,14 @@ body {
     transform: scale(1.2); /* تكبير الأيقونة عند المرور */
 }
 
-/* ===== تعديل الأزرار للشاشات الصغيرة ===== */
-@media (max-width: 768px) {
-    .button {
-        width: auto;
-        padding: 12px 25px;
-    }
-    .button i {
-        font-size: 1.2rem;  /* تقليل حجم الأيقونة في الشاشات الصغيرة */
-    }
-}
-
+/* ===== التعديل عند المرور على الأزرار ===== */
 .button:hover {
-    background: #f45c36; /* تأثير hover بتغيير اللون */
-    box-shadow: 0 0.7px 0.7px -0.6px #00000036, 
-                0 2px 2px -1.3px #00000035, 
-                0 4px 4px -1.9px #00000033, 
-                0 8px 8px -2.5px #00000030, 
+    color: #e29609;
+    background: #002a5f; /* تغيير اللون عند المرور */
+    box-shadow: 0 0.7px 0.7px -0.6px #fab22d, 
+                0 2px 2px -1.3px #fab22d, 
+                0 4px 4px -1.9px #fab22d, 
+                0 8px 8px -2.5px #fab22d, 
                 0 16px 16px -3.1px #0000002b, 
                 0 35px 35px -3.8px #00000020;
 }
@@ -370,23 +364,27 @@ body {
     background: #f58114;
 }
 
-/* ===== تعديل تصميم الأزرار للشاشات الصغيرة ===== */
+/* ===== التعديل في الشاشات الصغيرة ===== */
 @media (max-width: 768px) {
-    /* ضمان بقاء الأزرار في سطر واحد */
+    .button {
+        width: auto;
+        padding: 12px 25px;
+    }
+
+    .button i {
+        font-size: 1.2rem;  /* تقليل حجم الأيقونة في الشاشات الصغيرة */
+    }
+
     .button-group {
         flex-direction: row; /* الأزرار تبقى في صف أفقي */
         gap: 10px; /* المسافة بين الأزرار */
         flex-wrap: wrap; /* إذا لم تتسع الأزرار ستلتف */
     }
-
-    .button {
-        width: auto;
-        padding: 12px 25px;
-    }
-    .button i {
-        font-size: 1.2rem;  /* تقليل حجم الأيقونة في الشاشات الصغيرة */
+    .coming-soon {
+        bottom: 290px; 
     }
 }
+
 
 @keyframes typing {
     from {

@@ -39,7 +39,7 @@ const comingSoon = document.querySelector('.coming-soon');
 // setTimeout(displayWords, 2000); // بدء الكتابة بعد تأثير الصورة
 
 // مباشرة عرض العناصر دون تأثير التلاشي
-clubName.style.display = "block"; // عرض "Hawar"
+// clubName.style.display = "block"; // عرض "Hawar"
 header.classList.add("show"); // تفعيل صنف "show" للشريط العلوي لعرضه
 comingSoon.style.display = "block"; // عرض "Coming Soon"
 

@@ -30,8 +30,12 @@ body {
     position: fixed;
     width: 100%;
     z-index: 50;
-    background: linear-gradient(90deg, #ffb854, #fc9921);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
+    
+    /* إضافة حدود */
+    border-bottom: 2px solid #c47500; /* يمكنك تعديل اللون حسب الحاجة */
+
+    box-shadow: 0 4px 8px rgba(255, 179, 64, 0.932);
     padding: 0.5rem 0;
     display: flex;
     justify-content: space-between;
@@ -41,6 +45,10 @@ body {
 
     transform: translateY(-100%);
     transition: transform 0.3s ease-in-out;
+
+    /* جعل الحدود تتماشى مع الحافة */
+    margin: 0;
+    box-sizing: border-box; /* تأكد من أن المسافة لا تؤثر على الحجم */
 }
 
 .header-club.show {
@@ -52,14 +60,10 @@ body {
     transition: color 0.3s, background-color 0.3s;
 }
 
-.header-club a:hover {
-    color: #0306a0c7;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-}
+
 
 .header-club a img {
-    width: 150px;
+    width: 80px;
     height: 80px;
 }
 
@@ -88,7 +92,8 @@ body {
         right: -100%;
         height: 100%;
         width: 100%;
-        background: linear-gradient(90deg, #ffb854, #fc9921);
+        background-color: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
+        
         transition: right 0.3s ease-in-out;
         z-index: 100;
     }
@@ -200,13 +205,14 @@ body {
 
 /* Pattern overlay for a decorative effect */
 .pattern-overlay {
-    background-image: url('../patrens.png'); /* مسار الصورة */
+    background-image: url('../heros/patrens/pat-1.jpg'); /* مسار الصورة */
     background-size: cover; /* تأكد من أن الصورة تغطي المساحة بالكامل */
     background-position: center; /* تحديد مكان الصورة داخل العنصر */
-    opacity: 0.15; /* تحديد الشفافية للصورة */
+    opacity: 0.95; /* تحديد الشفافية للصورة */
     position: absolute; /* تأكد من أن الصورة مثبتة فوق العنصر */
     top: 0;
     left: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
     pointer-events: none; /* لتجنب التأثير على التفاعل مع العناصر الأخرى */
@@ -217,15 +223,15 @@ body {
 @keyframes scalePattern {
     0% {
         transform: scale(1); /* البداية: الصورة بحجمها الطبيعي */
-        opacity: 0.15; /* الشفافية في البداية */
+        opacity: 0.75; /* الشفافية في البداية */
     }
     50% {
         transform: scale(1.05); /* منتصف الحركة: الصورة تصبح أكبر قليلاً */
-        opacity: 0.2; /* الشفافية في المنتصف */
+        opacity: 0.05; /* الشفافية في المنتصف */
     }
     100% {
         transform: scale(1); /* النهاية: الصورة تعود لحجمها الطبيعي */
-        opacity: 0.15; /* الشفافية في النهاية */
+        opacity: 0.75; /* الشفافية في النهاية */
     }
 }
 
@@ -287,8 +293,7 @@ body {
     100% {
         transform: translateY(0px);
     }
-}
-/* ===== Coming Soon Section ===== */
+    }/* ===== Coming Soon Section ===== */
 .coming-soon {
     display: flex;
     flex-direction: column;
@@ -304,15 +309,13 @@ body {
     display: flex;
     gap: 20px; /* المسافة بين الأزرار */
     justify-content: center;
-    flex-wrap: wrap; /* يضمن أن الأزرار ستنتقل لأسطر جديدة في الشاشات الصغيرة */
+    flex-wrap: nowrap; /* لضمان أن الأزرار تظل في سطر واحد */
 }
-
 /* ===== Button Styles ===== */
 .button {
     border-radius: 8px;
-    height: 50px;  /* ضبط ارتفاع الزر */
+    height: 50px;  
     border: none;
-    
     background: linear-gradient(90deg, #ffb854, #fc9921);
     color: white;
     padding: 15px 30px;
@@ -329,7 +332,27 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none; /* Remove underline from links */
+    text-decoration: none;
+}
+
+.button i {
+    font-size: 1.5rem;  /* تغيير حجم الأيقونة */
+    transition: transform 0.3s ease; /* تأثير التكبير عند المرور */
+}
+
+.button:hover i {
+    transform: scale(1.2); /* تكبير الأيقونة عند المرور */
+}
+
+/* ===== تعديل الأزرار للشاشات الصغيرة ===== */
+@media (max-width: 768px) {
+    .button {
+        width: auto;
+        padding: 12px 25px;
+    }
+    .button i {
+        font-size: 1.2rem;  /* تقليل حجم الأيقونة في الشاشات الصغيرة */
+    }
 }
 
 .button:hover {
@@ -347,17 +370,24 @@ body {
     background: #f58114;
 }
 
+/* ===== تعديل تصميم الأزرار للشاشات الصغيرة ===== */
 @media (max-width: 768px) {
-    /* تعديل الأزرار لتناسب الشاشات الصغيرة */
+    /* ضمان بقاء الأزرار في سطر واحد */
     .button-group {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row; /* الأزرار تبقى في صف أفقي */
+        gap: 10px; /* المسافة بين الأزرار */
+        flex-wrap: wrap; /* إذا لم تتسع الأزرار ستلتف */
     }
+
     .button {
-        width: 100%;  /* الأزرار تملأ العرض في الشاشات الصغيرة */
-        padding: 15px 0;
+        width: auto;
+        padding: 12px 25px;
+    }
+    .button i {
+        font-size: 1.2rem;  /* تقليل حجم الأيقونة في الشاشات الصغيرة */
     }
 }
+
 @keyframes typing {
     from {
         width: 0;
@@ -488,19 +518,23 @@ body {
 /* Footer with gradient background */
 footer {
 
+    position: fixed;
     z-index: 50;
-    background: #fea637;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    color: rgb(22, 63, 117);
+    background: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
+    
+    /* إضافة حدود */
+    border-top: 2px solid #c47500; /* يمكنك تعديل اللون حسب الحاجة */
+
+    box-shadow: 8px 4px 8px rgba(255, 179, 64, 0.932);
+ 
     padding: 1rem 0;
     text-align: center;
-    position: relative;
     bottom: 0;
     width: 100%;
 }
 
 footer p {
-    color: #121d81;
+    color:  rgba(247, 192, 110, 0.932);
     font-size: 1.0rem;
     text-decoration: none;
 }

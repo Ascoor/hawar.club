@@ -210,7 +210,7 @@ body {
     background-position: center; /* تحديد مكان الصورة داخل العنصر */
     opacity: 0.95; /* تحديد الشفافية للصورة */
     position: relative; /* تأكد من أن الصورة مثبتة فوق العنصر */
-    top: 10%;
+    top: 20%;
     left: 0;
     z-index: 1;
     width: 100%;
@@ -226,7 +226,7 @@ body {
         opacity: 0.75; /* الشفافية في البداية */
     }
     50% {
-        transform: scale(1.05); /* منتصف الحركة: الصورة تصبح أكبر قليلاً */
+        transform: scale(1.03); /* منتصف الحركة: الصورة تصبح أكبر قليلاً */
         opacity: 0.05; /* الشفافية في المنتصف */
     }
     100% {
@@ -301,7 +301,7 @@ body {
     align-items: center;
     z-index: 10;
     position: absolute; /* جعل العنصر مثبت */
-    bottom: 60px; /* وضعه بالقرب من الفوتر */
+    bottom: 40px; /* وضعه بالقرب من الفوتر */
     width: 100%; /* عرض 100% ليتناسب مع الصفحة */
     text-align: center;
 }
@@ -381,7 +381,7 @@ body {
         flex-wrap: wrap; /* إذا لم تتسع الأزرار ستلتف */
     }
     .coming-soon {
-        bottom: 200px; 
+        bottom: 120px; 
     }
 }
 

@@ -1,119 +1,157 @@
-/* ==========================================
-   Global Styles
-========================================== */
 
-/* Apply a background gradient and set the basic layout for the body */
-body {
-    background: linear-gradient(135deg, #0a1931, #0d254d, #142b52, #0a1931);
-    background-size: 100% 100%;
-    position: relative;
+        /* ==========================================
+           Global Styles
+        ========================================== */
+        body {
+            background: linear-gradient(135deg, #0a1931, #0d254d, #142b52, #0a1931);
+            background-size: 100% 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #ffffff;
+            text-align: center;
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        /* ==========================================
+           Header Styles
+        ========================================== */
+        .header-club {
+            position: fixed;
+            width: 100%;
+            z-index: 50;
+            background: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
+            border-bottom: 2px solid #c47500;
+            box-shadow: 0 4px 8px rgba(255, 179, 64, 0.932);
+            padding: 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .header-club.show {
+            transform: translateY(0);
+        }
+
+        .header-club a {
+            color: #e8e9eb;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .header-club a img {
+            width: 80px;
+            height: 80px;
+        }
+/* ==========================================
+   Side Menu Styles
+========================================== */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* إخفاء القائمة بشكل افتراضي */
+    width: 100%; /* عرض القائمة 100% لتملأ الشاشة */
+    height: 100%;
+    background: linear-gradient(to bottom, #1a2a6c, #162c6c, #153f79);
+    transition: right 0.3s ease-in-out;
+    z-index: 100;
+    padding-top: 50px;
+    display: none; /* إخفاء القائمة في الشاشات الكبيرة */
+}
+
+.side-menu.show {
+    right: 0;
+    display: block; /* عرض القائمة عندما تكون مفعلة */
+}
+
+.side-menu a {
+    color: #ffffff; /* لون النص أبيض */
+    padding: 1.5rem;
+    display: block;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: #ff6f30; /* اللون البرتقالي عند التمرير */
+    color: #ffffff; /* النص يبقى أبيض */
+}
+
+/* ==========================================
+   Button Styles
+========================================== */
+.menu-btn {
+    font-size: 1.2rem;
+    color: #f7a643;
+    background-color: #152a76;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 200;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: none;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
+    font-weight: bold;
+}
+
+.menu-btn:hover {
+    background-color: #1c3f97;
     color: #ffffff;
-    text-align: center;
-    flex-direction: column;
-    padding: 1rem;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
-
-
-
-/* ==========================================
-   Header Styles
-========================================== */
-
-/* The header will have a fixed position and gradient background */
-.header-club {
-    position: fixed;
-    width: 100%;
-    z-index: 50;
-    background: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
-    
-    /* إضافة حدود */
-    border-bottom: 2px solid #c47500; /* يمكنك تعديل اللون حسب الحاجة */
-
-    box-shadow: 0 4px 8px rgba(255, 179, 64, 0.932);
-    padding: 0.5rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
-
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
-
-    /* جعل الحدود تتماشى مع الحافة */
-    margin: 0;
-    box-sizing: border-box; /* تأكد من أن المسافة لا تؤثر على الحجم */
-}
-
-.header-club.show {
-    transform: translateY(0);
-}
-
-.header-club a {
-    color: #e8e9eb;
-    transition: color 0.3s, background-color 0.3s;
-}
-
-
-
-.header-club a img {
-    width: 80px;
-    height: 80px;
-}
-
 
 /* ==========================================
    Media Queries
 ========================================== */
-
-/* Styles for screens smaller than 768px */
 @media (max-width: 768px) {
-    .header-club {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 1rem;
-        padding-right: 1rem;
+    /* عرض القائمة في شاشات الهواتف فقط */
+    .side-menu {
+        width: 100%; /* عرض القائمة 100% لتملأ الشاشة */
+        padding-top: 60px; /* المسافة بين الشريط العلوي والقائمة */
+    }
+
+    .side-menu.show {
+        right: 0;
     }
 
     .header-club .menu-btn {
         display: inline-block;
     }
 
-    .side-menu {
-        position: fixed;
-        top: 9%;
-        right: -100%;
-        height: 100%;
-        width: 100%;   
-         background: linear-gradient(90deg, #ffb854, #fc9921);
-        color: #123c96;
-        
-        transition: right 0.3s ease-in-out;
-        z-index: 100;
+    .button-group {
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
     }
 
-    .side-menu.show {
-        right: 0;
+    .coming-soon {
+        bottom: 120px;
     }
 }
 
-/* على الشاشات الكبيرة (أكبر من 768px) */
 @media (min-width: 768px) {
     .header-club .menu-btn {
         display: none;
-        /* إخفاء الزر على الشاشات الكبيرة */
     }
 
     .side-menu {
-        display: none;
-        /* إخفاء القائمة الجانبية على الشاشات الكبيرة */
+        display: none; /* إخفاء القائمة في الشاشات الأكبر */
     }
 
     .header-club .nav-links {
@@ -132,72 +170,35 @@ body {
     }
 
     .header-club .nav-links a:hover {
-        color: #0306a0c7;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 4px;
+        color: #ff9811;
     }
 }
 
-
-
 /* ==========================================
-   Side Menu Styles
+   Close Button Styles
 ========================================== */
-
-/* Side menu links style */
-.side-menu a {
-
-    color: #0306a0c7;
-    padding: 2rem;
-    display: block;
-    text-align: center;
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.side-menu a:hover {
-    background-color: #152a76;
-    color: #e8e9eb;
-}
-
-
-/* ==========================================
-   Button Styles
-========================================== */
-
-/* Style for the menu button */
-.menu-btn {
-    font-size: 1.2rem;
-    color: #f7a643;
-    background-color: #152a76;
-
-    border-radius: 50px;
-    cursor: pointer;
-    z-index: 200;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+.close-btn {
+    position: absolute;
+    top: 35px; /* المسافة من الأعلى */
+    left: 15px; /* المسافة من اليمين */
+    background-color: #ff6f30; /* اللون البرتقالي */
+    color: #fff; /* اللون الأبيض للنص */
     border: none;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    /* توسيط الأيقونة عموديًا */
-    justify-content: center;
-    /* توسيط الأيقونة أفقيًا */
-    font-weight: bold;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.6rem; /* حجم الأيقونة */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 101; /* تأكيد الظهور فوق القائمة */
 }
 
-.menu-btn:hover {
-    background-color: #1c3f97;
-    color: #ffffff;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+.close-btn:hover {
+    background-color: #ff4500; /* تغيير اللون عند التحويم */
+    transform: scale(1.1); /* تكبير الزر عند التحويم */
 }
 
-.menu-btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+.close-btn i {
+    font-size: 1.6rem;
 }
 
 /* ==========================================
@@ -207,36 +208,34 @@ body {
 /* Pattern overlay for a decorative effect */
 .pattern-overlay {
     background-image: url('../heros/patrens/pat-5.png'); /* مسار الصورة */
-    background-size: cover; /* تأكد من أن الصورة تغطي المساحة بالكامل */
-    background-position: center; /* تحديد مكان الصورة داخل العنصر */
-    opacity: 0.95; /* تحديد الشفافية للصورة */
-    position: relative; /* تأكد من أن الصورة مثبتة فوق العنصر */
-    top: 20%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.95;
+    position: fixed;
+    top: 0;
     left: 0;
     z-index: 1;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* لتجنب التأثير على التفاعل مع العناصر الأخرى */
-    animation: scalePattern 8s ease-in-out infinite; /* تحديد اسم حركة الصورة وزمنها */
+    pointer-events: none;
+    animation: scalePattern 8s ease-in-out infinite;
 }
 
 /* تعريف الحركة */
 @keyframes scalePattern {
     0% {
-        transform: scale(1); /* البداية: الصورة بحجمها الطبيعي */
-        opacity: 0.85; /* الشفافية في البداية */
+        transform: scale(1);
+        opacity: 0.85;
     }
     50% {
-        transform: scale(1.05); /* منتصف الحركة: الصورة تصبح أكبر قليلاً */
-
-        opacity: 0.3; /* الشفافية في المنتصف */
+        transform: scale(1.05);
+        opacity: 0.3;
     }
     100% {
-        transform: scale(1); /* النهاية: الصورة تعود لحجمها الطبيعي */
-        opacity: 0.85; /* الشفافية في النهاية */
+        transform: scale(1);
+        opacity: 0.85;
     }
 }
-
 
 /* ==========================================
    Club Name Styling
@@ -257,19 +256,6 @@ body {
     white-space: nowrap;
 }
 
-/* Fade-in effect */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8) translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
 .club-name span {
     display: inline-block;
     animation: float 2s ease-in-out infinite;
@@ -287,36 +273,36 @@ body {
     0% {
         transform: translateY(0px);
     }
-
     50% {
         transform: translateY(-10px);
     }
-
     100% {
         transform: translateY(0px);
     }
-    }/* ===== Coming Soon Section ===== */
+}
+
+/* ===== Coming Soon Section ===== */
 .coming-soon {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 10;
-    position: absolute; /* جعل العنصر مثبت */
-    bottom: 40px; /* وضعه بالقرب من الفوتر */
-    width: 100%; /* عرض 100% ليتناسب مع الصفحة */
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
     text-align: center;
 }
 
-/* ===== مجموعة الأزرار ===== */
+/* ===== Button Group ===== */
 .button-group {
     display: flex;
-    gap: 20px; /* المسافة بين الأزرار */
+    gap: 20px;
     justify-content: center;
-    flex-wrap: nowrap; /* لضمان أن الأزرار تظل في سطر واحد */
+    flex-wrap: nowrap; /* Keep buttons in one line */
 }
 
-/* ===== تصميم الأزرار ===== */
+/* ===== Button Styles ===== */
 .button {
     border-radius: 8px;
     height: 50px;
@@ -324,35 +310,31 @@ body {
     background: linear-gradient(90deg, #ffb854, #fc9921);
     color: #123c96;
     padding: 15px 30px;
+    font-weight: bold;
+    font-family: Montserrat, sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
     box-shadow: 0 0.7px 0.7px -0.6px #00000026,
                 0 1.8px 1.8px -1.3px #00000025,
                 0 3.6px 3.6px -1.9px #00000023,
                 0 6.9px 6.9px -2.5px #00000020,
                 0 13.6px 13.6px -3.1px #0000001b,
                 0 30px 30px -3.8px #0000000d;
-    font-weight: bold;
-    font-family: Montserrat, sans-serif;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
 }
 
 .button i {
-    font-size: 1.5rem;  /* تغيير حجم الأيقونة */
-    transition: transform 0.3s ease; /* تأثير التكبير عند المرور */
+    font-size: 1.5rem;
+    transition: transform 0.3s ease; /* Hover effect */
 }
 
-.button:hover i {
-    transform: scale(1.2); /* تكبير الأيقونة عند المرور */
-}
-
-/* ===== التعديل عند المرور على الأزرار ===== */
+/* ===== Hover Effect for Buttons ===== */
 .button:hover {
     color: #e29609;
-    background: #002a5f; /* تغيير اللون عند المرور */
+    background: #002a5f;
     box-shadow: 0 0.7px 0.7px -0.6px #fab22d, 
                 0 2px 2px -1.3px #fab22d, 
                 0 4px 4px -1.9px #fab22d, 
@@ -362,11 +344,11 @@ body {
 }
 
 .button:active {
-    transform: scale(0.95); /* تأثير الضغط على الزر */
+    transform: scale(0.95); /* Press effect */
     background: #f58114;
 }
 
-/* ===== التعديل في الشاشات الصغيرة ===== */
+/* ===== Responsive Styles for Small Screens ===== */
 @media (max-width: 768px) {
     .button {
         width: auto;
@@ -374,20 +356,21 @@ body {
     }
 
     .button i {
-        font-size: 1.2rem;  /* تقليل حجم الأيقونة في الشاشات الصغيرة */
+        font-size: 1.2rem; /* Smaller icon size for small screens */
     }
 
     .button-group {
-        flex-direction: row; /* الأزرار تبقى في صف أفقي */
-        gap: 10px; /* المسافة بين الأزرار */
-        flex-wrap: wrap; /* إذا لم تتسع الأزرار ستلتف */
+        flex-direction: row; /* Keep buttons in horizontal row */
+        gap: 10px;
+        flex-wrap: wrap;
     }
+
     .coming-soon {
-        bottom: 120px; 
+        bottom: 120px; /* Adjust position on small screens */
     }
 }
 
-
+/* ===== Keyframe Animations ===== */
 @keyframes typing {
     from {
         width: 0;
@@ -410,15 +393,11 @@ body {
     }
 }
 
-
-
 /* ==========================================
    Content Box Styling
 ========================================== */
 
 /* A content box with dark background */
-
-
 .content-box {
     background: rgba(0, 0, 0, 0.6);
     padding: 5rem 2rem 2rem 2rem;
@@ -436,33 +415,30 @@ body {
     text-align: center;
 }
 
+/* Portrait Image */
 .portrait {
     width: 180px;
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #FFA500;
-    position: absolute;
-    top: 10px;
     animation: growIn 2s ease forwards;
 }
 
+/* Obituary Text */
 .obituary-text {
     font-family: "Amiri", serif;
-
     color: #ffffff;
     white-space: pre-line;
     text-align: justify;
     direction: rtl;
     line-height: 1.8;
-    /* Base line height */
     max-height: 100%;
     padding-top: 8rem;
     width: 100%;
-    /* Make text responsive */
 }
 
-
+/* Keyframe Animations */
 @keyframes growIn {
     0% {
         opacity: 0;
@@ -475,7 +451,7 @@ body {
     }
 }
 
-/* تأثير الظهور للتوقيع */
+/* Signature Fade-in Animation */
 @keyframes signatureFadeIn {
     0% {
         opacity: 0;
@@ -486,11 +462,13 @@ body {
     }
 }
 
+/* Fade Out Effect */
 .fade-out {
     opacity: 0;
     transition: opacity 2s ease;
 }
 
+/* Highlight Text */
 .highlight {
     color: #FFA500;
     font-weight: bold;
@@ -499,54 +477,51 @@ body {
     font-size: 1.25rem;
 }
 
+/* Signature Styling */
 .signature {
     font-family: "Amiri", serif;
-
     color: #FFA500;
     margin-top: 1.5rem;
-    display: none;
-    /* Hidden initially */
+    display: none; /* Hidden initially */
     animation: signatureFadeIn 2s forwards;
-    /* Fade-in effect */
 }
-
-
 /* ==========================================
    Footer Styling
 ========================================== */
 
 /* Footer with gradient background */
 footer {
-
     position: fixed;
     z-index: 50;
     background: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
-    
-    /* إضافة حدود */
-    border-top: 2px solid #c47500; /* يمكنك تعديل اللون حسب الحاجة */
-
+    border-top: 2px solid #c47500; /* Border color */
     box-shadow: 8px 4px 8px rgba(255, 179, 64, 0.932);
- 
     padding: 1rem 0;
     text-align: center;
     bottom: 0;
     width: 100%;
 }
 
+/* Footer paragraph styling */
 footer p {
-    color:  rgba(247, 192, 110, 0.932);
-    font-size: 1.0rem;
+    color: rgba(247, 192, 110, 0.932);
+    font-size: 1rem;
     text-decoration: none;
 }
- /* خلفية متدرجة لتغطية كامل القسم */
- .section-background {
+
+/* Background for section */
+.section-background {
     background: url('../heros/slide.png') no-repeat center center/cover;
     position: relative;
     width: 100%;
     height: 100vh;
 }
 
-/* خطوط ومنحنيات ودوريات غير منتظمة */
+/* =======================
+   Animations for Effects
+======================== */
+
+/* Lines effect */
 @keyframes lineEffect {
     0% {
         opacity: 0;
@@ -575,7 +550,7 @@ footer p {
     transform-origin: center;
 }
 
-/* دوائر عشوائية */
+/* Circular effect */
 @keyframes circleEffect {
     0% {
         opacity: 0;
@@ -603,19 +578,17 @@ footer p {
     z-index: 0;
 }
 
-/* حركة النجوم اللامعة */
-@keyframes starGlow {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.6;
-    }
-    100% {
-        opacity: 0;
-    }
+/* Fade-in and out glow effect for stars */
+@keyframes fadeInOutGlow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
 }
 
+.star, .fade-in-out {
+    animation: fadeInOutGlow 2s infinite;
+}
+
+/* Star effect */
 .star {
     position: absolute;
     width: 8px;
@@ -634,7 +607,7 @@ footer p {
     animation-delay: 1s;
 }
 
-/* ظهور واختفاء الأبطال بشكل ديناميكي */
+/* Dynamic fade-in and fade-out for multiple elements */
 @keyframes fadeInOut {
     0% {
         opacity: 0;

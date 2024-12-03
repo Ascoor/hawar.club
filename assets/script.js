@@ -49,3 +49,11 @@ function toggleMenu() {
     const sideMenu = document.getElementById('sideMenu');
     sideMenu.classList.toggle('show');
 }
+// Function to close the side menu
+function closeMenu() {
+    // Get the side menu element
+    const sideMenu = document.querySelector('.side-menu');
+    
+    // Remove the 'show' class to hide the menu
+    sideMenu.classList.remove('show');
+}

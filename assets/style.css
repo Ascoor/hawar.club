@@ -28,8 +28,8 @@ Header Styles
     z-index: 50;
     position: fixed;
     z-index: 50;
-    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
-
+    background: linear-gradient(to right, #000428 0%, #012f57 51%, #000428 100%);
+    
     
     border-bottom: 2px solid #c47500;
     box-shadow: 0 4px 8px rgba(255, 179, 64, 0.932);
@@ -290,12 +290,10 @@ Decorative Patterns & Overlays
         transform: scale(1);
         opacity: 0.85;
     }
-
     50% {
         transform: scale(1.05);
         opacity: 0.1;
     }
-
     100% {
         transform: scale(1);
         opacity: 0.85;
@@ -385,7 +383,7 @@ Club Name Styling
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     text-decoration: none;
-    background: linear-gradient(90deg, #ffb854, #fc9921);
+    background: linear-gradient(90deg, #e08607, #f39717);
     color: #fff;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -599,8 +597,8 @@ Footer Styling
 footer {
     position: fixed;
     z-index: 50;
-    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
-
+    background: linear-gradient(to right, #000428 0%, #012f57 51%, #000428 100%);
+    
     border-top: 2px solid #c47500;
     /* Border color */
     box-shadow: 8px 4px 8px rgba(255, 179, 64, 0.932);
@@ -635,12 +633,10 @@ Animations for Effects
         opacity: 0;
         transform: scale(0);
     }
-
     50% {
         opacity: 1;
         transform: scale(1.2);
     }
-
     100% {
         opacity: 0;
         transform: scale(0);
@@ -666,12 +662,10 @@ Animations for Effects
         opacity: 0;
         transform: rotate(0deg) scale(0);
     }
-
     50% {
         opacity: 0.7;
         transform: rotate(180deg) scale(1);
     }
-
     100% {
         opacity: 0;
         transform: rotate(360deg) scale(0);

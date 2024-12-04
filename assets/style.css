@@ -2,8 +2,15 @@
 Global Styles
 ========================================== */
 body {
-    background: linear-gradient(135deg, #0a1931, #0d254d, #142b52, #0a1931);
-
+    
+    background: linear-gradient(
+        135deg, 
+        #0d1b2a 0%,      /* أزرق داكن جدًا */
+        #1b263b 25%,     /* أزرق معتدل */
+        #224469 50%,     /* أزرق مضيء أكثر */
+        #334464 75%,     /* عودة للون الداكن */
+        #0d1b2a 100%     /* أزرق داكن جدًا */
+    );
     font-family: 'Amiri', 'Cairo', sans-serif;
     background-size: 100% 100%;
     position: relative;
@@ -118,14 +125,14 @@ Side Menu Styles
     ;
     /* النص يبقى أبيض */
 }/* ==========================================
-   Button Styles
+   Button Styles: مجسم بخلفية مضيئة وتأثير ديناميكي
 ========================================== */
 .menu-btn {
     font-size: 1.2rem;
     color: #f7a643;
     position: fixed;
-    top: 40px; /* التحكم في المسافة من الأعلى */
-    left: 20px; /* عرض الزر على اليسار */
+    top: 40px; /* المسافة من الأعلى */
+    left: 20px; /* المسافة من اليسار */
     z-index: 50;
     background: linear-gradient(
         135deg, 
@@ -137,31 +144,56 @@ Side Menu Styles
     );
     border-radius: 50%; /* شكل دائري */
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 5px 8px 2px rgba(255, 179, 37, 0.658); /* ظل الزر */
+    transition: all 0.4s ease-in-out;
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.3), /* ظل خارجي */
+        0 0 10px rgba(0, 115, 230, 0.6); /* توهج أزرق خافت */
     border: none;
-    width: 50px; /* تعديل حجم الزر */
-    height: 50px;
+    width: 60px; /* حجم الزر */
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    text-align: center; /* لضمان النص داخل الزر متناسق */
+    text-align: center; /* النص داخل الزر */
 }
 
 /* تأثير التحويم */
 .menu-btn:hover {
     background: linear-gradient(
         135deg, 
-        #0d1b2a 0%,      /* أزرق داكن جدًا */
-        #1b263b 25%,     /* أزرق معتدل */
-        #234f7e 50%,     /* أزرق مضيء أكثر */
-        #465775 75%,     /* ألوان متوسطة */
+        #1b263b 0%,      /* أزرق داكن */
+        #304664 25%,     /* أزرق متوسط */
+        #3b5f87 50%,     /* أزرق فاتح */
+        #4b77a4 75%,     /* أزرق مشرق */
         #1b3755 100%     /* أزرق داكن جدًا */
     );
     color: #ffffff;
-    transform: translateY(-4px); /* تحريك الزر عند التحويم */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* تأثير الظل */
+    transform: translateY(-4px) scale(1.1); /* رفع وتكبير الزر عند التحويم */
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.4), /* ظل أعمق */
+        0 0 15px rgba(255, 153, 21, 0.8); /* توهج أزرق أقوى */
+    animation: pulse 1.5s infinite; /* تأثير نبض خفيف */
+}
+
+/* تأثير الضغط */
+.menu-btn:active {
+    transform: scale(0.95); /* تأثير الضغط */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* تقليل الظل */
+}
+
+/* تأثير النبض */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 
+            0 5px 15px rgba(0, 0, 0, 0.3), 
+            0 0 10px rgba(0, 115, 230, 0.6);
+    }
+    50% {
+        box-shadow: 
+            0 10px 20px rgba(0, 0, 0, 0.4), 
+            0 0 20px rgba(0, 115, 230, 0.8);
+    }
 }
 
 /* ==========================================
@@ -169,15 +201,13 @@ Side Menu Styles
 ========================================== */
 @media (max-width: 768px) {
     .menu-btn {
-        width: 40px; /* تصغير حجم الزر للشاشات الصغيرة */
-        height: 40px;
+        width: 50px; /* حجم الزر للشاشات الصغيرة */
+        height: 50px;
         font-size: 1rem;
         top: 20px; /* تعديل المسافة من الأعلى */
         left: 30px; /* تعديل المسافة من اليسار */
     }
 }
-
-
 
 @media (min-width: 768px) {
     .header-club .menu-btn {

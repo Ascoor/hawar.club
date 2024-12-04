@@ -1,79 +1,107 @@
-
-        /* ==========================================
-           Global Styles
-        ========================================== */
-        body {
-            background: linear-gradient(135deg, #0a1931, #0d254d, #142b52, #0a1931);
-            background-size: 100% 100%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            color: #ffffff;
-            text-align: center;
-            flex-direction: column;
-            padding: 1rem;
-        }
-
-        /* ==========================================
-           Header Styles
-        ========================================== */
-        .header-club {
-            position: fixed;
-            width: 100%;
-            z-index: 50;
-            background: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
-            border-bottom: 2px solid #c47500;
-            box-shadow: 0 4px 8px rgba(255, 179, 64, 0.932);
-            padding: 0.5rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            transform: translateY(-100%);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .header-club.show {
-            transform: translateY(0);
-        }
-
-        .header-club a {
-            color: #e8e9eb;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .header-club a img {
-            width: 80px;
-            height: 80px;
-        }
 /* ==========================================
-   Side Menu Styles
+Global Styles
+========================================== */
+body {
+    background: linear-gradient(135deg, #0a1931, #0d254d, #142b52, #0a1931);
+
+    font-family: 'Amiri', 'Cairo', sans-serif;
+    background-size: 100% 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    color: #ffffff;
+    text-align: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+/* ==========================================
+Header Styles
+========================================== */
+.header-club {
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+    position: fixed;
+    z-index: 50;
+    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+
+    
+    border-bottom: 2px solid #c47500;
+    box-shadow: 0 4px 8px rgba(255, 179, 64, 0.932);
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.header-club.show {
+    transform: translateY(0);
+}
+
+.header-club a {
+    color: #e8e9eb;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.header-club a img {
+    width: 50px;
+    height: 65px;
+    border-radius: 10px; /* شكل الحواف */
+    box-shadow: 
+        0 0 5px rgba(255, 165, 0, 0.6), /* توهج خفيف */
+        0 0 15px rgba(255, 140, 0, 0.5), /* توهج متوسط */
+        0 0 30px rgba(255, 100, 0, 0.4); /* توهج كبير */
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* تأثير التوهج عند التحويم */
+.header-club a img:hover {
+    transform: scale(1.1); /* تكبير خفيف عند التحويم */
+    box-shadow: 
+        0 0 10px rgba(255, 165, 0, 0.8),
+        0 0 25px rgba(255, 140, 0, 0.7),
+        0 0 40px rgba(255, 100, 0, 0.6),
+        0 0 60px rgba(255, 69, 0, 0.5); /* توهج إضافي */
+}
+
+
+/* ==========================================
+Side Menu Styles
 ========================================== */
 .side-menu {
     position: fixed;
     top: 0;
-    right: -100%; /* إخفاء القائمة بشكل افتراضي */
-    width: 100%; /* عرض القائمة 100% لتملأ الشاشة */
+    right: -100%;
+    /* إخفاء القائمة بشكل افتراضي */
+    width: 100%;
+    /* عرض القائمة 100% لتملأ الشاشة */
     height: 100%;
-    background: linear-gradient(to bottom, #1a2a6c, #162c6c, #153f79);
+    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
     transition: right 0.3s ease-in-out;
     z-index: 100;
     padding-top: 50px;
-    display: none; /* إخفاء القائمة في الشاشات الكبيرة */
+    display: none;
+    /* إخفاء القائمة في الشاشات الكبيرة */
 }
 
 .side-menu.show {
     right: 0;
-    display: block; /* عرض القائمة عندما تكون مفعلة */
+    display: block;
+    /* عرض القائمة عندما تكون مفعلة */
 }
 
 .side-menu a {
-    color: #ffffff; /* لون النص أبيض */
+    color: #ffffff;
+    /* لون النص أبيض */
     padding: 1.5rem;
     display: block;
     text-align: center;
@@ -84,66 +112,72 @@
 }
 
 .side-menu a:hover {
-    background-color: #ff6f30; /* اللون البرتقالي عند التمرير */
-    color: #ffffff; /* النص يبقى أبيض */
-}
-
-/* ==========================================
+    background-color: #ff9811;
+    /* اللون البرتقالي عند التمرير */
+    color:   #0d1b2a ;   /* أزرق داكن جدًا */
+    ;
+    /* النص يبقى أبيض */
+}/* ==========================================
    Button Styles
 ========================================== */
 .menu-btn {
     font-size: 1.2rem;
     color: #f7a643;
-    background-color: #152a76;
-    border-radius: 50%;
+    position: fixed;
+    top: 40px; /* التحكم في المسافة من الأعلى */
+    left: 20px; /* عرض الزر على اليسار */
+    z-index: 50;
+    background: linear-gradient(
+        135deg, 
+        #0d1b2a 0%,      /* أزرق داكن جدًا */
+        #1b263b 25%,     /* أزرق معتدل */
+        #224469 50%,     /* أزرق مضيء أكثر */
+        #334464 75%,     /* عودة للون الداكن */
+        #0d1b2a 100%     /* أزرق داكن جدًا */
+    );
+    border-radius: 50%; /* شكل دائري */
     cursor: pointer;
-    z-index: 200;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 8px 2px rgba(255, 179, 37, 0.658); /* ظل الزر */
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 50px; /* تعديل حجم الزر */
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    text-align: center; /* لضمان النص داخل الزر متناسق */
 }
 
+/* تأثير التحويم */
 .menu-btn:hover {
-    background-color: #1c3f97;
+    background: linear-gradient(
+        135deg, 
+        #0d1b2a 0%,      /* أزرق داكن جدًا */
+        #1b263b 25%,     /* أزرق معتدل */
+        #234f7e 50%,     /* أزرق مضيء أكثر */
+        #465775 75%,     /* ألوان متوسطة */
+        #1b3755 100%     /* أزرق داكن جدًا */
+    );
     color: #ffffff;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transform: translateY(-4px); /* تحريك الزر عند التحويم */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* تأثير الظل */
 }
 
 /* ==========================================
-   Media Queries
+   Responsive Adjustments for RTL
 ========================================== */
 @media (max-width: 768px) {
-    /* عرض القائمة في شاشات الهواتف فقط */
-    .side-menu {
-        width: 100%; /* عرض القائمة 100% لتملأ الشاشة */
-        padding-top: 60px; /* المسافة بين الشريط العلوي والقائمة */
-    }
-
-    .side-menu.show {
-        right: 0;
-    }
-
-    .header-club .menu-btn {
-        display: inline-block;
-    }
-
-    .button-group {
-        flex-direction: row;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-    .coming-soon {
-        bottom: 120px;
+    .menu-btn {
+        width: 40px; /* تصغير حجم الزر للشاشات الصغيرة */
+        height: 40px;
+        font-size: 1rem;
+        top: 20px; /* تعديل المسافة من الأعلى */
+        left: 30px; /* تعديل المسافة من اليسار */
     }
 }
+
+
 
 @media (min-width: 768px) {
     .header-club .menu-btn {
@@ -151,7 +185,8 @@
     }
 
     .side-menu {
-        display: none; /* إخفاء القائمة في الشاشات الأكبر */
+        display: none;
+        /* إخفاء القائمة في الشاشات الأكبر */
     }
 
     .header-club .nav-links {
@@ -174,40 +209,68 @@
     }
 }
 
-/* ==========================================
-   Close Button Styles
-========================================== */
 .close-btn {
     position: absolute;
-    top: 35px; /* المسافة من الأعلى */
-    left: 15px; /* المسافة من اليمين */
-    background-color: #ff6f30; /* اللون البرتقالي */
-    color: #fff; /* اللون الأبيض للنص */
+    top: 20px;
+    /* المسافة من الأعلى */
+    left: 20px;
+    /* المسافة من اليمين */
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #fca12b, #ff9811);
+    /* تدرج ألوان جذاب */
+    color: white;
+    /* اللون الأبيض للأيقونة */
     border: none;
-    padding: 15px;
     border-radius: 50%;
-    font-size: 1.6rem; /* حجم الأيقونة */
+    /* شكل دائري */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 101; /* تأكيد الظهور فوق القائمة */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .close-btn:hover {
-    background-color: #ff4500; /* تغيير اللون عند التحويم */
-    transform: scale(1.1); /* تكبير الزر عند التحويم */
+    transform: scale(1.1);
+    /* تكبير بسيط عند التحويم */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .close-btn i {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    animation: spinClose 2.5s linear infinite;
+    /* حركة دوران أبطأ */
+    transition: animation 0.3s ease;
+    /* تأثير سلس على التغيير */
 }
 
+.close-btn:hover i {
+    animation-play-state: paused;
+    /* إيقاف الحركة عند مرور الفأرة */
+}
+
+@keyframes spinClose {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
 /* ==========================================
-   Decorative Patterns & Overlays
+Decorative Patterns & Overlays
 ========================================== */
 
 /* Pattern overlay for a decorative effect */
 .pattern-overlay {
-    background-image: url('../heros/patrens/pat-5.png'); /* مسار الصورة */
+    background-image: url('../heros/patrens/pat-5.png');
+    /* مسار الصورة */
     background-size: cover;
     background-position: center;
     opacity: 0.95;
@@ -227,10 +290,12 @@
         transform: scale(1);
         opacity: 0.85;
     }
+
     50% {
         transform: scale(1.05);
         opacity: 0.1;
     }
+
     100% {
         transform: scale(1);
         opacity: 0.85;
@@ -238,7 +303,7 @@
 }
 
 /* ==========================================
-   Club Name Styling
+Club Name Styling
 ========================================== */
 
 /* Style for the club name, animated on load */
@@ -273,9 +338,11 @@
     0% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-10px);
     }
+
     100% {
         transform: translateY(0px);
     }
@@ -289,7 +356,7 @@
     align-items: center;
     z-index: 10;
     position: absolute;
-    bottom: 20%;
+    bottom: 25%;
     width: 100%;
     text-align: center;
 }
@@ -299,76 +366,113 @@
     display: flex;
     gap: 20px;
     justify-content: center;
-    flex-wrap: nowrap; /* Keep buttons in one line */
+    flex-wrap: wrap;
+    /* Wrap buttons on smaller screens */
 }
 
 /* ===== Button Styles ===== */
 .button {
-    border-radius: 8px;
-    height: 50px;
-    border: none;
-    background: linear-gradient(90deg, #ffb854, #fc9921);
-    color: #123c96;
-    padding: 15px 30px;
-    font-weight: bold;
-    font-family: Montserrat, sans-serif;
-    cursor: pointer;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0;
+    width: 180px;
+    /* Width for the button */
+    height: 50px;
+    /* Height for the button */
+    border-radius: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
     text-decoration: none;
+    background: linear-gradient(90deg, #ffb854, #fc9921);
+    color: #fff;
+    overflow: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 0.7px 0.7px -0.6px #00000026,
-                0 1.8px 1.8px -1.3px #00000025,
-                0 3.6px 3.6px -1.9px #00000023,
-                0 6.9px 6.9px -2.5px #00000020,
-                0 13.6px 13.6px -3.1px #0000001b,
-                0 30px 30px -3.8px #0000000d;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.button i {
+/* Text inside the button */
+.button .btn-text {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    /* Movement on hover */
+    text-align: center;
+    width: 100%;
+}
+
+/* Icon inside the button */
+.button .btn-icon {
+    position: absolute;
+    right: -40px;
+    /* Hide icon outside the button initially */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 75%;
+    color: #fc9921;
     font-size: 1.5rem;
-    transition: transform 0.3s ease; /* Hover effect */
+    transition: right 0.3s ease;
+    /* Smooth movement on hover */
 }
 
-/* ===== Hover Effect for Buttons ===== */
+/* Hover Effects */
+.button:hover .btn-text {
+    transform: translateX(-20px);
+    /* Move text slightly to the left */
+}
+
+.button:hover .btn-icon {
+    right: 30px;
+    /* Bring icon into view */
+}
+
 .button:hover {
-    color: #e29609;
     background: #002a5f;
-    box-shadow: 0 0.7px 0.7px -0.6px #fab22d, 
-                0 2px 2px -1.3px #fab22d, 
-                0 4px 4px -1.9px #fab22d, 
-                0 8px 8px -2.5px #fab22d, 
-                0 16px 16px -3.1px #0000002b, 
-                0 35px 35px -3.8px #00000020;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Active Effect */
 .button:active {
-    transform: scale(0.95); /* Press effect */
-    background: #f58114;
+    transform: scale(0.95);
+    /* Button press effect */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== Responsive Styles for Small Screens ===== */
+/* ===== Responsive Styles ===== */
 @media (max-width: 768px) {
     .button {
-        width: auto;
-        padding: 12px 25px;
+        width: 140px;
+        /* Smaller width for buttons */
+        height: 45px;
     }
 
-    .button i {
-        font-size: 1.2rem; /* Smaller icon size for small screens */
+    .button .btn-text {
+        font-size: 1rem;
+        /* Adjust font size for smaller screens */
+    }
+
+    .button .btn-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
     }
 
     .button-group {
-        flex-direction: row; /* Keep buttons in horizontal row */
-        gap: 10px;
-        flex-wrap: wrap;
+        gap: 15px;
     }
 
     .coming-soon {
-        bottom: 30%; /* Adjust position on small screens */
+        bottom: 30%;
     }
 }
+
 
 /* ===== Keyframe Animations ===== */
 @keyframes typing {
@@ -394,7 +498,7 @@
 }
 
 /* ==========================================
-   Content Box Styling
+Content Box Styling
 ========================================== */
 
 /* A content box with dark background */
@@ -482,19 +586,23 @@
     font-family: "Amiri", serif;
     color: #FFA500;
     margin-top: 1.5rem;
-    display: none; /* Hidden initially */
+    display: none;
+    /* Hidden initially */
     animation: signatureFadeIn 2s forwards;
 }
+
 /* ==========================================
-   Footer Styling
+Footer Styling
 ========================================== */
 
 /* Footer with gradient background */
 footer {
     position: fixed;
     z-index: 50;
-    background: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
-    border-top: 2px solid #c47500; /* Border color */
+    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+
+    border-top: 2px solid #c47500;
+    /* Border color */
     box-shadow: 8px 4px 8px rgba(255, 179, 64, 0.932);
     padding: 1rem 0;
     text-align: center;
@@ -518,7 +626,7 @@ footer p {
 }
 
 /* =======================
-   Animations for Effects
+Animations for Effects
 ======================== */
 
 /* Lines effect */
@@ -527,10 +635,12 @@ footer p {
         opacity: 0;
         transform: scale(0);
     }
+
     50% {
         opacity: 1;
         transform: scale(1.2);
     }
+
     100% {
         opacity: 0;
         transform: scale(0);
@@ -556,10 +666,12 @@ footer p {
         opacity: 0;
         transform: rotate(0deg) scale(0);
     }
+
     50% {
         opacity: 0.7;
         transform: rotate(180deg) scale(1);
     }
+
     100% {
         opacity: 0;
         transform: rotate(360deg) scale(0);
@@ -580,11 +692,19 @@ footer p {
 
 /* Fade-in and out glow effect for stars */
 @keyframes fadeInOutGlow {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
-.star, .fade-in-out {
+.star,
+.fade-in-out {
     animation: fadeInOutGlow 2s infinite;
 }
 
@@ -612,12 +732,15 @@ footer p {
     0% {
         opacity: 0;
     }
+
     20% {
         opacity: 1;
     }
+
     80% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }

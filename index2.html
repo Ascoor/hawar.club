@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawar Sporting Club | نادي الحوار للألعاب الرياضية</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Amiri&family=Yellowtail&display=swap" rel="stylesheet">
+    <style>
+        /* إعداد خلفية متدرجة ديناميكية مع نمط شفاف */
+        body {
+            background: linear-gradient(135deg, #0a1931, #0d254d, #142b52, #0a1931);
+            background-size: 100% 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #ffffff;
+            text-align: center;
+            flex-direction: column;
+            padding: 1rem;
+        }
+        /* الشريط العلوي */
+.header-club {
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+    background: linear-gradient(90deg, #ffb854, #fc9921); /* نفس الألوان */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* الفوتر */
+footer {
+    z-index: 50;
+    background: linear-gradient(90deg, #ffb854, #fc9921); /* نفس الألوان */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: rgb(22, 63, 117);
+    padding: 1rem 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+     
+
+        .header-club a img {
+            width: 150px;
+            height: 80px;
+        }
+
+        /* على شاشات الموبايل (أقل من 768px) */
+        @media (max-width: 768px) {
+            .header-club {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .header-club .menu-btn {
+                display: inline-block;
+            }
+
+            .side-menu {
+                position: fixed;
+                top:9%;
+                right: -100%;
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(90deg, #ffb854, #fc9921);
+                transition: right 0.3s ease-in-out;
+                z-index: 100;
+            }
+
+            .side-menu.show {
+                right: 0;
+            }
+        }
+
+        /* على الشاشات الكبيرة (أكبر من 768px) */
+        @media (min-width: 768px) {
+            .header-club .menu-btn {
+                display: none; /* إخفاء الزر على الشاشات الكبيرة */
+            }
+
+            .side-menu {
+                display: none; /* إخفاء القائمة الجانبية على الشاشات الكبيرة */
+            }
+
+            .header-club .nav-links {
+                display: flex;
+                justify-content: center;
+                flex: 1;
+                margin-right: 20px;
+            }
+
+            .header-club .nav-links a {
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #0306a0c7;
+                margin: 0 1rem;
+                text-decoration: none;
+            }
+
+            .header-club .nav-links a:hover {
+                color: #e8e9eb;
+                border-radius: 4px;
+            }
+        }
+
+        .side-menu a {
+            
+            color: #0306a0c7;
+            padding: 1rem;
+            display: block;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .side-menu a:hover {
+            background-color: #152a76;
+            color: #e8e9eb;
+        }
+
+        .menu-btn {
+    font-size: 1.2rem;
+    color: #f7a643;
+    background-color: #152a76;
+  
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 200;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;   /* توسيط الأيقونة عموديًا */
+    justify-content: center; /* توسيط الأيقونة أفقيًا */
+    font-weight: bold;
+}
+
+        .menu-btn:hover {
+            background-color: #1c3f97;
+            color: #ffffff;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .menu-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .pattern-overlay {
+            background-image: url('./patrens.png');
+            background-repeat: repeat;
+            background-size: 450px 450px;
+            opacity: 0.15;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+footer p {
+    color: #121d81;
+    font-size: 1.0rem;
+    text-decoration: none;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <header class="header-club shadow-lg fixed top-0">
+        <div class="flex items-center justify-between h-16 w-full">
+            <a href="#" class="flex-shrink-0">
+                <img src="./logo.png" alt="Logo">
+            </a>
+            <div class="nav-links hidden md:flex flex-1 justify-center">
+                <a href="#">الرئيسية</a>
+                <a href="#">الخدمات</a>
+                <a href="#">الأنشطة الرياضية</a>
+                <a href="#">البطولات</a>
+                <a href="#">تواصل معنا</a>
+            </div>
+            <button class="menu-btn md:hidden" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+    
+    <div class="side-menu" id="sideMenu">
+        <a href="#">الرئيسية</a>
+        <a href="#">الخدمات</a>
+        <a href="#">الأنشطة الرياضية</a>
+        <a href="#">البطولات</a>
+        <a href="#">تواصل معنا</a>
+    </div>
+    
+<div class="pattern-overlay"></div>
+  
+    
+ 
+    <footer class="footer  shadow-lg py-4 text-center font-bold fixed bottom-0 w-full">
+        <p>جميع الحقوق محفوظة نادي  الحوار للألعاب الرياضية &copy; 2024 </p>
+    </footer>
+    
+    
+    <script>
+
+        setTimeout(displayWords, 2000); // بدء الكتابة بعد تأثير الصورة
+        function toggleMenu() {
+        const sideMenu = document.getElementById('sideMenu');
+        sideMenu.classList.toggle('show');
+    }
+
+    </script>
+</body>
+</html>

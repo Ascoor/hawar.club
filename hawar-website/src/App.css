@@ -1,0 +1,532 @@
+/*-------------------------------------------------------------------------------------
+Theme Name: Kuntosala Template
+Author: Devender Kumar
+
+-------------------------------------------------------------------------------------/
+/**
+@File: Construction Solutions Theme Styles
+This file contains the styling for the actual theme, this
+is the file you need to edit to change the look of the
+theme.
+
+01. General Style
+02. header
+03. navigation
+04. home sections
+	├─ banner
+	├─ breadcrumbs
+	├─ building section
+	├─ feature section
+	├─ muscle section
+	├─ class schedule section
+	├─ trainers section
+	├─ gallery section
+	├─ counter section
+	├─ news section
+05. footer
+06. about us
+07. classes page
+08. schedule page
+09. trainers page
+10. news page
+   ├─ news detail page
+11. contact us page
+12. 404 page
+13. responsive style
+
+	/* ================================================== */
+	/* 01. General Style */
+		/* ================================================== */
+		
+		@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,800,900');
+		body {
+			font-family: 'Poppins', sans-serif;
+			font-size: 15px;
+			color: #3c3c3c;
+			direction: rtl;
+			line-height: 25px;
+			font-weight: 400;
+		}
+		figure {
+			margin: 0;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			padding: 0px;
+			margin: 0px;
+			font-family: 'Poppins', sans-serif;
+			color: #3c3c3c;
+			font-weight: bold;
+		}
+		h1 {
+			font-size: 46px;
+		}
+		h2 {
+			font-size: 36px;
+		}
+		h3 {
+			font-size: 30px;
+		}
+		h4 {
+			font-size: 26px;
+		}
+		h5 {
+			font-size: 20px;
+		}
+		h6 {
+			font-size: 14px;
+		}
+		p {
+			padding: 0px;
+			margin: 0px;
+			font-family: 'Poppins', sans-serif;
+			color: #3c3c3c;
+		}
+		ol, ul {
+			margin-bottom: 0px;
+		}
+		a {
+			text-decoration: none !important;
+			outline: none;
+			-moz-transition: all 0.3s ease 0s;
+			-o-transition: all 0.3s ease 0s;
+			-webkit-transition: all 0.3s ease 0s;
+			-ms-transition: all 0.3s ease 0s;
+			transition: all 0.3s ease 0s;
+		}
+		img {
+			max-width: 100%;
+		}
+		label {
+			font-weight: normal;
+		}
+		::-webkit-input-placeholder {
+		opacity:1;
+		}
+		:-moz-placeholder { /* Firefox 18- */
+		opacity:1;
+		}
+		::-moz-placeholder {  /* Firefox 19+ */
+		opacity:1;
+		}
+		:-ms-input-placeholder {
+		opacity:1;
+		}
+		input:focus, textarea:focus, select:focus {
+			outline: none;
+		}
+	
+		/*---Page Loader---*/
+			
+		#loading {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: 99999;
+			background: #fff;
+		}
+		#loading .element {
+			position: absolute;
+			margin: 0 auto;
+			left: 0px;
+			right: 0px;
+			top: 50%;
+		}
+		.sk-folding-cube {
+			margin: 20px auto;
+			width: 40px;
+			height: 40px;
+			position: relative;
+			-webkit-transform: rotateZ(45deg);
+			transform: rotateZ(45deg);
+		}
+		.sk-folding-cube .sk-cube {
+			float: left;
+			width: 50%;
+			height: 50%;
+			position: relative;
+			-webkit-transform: scale(1.1);
+			-ms-transform: scale(1.1);
+			transform: scale(1.1);
+		}
+		.sk-folding-cube .sk-cube:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #fb9221;
+			-webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+			animation: sk-foldCubeAngle 2.4s infinite linear both;
+			-webkit-transform-origin: 100% 100%;
+			-ms-transform-origin: 100% 100%;
+			transform-origin: 100% 100%;
+		}
+		.sk-folding-cube .sk-cube2 {
+			-webkit-transform: scale(1.1) rotateZ(90deg);
+			transform: scale(1.1) rotateZ(90deg);
+		}
+		.sk-folding-cube .sk-cube3 {
+			-webkit-transform: scale(1.1) rotateZ(180deg);
+			transform: scale(1.1) rotateZ(180deg);
+		}
+		.sk-folding-cube .sk-cube4 {
+			-webkit-transform: scale(1.1) rotateZ(270deg);
+			transform: scale(1.1) rotateZ(270deg);
+		}
+		.sk-folding-cube .sk-cube2:before {
+			-webkit-animation-delay: 0.3s;
+			animation-delay: 0.3s;
+		}
+		.sk-folding-cube .sk-cube3:before {
+			-webkit-animation-delay: 0.6s;
+			animation-delay: 0.6s;
+		}
+		.sk-folding-cube .sk-cube4:before {
+			-webkit-animation-delay: 0.9s;
+			animation-delay: 0.9s;
+		}
+	
+		@-webkit-keyframes sk-foldCubeAngle {
+			
+			0%, 10% {
+			-webkit-transform: perspective(140px) rotateX(-180deg);
+			transform: perspective(140px) rotateX(-180deg);
+			opacity: 0;
+			}
+			25%, 75% {
+			-webkit-transform: perspective(140px) rotateX(0deg);
+			transform: perspective(140px) rotateX(0deg);
+			opacity: 1;
+			}
+			90%, 100% {
+			-webkit-transform: perspective(140px) rotateY(180deg);
+			transform: perspective(140px) rotateY(180deg);
+			opacity: 0;
+			}
+		}
+	
+		@keyframes sk-foldCubeAngle {
+			
+			0%, 10% {
+			-webkit-transform: perspective(140px) rotateX(-180deg);
+			transform: perspective(140px) rotateX(-180deg);
+			opacity: 0;
+			}
+			25%, 75% {
+			-webkit-transform: perspective(140px) rotateX(0deg);
+			transform: perspective(140px) rotateX(0deg);
+			opacity: 1;
+			}
+			90%, 100% {
+			-webkit-transform: perspective(140px) rotateY(180deg);
+			transform: perspective(140px) rotateY(180deg);
+			opacity: 0;
+			}
+		}
+	
+
+	/* ================================================== */
+	/* 04. home page sections */
+	/* ================================================== */
+		/*-----------------------
+				banner
+		-----------------------*/
+		.banner-outer {
+			display: block;
+			position: relative;
+			overflow-x: hidden;
+			background: url(./assets/images/home-banner.jpg) no-repeat center top / cover;
+		}
+		.banner-shadow {
+			position: absolute;
+			;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url(./assets/images/banner-shadow.png) repeat-y left top;
+		}
+		.banner-outer .content {
+			display: table-cell;
+			vertical-align: middle;
+			padding: 245px 0 280px;
+			max-width: 650px;
+		}
+		.banner-outer .content h1 {
+			display: block;
+			font-size: 66px;
+			font-weight: 700;
+			color: #fff;
+			font-style: italic;
+			line-height: 65px;
+			-webkit-animation-delay: 0.2s;
+		}
+		.banner-outer .content h2 {
+			display: block;
+			padding-bottom: 5px;
+			font-size: 140px;
+			font-weight: 700;
+			color: #fb9221;
+			font-style: italic;
+			line-height: 155px;
+			-webkit-animation-delay: 0.2s;
+		}
+		.banner-outer .content p {
+			display: block;
+			padding-bottom: 25px;
+			font-size: 18px;
+			line-height: 25px;
+			color: #fff;
+			-webkit-animation-delay: 0.34s;
+		}
+		.banner-outer .content a.btn {
+			-webkit-animation-delay: 0.36s;
+			font-size: 20px;
+			margin-top: 20px;
+			line-height: 25px;
+			padding: 12px 15px;
+		}
+		.btn {
+			display: inline-block;
+			padding: 7px 12px;
+			border-radius: 0;
+			background: none;
+			border: 2px solid #fb9221;
+			font-size: 16px;
+			color: #fb9221;
+			-moz-transition: all 0.3s ease 0s;
+			-o-transition: all 0.3s ease 0s;
+			-webkit-transition: all 0.3s ease 0s;
+			-ms-transition: all 0.3s ease 0s;
+			transition: all 0.3s ease 0s;
+			cursor: pointer;
+		}
+		.btn:hover, .btn:focus {
+			background: #fb9221;
+			color: #fff;
+		}
+		.inner-banner .content {
+			padding: 200px 0 160px;
+			max-width: 100%;
+			width: 100%;
+			display: inline-block;
+			text-align: center;
+		}
+		.banner-outer.inner-banner .content h1 {
+			font-size: 48px;
+			font-style: normal;
+			margin: 0;
+			padding: 0;
+		}
+		.inner-banner .banner-shadow {
+			display: none
+		}
+		/*-----------------------
+					Breadcrumbs
+			-----------------------*/
+		.breadcrumbs {
+			margin: 0;
+		}
+		.breadcrumbs li {
+			display: inline-block;
+			font-size: 14px;
+			color: #fff;
+			border-left: 1px solid;
+			line-height: 18px;
+			padding-left: 10px;
+			margin-left: 10px;
+		}
+	.breadcrumbs li:first-child {
+		margin: 0;
+		padding: 0;
+		border: none
+	}
+	.breadcrumbs li a {
+		color: #fb992f
+	}
+	.breadcrumbs li a:hover {
+		opacity: .8
+	}
+	
+/* ================================================== */
+/* building Section */
+/* ================================================== */
+.building-outer {
+	padding: 50px 0;
+	background: #f89830 url(./assets/images/building_bg.png) no-repeat center top / cover;
+}
+.building-list {
+	margin-top: -150px;
+	position: relative;
+}
+.building-box {
+	text-align: center;
+	background: #fff;
+	padding: 40px 25px;
+}
+.building-box figure {
+	margin-bottom: 15px;
+}
+.building-box h4 {
+	font-size: 25px;
+	font-weight: bold
+}
+.building-box p {
+	margin: 15px 0
+}
+.building-box a.inline-flex items-center justify-center px-4 py-2 border border-transparent tracking-normal font-medium rounded-md shadow-sm {
+	margin: 5px 0;
+	font-size: 17px;
+}
+/* ================================================== */
+/* Feature Section */
+/* ================================================== */
+
+.head {
+	margin-bottom: 20px;
+}
+.head h3 {
+	font-size: 32px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.head.border {
+	border: none!important
+}
+.head.border h3 {
+	width: calc(100% - 115px);
+	position: relative;
+	overflow: hidden
+}
+.head.border span {
+	padding-right: 15px;
+	position: relative;
+	z-index: 1
+}
+.head.border h3::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	width: calc(100% - 120px);
+	background: #c8c8c8;
+	height: 1px;
+}
+.feature-box {
+	margin: 15px 0;
+	position: relative;
+	overflow: hidden;
+}
+.feature-box figure {
+	margin-bottom: 15px;
+	position: relative
+}
+.time-box {
+	position: absolute;
+	bottom: 20px;
+	z-index: 1;
+}
+.time, .date {
+	min-width: 93px;
+	background: #9b570e;
+	color: #fff;
+	font-size: 13px;
+	line-height: 30px;
+	display: inline-block;
+	text-align: center;
+	transform: skew(-35deg);
+	-webkit-transform: skew(-35deg);
+	-moz-transform: skew(-35deg);
+	-o-transform: skew(-35deg);
+}
+.time span, .date span {
+	display: block;
+	transform: skew(35deg);
+	-webkit-transform: skew(35deg);
+	-moz-transform: skew(35deg);
+	-o-transform: skew(35deg);
+}
+.date {
+	background: #fb9221;
+	margin: 0 3px 0 -12px;
+	padding: 0 10px 0px 20px;
+	min-width: 80px;
+}
+.feature-box h4 {
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 34px;
+}
+.feature-box h4 a{
+	color:#3c3c3c;
+}
+.feature-box p {
+	font-size: 16px;
+	padding: 10px 10px 0 0;
+}
+.feature-box p a {
+	color: #fb9221;
+}
+.feature-slider .owl-prev, .feature-slider .owl-next {
+	position: absolute;
+	top: -60px;
+	width: 42px;
+	height: 42px;
+	text-indent: -99999px;
+}
+.feature-slider .owl-prev {
+	background: url(./assets/images/left_arrowW.png) no-repeat center center;
+	right: 60px;
+}
+.feature-slider .owl-next {
+	background: url(./assets/images/right_arrowW.png) no-repeat center center;
+	right: 0px;
+}
+/* ================================================== */
+/* Muscle Section */
+/* ================================================== */
+.muscle-outer {
+	background: #eeeeee;
+	display: inline-block;
+	width: 100%;
+	position: relative;
+}
+.muscle-outer figure {
+	width: 45%;
+	float: left
+}
+.muscle-outer figure img {
+	width: 100%;
+}
+.muscle-para {
+	float: left;
+	padding-left: 100px;
+	width: 55%;
+}
+.muscle-para .outer {
+	max-width: 800px;
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	-moz-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-webkit-transform: translate(0, -50%);
+	padding-right: 70px;
+}
+.muscle-para h3 {
+	font-size: 35px;
+	color: #fb9221;
+}
+.muscle-para h4 {
+	font-size: 49px;
+	line-height: 60px;
+	margin: 10px 0 20px;
+	font-weight: normal;
+}
+.muscle-para a.inline-flex items-center justify-center px-4 py-2 border border-transparent tracking-normal font-medium rounded-md shadow-sm {
+	font-size: 20px;
+	line-height: 25px;
+	padding: 12px 15px;
+}

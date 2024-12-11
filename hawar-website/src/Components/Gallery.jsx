@@ -1,6 +1,5 @@
-import React from 'react';
-
-// استيراد الصور من مجلد الأصول
+// src/components/Gallery.jsx
+import React, { useState } from 'react';
 import gallery1 from '../assets/images/gallery1.png';
 import gallery2 from '../assets/images/gallery2.png';
 import gallery3 from '../assets/images/gallery3.png';
@@ -13,63 +12,71 @@ import gallery9 from '../assets/images/gallery9.png';
 import gallery10 from '../assets/images/gallery10.png';
 import gallery11 from '../assets/images/gallery11.png';
 import gallery12 from '../assets/images/gallery12.png';
+import { FaSearchPlus } from "react-icons/fa";
 
 const Gallery = () => {
-  const images = [
-    { src: gallery1, category: "yoga" },
-    { src: gallery2, category: "running" },
-    { src: gallery3, category: "gym" },
-    { src: gallery4, category: "fitness" },
-    { src: gallery5, category: "yoga" },
-    { src: gallery6, category: "gym" },
-    { src: gallery7, category: "running" },
-    { src: gallery8, category: "fitness" },
-    { src: gallery9, category: "gym" },
-    { src: gallery10, category: "running" },
-    { src: gallery11, category: "gym" },
-    { src: gallery12, category: "fitness" }
+  const [activeTab, setActiveTab] = useState('all');
+
+  const trainers = [
+    { image: gallery1, name: "صورة 1", category: "yoga" },
+    { image: gallery2, name: "صورة 2", category: "running" },
+    { image: gallery3, name: "صورة 3", category: "gym" },
+    { image: gallery4, name: "صورة 4", category: "fitness" },
+    { image: gallery5, name: "صورة 5", category: "yoga" },
+    { image: gallery6, name: "صورة 6", category: "gym" },
+    { image: gallery7, name: "صورة 7", category: "running" },
+    { image: gallery8, name: "صورة 8", category: "fitness" },
+    { image: gallery9, name: "صورة 9", category: "gym" },
+    { image: gallery10, name: "صورة 10", category: "running" },
+    { image: gallery11, name: "صورة 11", category: "gym" },
+    { image: gallery12, name: "صورة 12", category: "fitness" },
   ];
 
+  const categories = [
+    { name: 'الكل', filter: 'all' },
+    { name: 'يوغا', filter: 'yoga' },
+    { name: 'جري', filter: 'running' },
+    { name: 'نادي رياضي', filter: 'gym' },
+    { name: 'لياقة', filter: 'fitness' },
+  ];
+
+  const filteredTrainers = activeTab === 'all' ? trainers : trainers.filter(trainer => trainer.category === activeTab);
+
   return (
-    <div className="gallery-outer py-12 bg-gray-100">
-      <div className="container mx-auto">
-        <div className="head mb-8 text-center">
-          <h3 className="text-3xl font-semibold">Our Gallery</h3>
+    <div className="gallery-outer py-20 bg-fixed bg-center bg-cover" style={{ backgroundImage: "url('/assets/images/trainers_bg.png')" }} >
+      <div className="container mx-auto px-4">
+        {/* العنوان */}
+        <div className="head border-b border-gray-300 mb-8 text-center">
+          <h3 className="text-3xl font-semibold text-white">معرضنا</h3>
         </div>
-        <ul className="tabs flex justify-center mb-6 space-x-4">
-          <li className="active cursor-pointer">
-            <span data-filter="*">All</span>
-          </li>
-          <li className="cursor-pointer">
-            <span data-filter=".yoga">Yoga</span>
-          </li>
-          <li className="cursor-pointer">
-            <span data-filter=".running">Running</span>
-          </li>
-          <li className="cursor-pointer">
-            <span data-filter=".gym">Gym</span>
-          </li>
-          <li className="cursor-pointer">
-            <span data-filter=".fitness">Fitness</span>
-          </li>
-        </ul>
-        <div className="gallery-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {images.map((image, index) => (
-            <div key={index} className={`element-item ${image.category}`}>
-              <div className="gallery-box relative group">
-                <figure>
-                  <img
-                    src={image.src}
-                    alt={`Gallery ${index + 1}`}
-                    className="w-full h-auto object-cover rounded-lg"
-                  />
-                  <a href={image.src} className="gallery-overlay absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100">
-                    <i className="fa fa-search-plus text-white text-2xl"></i>
-                  </a>
-                </figure>
-              </div>
-            </div>
+        {/* تبويبات الفئات */}
+        <ul className="tabs flex justify-center mb-8 space-x-4">
+          {categories.map((category, index) => (
+            <li
+              key={index}
+              className={`cursor-pointer px-4 py-2 rounded ${
+                activeTab === category.filter ? 'bg-orange-500 text-white' : 'bg-gray-500 text-white hover:bg-orange-500'
+              } transition duration-300`}
+              onClick={() => setActiveTab(category.filter)}
+            >
+              {category.name}
+            </li>
           ))}
+        </ul>
+        {/* قائمة المعرض */}
+        <div className="gallery-list">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredTrainers.map((trainer, index) => (
+              <div key={index} className={`element-item ${trainer.category}`}>
+                <div className="gallery-box relative overflow-hidden rounded-lg shadow-lg">
+                  <img src={trainer.image} alt={trainer.name} className="w-full h-64 object-cover transition-transform duration-300 transform hover:scale-110" />
+                  <a href={trainer.image} className="gallery-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <FaSearchPlus className="h-10 w-10 text-white" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

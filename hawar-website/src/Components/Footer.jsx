@@ -1,13 +1,36 @@
+// src/components/Footer.jsx
 import React, { useState, useEffect } from 'react';
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from 'react-icons/fa';
-import { FaPhone, FaEnvelope } from 'react-icons/fa';
-import footerBg from '../assets/images/footer_bg.png'; // Import footer background image
+
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhone,
+  FaArrowUp,
+} from 'react-icons/fa';
+import footerBg from '../assets/images/building_bg_blue.png'; // استيراد صورة الخلفية
+import Flickr1 from '../assets/images/flic1.png';
+import Flickr1B from '../assets/images/flic1B.png';
+import Flickr2 from '../assets/images/flic2.png';
+import Flickr2B from '../assets/images/flic2B.png';
+import Flickr3 from '../assets/images/flic3.png';
+import Flickr3B from '../assets/images/flic3B.png';
+import Flickr4 from '../assets/images/flic4.png';
+import Flickr4B from '../assets/images/flic4B.png';
+import Flickr5 from '../assets/images/flic5.png';
+import Flickr5B from '../assets/images/flic5B.png';
+import Flickr6 from '../assets/images/flic6.png';
+import Flickr6B from '../assets/images/flic6B.png';
 
 const Footer = () => {
-  // Scroll to top button visibility state
+  // حالة ظهور زر الرجوع للأعلى
   const [visible, setVisible] = useState(false);
 
-  // Show the button when scrolled down
+  // وظيفة لتحديد ظهور الزر بناءً على التمرير
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setVisible(true);
@@ -16,6 +39,7 @@ const Footer = () => {
     }
   };
 
+  // وظيفة للتمرير إلى الأعلى
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -23,127 +47,172 @@ const Footer = () => {
     });
   };
 
-  // Add scroll event listener
+  // إضافة مستمع حدث التمرير
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
+  // قائمة صور Flickr مع الصور الصغيرة والكبيرة
+  const flickrPhotos = [
+    { img: Flickr1, imgB: Flickr1B, alt: 'صورة 1' },
+    { img: Flickr2, imgB: Flickr2B, alt: 'صورة 2' },
+    { img: Flickr3, imgB: Flickr3B, alt: 'صورة 3' },
+    { img: Flickr4, imgB: Flickr4B, alt: 'صورة 4' },
+    { img: Flickr5, imgB: Flickr5B, alt: 'صورة 5' },
+    { img: Flickr6, imgB: Flickr6B, alt: 'صورة 6' },
+  ];
+
   return (
-    <footer className="footer bg-cover bg-center" style={{ backgroundImage: `url(${footerBg})` }}>
-      {/* Start Footer top */}
-      <div className="footer-top py-16">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* About Section */}
-            <div className="contact-us text-white">
-              <h3 className="text-xl font-bold mb-4 text-orange-500">About</h3>
-              <p className="text-sm mb-4">
-                Lorem ipsum dolor sit amet, ei ubique fastidii vim. Elitr feugait complectitur eu pro, sea audire ponderum
-                eleifend cu.
-              </p>
-              <p className="text-sm mb-2 flex items-center">
-                <FaPhone className="mr-2 text-lg" />
-                +880-123-456-7890
-              </p>
-              <p className="text-sm mb-4 flex items-center">
-                <FaEnvelope className="mr-2 text-lg" />
-                <a href="mailto:fitnessgym@gmail.com" className="hover:text-orange-500">fitnessgym@gmail.com</a>
-              </p>
-            </div>
-
-            {/* Newsletter Section */}
-            <div className="newletter text-white">
-              <h3 className="text-xl font-bold mb-4 text-orange-500">NEWSLETTER</h3>
-              <p className="text-sm mb-4">Sign up for our mailing list to get the latest updates and offers.</p>
-              <div className="flex items-center mb-4">
-                <input
-                  type="text"
-                  placeholder="Enter Your Email"
-                  className="bg-transparent border-2 border-gray-300 text-white px-4 py-2 rounded-md"
-                />
-                <button className="ml-4 bg-orange-500 text-white px-4 py-2 rounded-md">
-                  <span className="fa fa-long-arrow-right"></span>
-                </button>
+    <>
+      <footer
+        className="footer bg-cover bg-center bg-fixed text-white"
+        style={{ backgroundImage: `url(${footerBg})` }}
+   
+      >
+        {/* بداية الجزء العلوي من الفوتر */}
+        <div className="footer-top py-16">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* القسم الأول: حول */}
+              <div className="contact-us">
+                <h3 className="text-xl font-bold mb-4 text-hawar-orange">حول</h3>
+                <p className="text-sm mb-4">
+                  نادى الحوار للألعاب الرياضية يسعى دائماً إلى تقديم أفضل الخدمات الرياضية لعملائنا، معتمدين على أحدث المعدات وأفضل المدربين.
+                </p>
+                <p className="text-sm mb-2 flex items-center">
+                  <FaMapMarkerAlt className="mr-2 text-lg" />
+                  23 شارع التصميم الجديد، ملبورن
+                </p>
+                <p className="text-sm mb-2 flex items-center">
+                  <FaEnvelope className="mr-2 text-lg" />
+                  <a href="mailto:fitnessgym@gmail.com" className="hover:text-hawar-orange transition-colors duration-300">
+                    fitnessgym@gmail.com
+                  </a>
+                </p>
+                <p className="text-sm flex items-center">
+                  <FaPhone className="mr-2 text-lg" />
+                  +880-123-456-7890
+                </p>
               </div>
-              <ul className="follow-us flex space-x-4">
-                <li>
-                  <a href="#" className="text-white text-xl hover:text-orange-500">
-                    <FaFacebook />
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white text-xl hover:text-orange-500">
-                    <FaTwitter />
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white text-xl hover:text-orange-500">
-                    <FaLinkedin />
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white text-xl hover:text-orange-500">
-                    <FaInstagram />
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white text-xl hover:text-orange-500">
-                    <FaYoutube />
-                  </a>
-                </li>
-              </ul>
-            </div>
 
-            {/* Flickr Photos Section */}
-            <div className="flickr-photos text-white">
-              <h3 className="text-xl font-bold mb-4 text-orange-500">Flickr Photos</h3>
-              <ul className="flex space-x-4">
-                <li>
-                  <a href="images/flic1B.png">
-                    <img src="images/flic1.png" alt="Flickr 1" className="w-24 h-24 rounded-lg" />
-                  </a>
-                </li>
-                <li>
-                  <a href="images/flic2B.png">
-                    <img src="images/flic2.png" alt="Flickr 2" className="w-24 h-24 rounded-lg" />
-                  </a>
-                </li>
-                <li>
-                  <a href="images/flic3B.png">
-                    <img src="images/flic3.png" alt="Flickr 3" className="w-24 h-24 rounded-lg" />
-                  </a>
-                </li>
-                {/* Add more images as necessary */}
-              </ul>
+
+              {/* القسم الثاني: النشرة الإخبارية */}
+              <div className="newletter">
+                <h3 className="text-xl font-bold mb-4 text-hawar-orange">النشرة الإخبارية</h3>
+                <p className="text-sm mb-4">اشترك في قائمتنا البريدية للحصول على أحدث التحديثات والعروض.</p>
+                <div className="flex items-center mb-4">
+                  <input
+                    type="email"
+                    placeholder="أدخل بريدك الإلكتروني"
+                    className="bg-transparent border-2 border-gray-300 text-white px-4 py-2 rounded-l-md focus:outline-none"
+                  />
+                  <button className="ml-4 bg-hawar-orange text-white px-4 py-2 rounded-r-md hover:bg-orange-600 transition-colors duration-300">
+                    <span className="sr-only">اشتراك</span>
+                    {/* أيقونة السهم */}
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </button>
+                </div>
+                {/* روابط التواصل الاجتماعي */}
+                <ul className="follow-us flex space-x-4">
+                  <li>
+                    <a
+                      href="#"
+                      aria-label="Facebook"
+                      className="flex items-center justify-center ml-4 w-10 h-10 bg-gray-700 rounded-full shadow-md hover:bg-hawar-orange transition-all duration-300"
+                    >
+                      <FaFacebook className="text-white hover:text-gray-100" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      aria-label="Twitter"
+                      className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full shadow-md hover:bg-hawar-orange transition-all duration-300"
+                    >
+                      <FaTwitter className="text-white hover:text-gray-100" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      aria-label="LinkedIn"
+                      className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full shadow-md hover:bg-hawar-orange transition-all duration-300"
+                    >
+                      <FaLinkedinIn className="text-white hover:text-gray-100" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      aria-label="Instagram"
+                      className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full shadow-md hover:bg-hawar-orange transition-all duration-300"
+                    >
+                      <FaInstagram className="text-white hover:text-gray-100" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      aria-label="YouTube"
+                      className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full shadow-md hover:bg-hawar-blue-dark transition-all duration-300"
+                    >
+                      <FaYoutube className="text-white hover:text-gray-100" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* القسم الثالث: صور Flickr */}
+              <div className="flickr-photos">
+                <h3 className="text-xl font-bold mb-4 text-hawar-orange">أبطالنا</h3>
+             
+                <ul className="flicker-box clearfix">
+                  {flickrPhotos.map((photo, index) => (
+                    <li key={index} className="relative overflow-hidden rounded-md">
+                      <a href={photo.imgB} target="_blank" rel="noopener noreferrer">
+                        <img
+                          src={photo.img}
+                          alt={photo.alt}
+                          className="w-full h-24 sm:h-32 object-cover transform transition-transform duration-300 hover:scale-110"
+                          loading="lazy"
+                        />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      {/* End Footer top */}
+        {/* نهاية الجزء العلوي من الفوتر */}
 
-      {/* Copy Rights */}
-      <div className="copy-rights-section bg-gray-800 text-center py-4">
-        <div className="container mx-auto">
-          <p className="text-white text-sm">
-            <a href="https://www.templateshub.net" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500">
-              Templates Hub
-            </a>
-          </p>
+        {/* قسم حقوق النشر */}
+        <div className="copy-rights-section bg-hawar-blue-darker text-center py-4">
+          <div className="container mx-auto">
+            <p className="text-white text-sm">
+              <a href="https://www.templateshub.net" target="_blank" rel="noopener noreferrer" className="text-hawar-orange transition-colors duration-300">
+          جميع الحقوق محفوظة نادي الحوار للألعاب الرياضية 2024
+              </a>
+            </p>
+          </div>
         </div>
-      </div>
-      {/* End Copy Rights */}
+        {/* نهاية قسم حقوق النشر */}
 
-      {/* Scroll to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className={`fixed bottom-8 left-8 bg-orange-500 text-white rounded-full p-4 transition-all ${
-          visible ? 'block' : 'hidden'
-        }`}
-      >
-        ↑
-      </button>
-    </footer>
+        {/* زر الرجوع للأعلى */}
+        <button
+            onClick={scrollToTop}
+            className={`fixed bottom-8 right-8 bg-hawar-orange text-white rounded-full p-4 shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange transition-all duration-300 ${
+              visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            } animate-pulse`}
+            aria-label="الرجوع للأعلى"
+          >
+            <FaArrowUp className="h-5 w-5" />
+          </button>
+      </footer>
+    </>
   );
 };
 

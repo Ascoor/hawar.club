@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawar Sporting Club | نادي الحوار للألعاب الرياضية</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Amiri&family=Yellowtail&display=swap" rel="stylesheet">
+    <style>
+    body {
+            background: linear-gradient(135deg, #0a1931, #0d254d, #142b52, #0a1931);
+            background-size: 100% 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #ffffff;
+            text-align: center;
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        .section-background {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #2196F3, #21CBF3);
+        }
+
+        /* تأثير الأمواج المتحركة */
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.4), rgba(0, 123, 255, 0.7));
+            animation: waveEffect 10s infinite linear;
+            opacity: 0.7;
+            top: 0;
+            left: -50%;
+            z-index: 1;
+        }
+
+        .wave:nth-child(2) {
+            animation-duration: 15s;
+            opacity: 0.5;
+        }
+
+        @keyframes waveEffect {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* تأثيرات الأبطال الديناميكية */
+        .athletes {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .athletes .athlete {
+            opacity: 0;
+            animation: fadeInOut 15s infinite;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .athletes .athlete:nth-child(1) { animation-delay: 0s; }
+        .athletes .athlete:nth-child(2) { animation-delay: 3s; }
+        .athletes .athlete:nth-child(3) { animation-delay: 6s; }
+        .athletes .athlete:nth-child(4) { animation-delay: 9s; }
+        .athletes .athlete:nth-child(5) { animation-delay: 12s; }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            20%, 80% { opacity: 1; }
+        }
+
+        /* تخصيص الصور */
+        .athletes .athlete img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 10px;
+            object-fit: cover;
+        }
+
+        /* تأثيرات أخرى للأشكال الهندسية */
+        .circle-effect, .line-effect {
+            position: absolute;
+            z-index: 0;
+        }
+
+        .circle-effect {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255, 165, 0, 0.3);
+            animation: circleEffect 4s infinite;
+            top: 10%;
+            left: 10%;
+        }
+
+        .line-effect {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 165, 0, 0.4);
+            animation: lineEffect 6s infinite;
+            top: 50%;
+            left: 0;
+        }
+
+        @keyframes circleEffect {
+            0% { transform: scale(0); opacity: 0.5; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0.5; }
+        }
+
+        @keyframes lineEffect {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+    </style>    
+</head>
+
+<body>
+
+
+    <div class="pattern-overlay"></div>
+    <header class="header-club shadow-lg fixed top-0 left-0 right-0 z-10 bg-white">
+        <div class="flex items-center justify-between h-16 w-full px-4">
+            <a href="#" class="flex-shrink-0">
+                <img src="./logo.png" alt="Logo" class="h-10">
+            </a>
+            <div class="nav-links hidden md:flex flex-1 justify-center space-x-8">
+                <a href="#">الرئيسية</a>
+                <a href="#">الخدمات</a>
+                <a href="#">الأنشطة الرياضية</a>
+                <a href="#">البطولات</a>
+                <a href="#">تواصل معنا</a>
+            </div>
+            <button class="menu-btn md:hidden" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+    <div class="side-menu" id="sideMenu">
+        <a href="#">الرئيسية</a>
+        <a href="#">الخدمات</a>
+        <a href="#">الأنشطة الرياضية</a>
+        <a href="#">البطولات</a>
+        <a href="#">تواصل معنا</a>
+    </div>
+
+    <section class="section-background">
+        <!-- تأثير الأمواج -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+
+        <!-- أشكال هندسية -->
+        <div class="circle-effect"></div>
+        <div class="line-effect"></div>
+
+        <!-- قسم الأبطال -->
+        <div class="athletes">
+            <div class="athlete">
+                <img src="./heros/hero-1.jpg" alt="Athlete 1">
+                <div class="name">أحمد</div>
+            </div>
+            <div class="athlete">
+                <img src="./heros/hero-2.png" alt="Athlete 2">
+                <div class="name">محمد</div>
+            </div>
+            <div class="athlete">
+                <img src="./heros/hero-3.png" alt="Athlete 3">
+                <div class="name">سارة</div>
+            </div>
+            <div class="athlete">
+                <img src="./heros/hero-4.png" alt="Athlete 4">
+                <div class="name">فاطمة</div>
+            </div>
+            <div class="athlete">
+                <img src="./heros/hero-5.png" alt="Athlete 5">
+                <div class="name">حسام</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer shadow-lg py-4 text-center font-bold fixed bottom-0 w-full bg-white">
+        <p>جميع الحقوق محفوظة نادي الحوار للألعاب الرياضية &copy; 2024 </p>
+    </footer>
+
+
+</body>
+
+</html>

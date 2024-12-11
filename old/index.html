@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نادي الحوار للألعاب الرياضية</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;700&display=swap" rel="stylesheet">
+    <link href="./assets/style.css" rel="stylesheet">
+
+    <!-- إضافة مكتبة Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header-club shadow-lg fixed top-0 w-full z-10">
+        <div class="flex items-center justify-between h-16 w-full">
+            <a href="#" class="flex-shrink-0">
+                <img src="./logo.png" alt="Logo">
+            </a>
+            <div class="nav-links hidden md:flex flex-1 justify-center">
+                <a href="#">الرئيسية</a>
+                <a href="#">الخدمات</a>
+                <a href="#">الأنشطة الرياضية</a>
+                <a href="#">البطولات</a>
+                <a href="#">تواصل معنا</a>
+            </div>
+            <button class="menu-btn md:hidden" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <div class="side-menu" id="sideMenu">
+        <!-- زر غلق القائمة -->
+        <button class="close-btn" onclick="closeMenu()">
+            <i class="fas fa-times"></i> <!-- Close icon -->
+        </button>
+        
+    <div class="justify-center mt-6">
+
+        <a href="#">الرئيسية</a>
+        <a href="#">الخدمات</a>
+        <a href="#">الأنشطة الرياضية</a>
+        <a href="#">البطولات</a>
+        <a href="#">تواصل معنا</a>
+    </div>
+    </div>
+
+    <div class="pattern-overlay"></div>
+
+    <div class="coming-soon text-center">
+        <div class="button-group">
+            <a href="https://mail.hawar.club/snappymail/" class="button">
+                <span class="btn-text">البريد</span>
+                <span class="btn-icon"><i class="fas fa-envelope"></i></span>
+            </a>
+            <a href="https://h-app.hawar.club/login" class="button">
+                <span class="btn-text">التطبيق</span>
+                <span class="btn-icon"><i class="fas fa-mobile-alt"></i></span>
+            </a>
+        </div>
+    </div>
+    
+    <footer class="footer shadow-lg py-4 text-center font-bold fixed bottom-0 w-full">
+        <p>جميع الحقوق محفوظة نادي الحوار للألعاب الرياضية &copy; 2024 </p>
+    </footer>
+
+    <script src="./assets/script.js"></script>
+</body>
+</html>

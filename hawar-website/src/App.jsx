@@ -18,16 +18,29 @@ import VipEvents from './Components/VipEvents.jsx';
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingComplete, setLoadingComplete] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    // Initialize AOS
     AOS.init({
       duration: 1000,
     });
+
+    // Detect if the device is desktop
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024); // اعتبار الشاشة "سطح مكتب" إذا كان العرض 1024 بكسل أو أكثر
+    };
+
+    handleResize(); // Detect on first load
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   useEffect(() => {
     const handleLoad = () => {
-      console.log('تم إطلاق حدث التحميل');
       setIsLoading(false);
     };
 
@@ -39,7 +52,7 @@ const App = () => {
   }, []);
 
   const loadComponents = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000)); // تأخير إضافي لمحاكاة التحميل
     setLoadingComplete(true);
   };
 
@@ -52,19 +65,32 @@ const App = () => {
   return (
     <>
       {isLoading || !loadingComplete ? (
-        <Preloader />
+        <>
+          <Preloader />
+          {isDesktop && (
+            <>
+              {/* عرض محتوى الموقع مع مكون التحميل على سطح المكتب */}
+              <Header />
+              <Banner />
+              <BuildingOuter />
+              <VipEvents />
+              <MuscleSection />
+              <Trainers />
+              <CounterSection />
+              <Footer />
+            </>
+          )}
+        </>
       ) : (
         <>
+          {/* عرض الموقع بشكل طبيعي بعد اكتمال التحميل */}
           <Header />
           <Banner />
           <BuildingOuter />
           <VipEvents />
           <MuscleSection />
-
           <Trainers />
-
           <CounterSection />
-
           <Footer />
         </>
       )}

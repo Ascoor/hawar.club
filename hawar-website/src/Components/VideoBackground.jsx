@@ -39,7 +39,7 @@ const VideoBackground = forwardRef(
           muted
           loop={false}
           playsInline
-          className="absolute inset-0 w-full h-full object-cover xs:object-fill  h-auto"
+          className="absolute inset-0 w-full h-full object-fill"
         >
           <source src={VideoBanner} type="video/mp4" />
           Your browser does not support the video tag.

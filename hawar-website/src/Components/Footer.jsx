@@ -12,7 +12,7 @@ import {
   FaPhone,
   FaArrowUp,
 } from 'react-icons/fa';
-import footerBg from '../assets/images/building_bg_blue.png'; // استيراد صورة الخلفية
+import footerBg from '../assets/heros/slide.png'; // استيراد صورة الخلفية
 import Flickr1 from '../assets/images/flic1.png';
 import Flickr1B from '../assets/images/flic1B.png';
 import Flickr2 from '../assets/images/flic2.png';
@@ -65,11 +65,15 @@ const Footer = () => {
 
   return (
     <>
-      <footer
-        className="footer bg-cover bg-center bg-fixed text-white"
-        style={{ backgroundImage: `url(${footerBg})` }}
-   
-      >
+   <footer
+  className="footer bg-center  text-white"
+  style={{
+    backgroundImage: `url(${footerBg})`,
+    backgroundBlendMode: 'overlay', // Options: overlay, multiply, screen, etc.
+
+    backgroundSize: 'cover', // Ensure the image covers the footer completely
+  }}
+>
         {/* بداية الجزء العلوي من الفوتر */}
         <div className="footer-top py-16">
           <div className="container mx-auto px-4">
@@ -186,18 +190,18 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
         {/* نهاية الجزء العلوي من الفوتر */}
-
-        {/* قسم حقوق النشر */}
-        <div className="copy-rights-section bg-hawar-blue-darker text-center py-4">
-          <div className="container mx-auto">
+        <div className="container mx-auto text-center font-bold">
             <p className="text-white text-sm">
               <a href="https://www.templateshub.net" target="_blank" rel="noopener noreferrer" className="text-hawar-orange transition-colors duration-300">
           جميع الحقوق محفوظة نادي الحوار للألعاب الرياضية 2024
               </a>
             </p>
           </div>
+        </div>
+        {/* قسم حقوق النشر */}
+        <div className="copy-rights-section text-center py-4">
+   
         </div>
         {/* نهاية قسم حقوق النشر */}
 

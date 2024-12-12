@@ -381,10 +381,7 @@ input:focus, textarea:focus, select:focus {
 /* ================================================== */
 /* 05. footer */
 /* ================================================== */
-.footer {
-	display: block;
-	background: #161616 url(./assets/images/footer_bg.png) no-repeat center top / cover;
-}
+
 .footer-top {
 	padding-top: 70px;
 	padding-bottom: 55px;
@@ -583,24 +580,6 @@ a.scroll-top:hover {
 	font-size: 25px;
 	vertical-align: middle;
 	margin-right: 5px;
-}
-/* ================================================== */
-/* 08. Schedule Page */
-/* ================================================== */
-.schedule-banner {
-	background: url(./assets/images/schedule-banner.png) no-repeat center top / cover;
-}
-/* ================================================== */
-/* 09. Trainers Page */
-/* ================================================== */
-.trainers-banner {
-	background: url(./assets/images/trainers-banner.png) no-repeat center top / cover;
-}
-.bgNone {
-	background: none!important
-}
-.trainers-outer.bgNone.trainers-page{
-	padding:55px 0 55px 0;
 }
 /* ================================================== */
 /* 10. News Page */

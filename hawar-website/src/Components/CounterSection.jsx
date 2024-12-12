@@ -2,6 +2,7 @@
 import React from 'react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
+import CounterBg from '../assets/images/counter_bg.png';
 
 // استيراد الصور من مجلد الأصول
 import counter1 from '../assets/images/counter1.png';
@@ -19,8 +20,8 @@ const Counter = () => {
 
   return (
     <div
-      className="counter-outer py-12 bg-hawar-orange bg-center bg-cover bg-fixed text-center"
-      style={{ backgroundImage: 'url(./images/counter_bg.png)' }}
+      className="counter-outer py-12 bg-hawar-orange bg-center bg-full bg-fixed text-center"
+      style={{ backgroundImage: `url(${CounterBg})` }} // تعيين الخلفية بشكل صحيح
     >
       <div className="container mx-auto px-4">
         {/* قائمة العدادات */}

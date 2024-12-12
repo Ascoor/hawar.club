@@ -16,6 +16,12 @@ module.exports = {
           DEFAULT: '#fb9221',
           dark: '#fb7921',
         },
+        'hawar-terq': {
+          DEFAULT: '#2FA8A1',
+          light: '#A3DDDF',
+          dark: '#1A7A75',
+          darker: '#F2F2ED',
+        },
       },
       spacing: {
         '70px': '70px',

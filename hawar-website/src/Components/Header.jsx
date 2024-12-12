@@ -51,11 +51,10 @@ const Header = () => {
 
   return (
     <header
-  
-      className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
-        showHeader ? 'translate-y-0' : '-translate-y-full'
-      } ${scrolled ? 'bg-white text-dark shadow-md' : 'bg-transparent text-white'}`}
-    >
+    className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
+      showHeader ? 'translate-y-0' : '-translate-y-full'
+    } ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'} `}
+  >
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* الشعار */}
         <a href="/" className="flex items-center">
@@ -78,7 +77,7 @@ const Header = () => {
               <a
                 href="/"
                 className={`${
-                  scrolled ? 'text-blue-800 hover:border-b-2  hover:border-orange-500' : 'text-white hover:text-orange-500'
+                  scrolled ? 'text-hawar-blue-dark hover:border-b-2  hover:border-orange-500' : 'text-white hover:text-orange-500'
                 } text-xl font-semibold  ml-4 tracking-wide`}
               >
                 الرئيسية

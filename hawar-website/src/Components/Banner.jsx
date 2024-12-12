@@ -49,7 +49,7 @@ const Banner = () => {
   const [showButtons, setShowButtons] = useState(false);
 
   const VIDEO_DURATION = 58;
-  const SLOGAN_DURATION = 4700;
+  const SLOGAN_DURATION = 4600;
 
   // شعارات مع معرفات فريدة
   const slogans = [

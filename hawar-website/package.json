@@ -9,9 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
- 
-    "clean-deploy": "find /home/hawar.club/public_html -mindepth 1 \\( -not -name 'hawar-website' -not -name '.git' \\) -exec rm -rf {} + && cp -r dist/* /home/hawar.club/public_html"
- 
+    "clean-deploy": "find /home/hawar.club/public_html -mindepth 1 \\( -name 'old' -o -name 'hawar-website' -o -name '.git' -o -name '.gitignore' \\) -prune -o -exec rm -rf {} + && cp -r dist/* /home/hawar.club/public_html"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

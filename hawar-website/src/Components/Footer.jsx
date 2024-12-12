@@ -59,7 +59,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="footer bg-center  text-white"
+      className="footer bg-top  text-white"
       style={{
         backgroundImage: `url(${footerBg})`,
         backgroundBlendMode: 'overlay',
@@ -67,7 +67,7 @@ const Footer = () => {
       }}
     >
       <div className="footer-top py-16">
-        <div className="container mx-auto px-4">
+        <div className="container   mt-32  xs:mt-64 mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="contact-us">
               <h3 className="text-xl font-bold mb-4 text-hawar-orange">حول</h3>
@@ -203,7 +203,11 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="container mx-auto text-center font-bold mt-8 xs:mb-80">
+
+
+        </div>
+              <div className="copy-rights-section text-center ">
+          <div className="container mx-auto text-center font-bold ">
             <p className="text-white text-sm">
               <a
                 href="https://www.templateshub.net"
@@ -217,11 +221,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="copy-rights-section text-center mt-8 pb-16"></div>
-
         <button
           onClick={scrollToTop}
-          className={`fixed bottom-8 right-8 bg-hawar-orange text-white rounded-full p-4 shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange transition-all duration-300 ${
+          className={`fixed bottom-8 xs:mb-12 right-8 bg-hawar-orange text-white rounded-full p-4 shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange transition-all duration-300 ${
             visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
           } animate-pulse`}
           aria-label="الرجوع للأعلى"

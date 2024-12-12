@@ -177,32 +177,31 @@ const Banner = () => {
             </div>
           )}
 
-          {showButtons && (
-            <div className="absolute bottom-8 left-0 right-0 z-10 flex justify-center gap-4">
-              <a
-                href="/activities"
-                className="btn inline-block py-2 px-4 sm:py-3 sm:px-6 bg-orange-500 text-white rounded border-2 border-orange-500 hover:bg-white hover:text-orange-500 transition-all"
-                style={{
-                  fontSize: 'clamp(0.875rem, 1.25vw, 1.125rem)',
-                  padding:
-                    'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem)',
-                }}
-              >
-                استكشف أنشطتنا
-              </a>
-              <a
-                href="/contact-us"
-                className="btn inline-block py-2 px-4 sm:py-3 sm:px-6 bg-white text-orange-500 rounded border-2 border-orange-500 hover:bg-orange-500 hover:text-white transition-all"
-                style={{
-                  fontSize: 'clamp(0.875rem, 1.25vw, 1.125rem)',
-                  padding:
-                    'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem)',
-                }}
-              >
-                انضم إلينا الآن
-              </a>
-            </div>
-          )}
+{showButtons && (
+  <div className="absolute top-[60%] left-0 right-0 z-10 flex justify-center gap-4">
+    <a
+      href="/activities"
+      className="btn inline-block py-2 px-4 sm:py-3 sm:px-6 bg-orange-500 text-white rounded border-2 border-orange-500 hover:bg-white hover:text-orange-500 transition-all"
+      style={{
+        fontSize: 'clamp(0.875rem, 1.25vw, 1.125rem)',
+        padding: 'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem)',
+      }}
+    >
+      استكشف أنشطتنا
+    </a>
+    <a
+      href="/contact-us"
+      className="btn inline-block py-2 px-4 sm:py-3 sm:px-6 bg-white text-orange-500 rounded border-2 border-orange-500 hover:bg-orange-500 hover:text-white transition-all"
+      style={{
+        fontSize: 'clamp(0.875rem, 1.25vw, 1.125rem)',
+        padding: 'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem)',
+      }}
+    >
+      انضم إلينا الآن
+    </a>
+  </div>
+)}
+
         </div>
       )}
     </div>

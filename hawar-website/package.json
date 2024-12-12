@@ -10,7 +10,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "clean-deploy": "find /home/hawar.club/public_html -mindepth 1 \\( -not -name 'hawar-website' -not -name '.git' -not -name 'old' \\) -exec rm -rf {} + && cp -r dist/* /home/hawar.club/public_html"
+ "clean-deploy": "find /home/hawar.club/public_html -mindepth 1 \\( -not -name 'hawar-website' -not -path '/home/hawar.club/public_html/hawar-website/*' -not -name '.git' -not -name 'old' -not -path '/home/hawar.club/public_html/old/*' \\) -exec rm -rf {} + && cp -r dist/* /home/hawar.club/public_html"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.3.1",

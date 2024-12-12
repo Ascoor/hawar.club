@@ -20,7 +20,7 @@ const Counter = () => {
   return (
     <div
       className="counter-outer py-12 bg-hawar-orange bg-center bg-cover bg-fixed text-center"
-      style={{ backgroundImage: 'url(../images/counter_bg.png)' }}
+      style={{ backgroundImage: 'url(./images/counter_bg.png)' }}
     >
       <div className="container mx-auto px-4">
         {/* قائمة العدادات */}

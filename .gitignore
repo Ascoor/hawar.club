@@ -1,1 +1,7 @@
-public_html
+assets
+index.html
+logo192.png
+logo512.png
+manifest.json
+robots.txt
+favicon.ico

@@ -59,7 +59,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="footer bg-center text-white"
+      className="footer bg-center  text-white"
       style={{
         backgroundImage: `url(${footerBg})`,
         backgroundBlendMode: 'overlay',
@@ -203,7 +203,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="container mx-auto text-center font-bold mt-8">
+          <div className="container mx-auto text-center font-bold mt-8 xs:mb-80">
             <p className="text-white text-sm">
               <a
                 href="https://www.templateshub.net"

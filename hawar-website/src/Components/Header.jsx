@@ -51,20 +51,16 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
         showHeader ? 'translate-y-0' : '-translate-y-full'
-      } ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'} `}
+      } ${scrolled ? 'bg-hawar-blue-dark border-b-2 border-hawar-orange hover:border-b-hawar-orange transition-all duration-300' : 'bg-transparent'} `}
     >
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <a href="/" className="flex items-center">
           <img
-            className={`w-16 transition-all ${scrolled ? 'hidden' : 'block'}`}
+            className={`w-16 transition-all `}
             src={Logo1}
             alt="شعار النادي الرياضي"
           />
-          <img
-            className={`w-16 transition-all ${scrolled ? 'block' : 'hidden'}`}
-            src={LogoFix}
-            alt="شعار النادي الرياضي"
-          />
+   
         </a>
 
         <nav className="hidden lg:flex flex-1 justify-center">
@@ -74,9 +70,9 @@ const Header = () => {
                 href="/"
                 className={`${
                   scrolled
-                    ? 'text-hawar-blue-dark hover:border-b-2  hover:border-orange-500'
-                    : 'text-white hover:text-orange-500'
-                } text-xl font-semibold  ml-4 tracking-wide`}
+                    ? 'text-blue-300 ml-4 hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    : 'text-white  ml-4 hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
+                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
                 الرئيسية
               </a>
@@ -86,9 +82,9 @@ const Header = () => {
                 href="/about-us"
                 className={`${
                   scrolled
-                    ? 'text-blue-800 hover:border-b-2 hover:border-orange-500'
-                    : 'text-white hover:text-orange-500'
-                } text-xl font-semibold tracking-wide`}
+                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
+                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
                 عن النادي
               </a>
@@ -98,9 +94,9 @@ const Header = () => {
                 href="/classes"
                 className={`${
                   scrolled
-                    ? 'text-blue-800 hover:border-b-2 hover:border-orange-500'
-                    : 'text-white hover:text-orange-500'
-                } text-xl font-semibold tracking-wide`}
+                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
+                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
                 الدروس
               </a>
@@ -110,9 +106,9 @@ const Header = () => {
                 href="/schedule"
                 className={`${
                   scrolled
-                    ? 'text-blue-800 hover:border-b-2 hover:border-orange-500'
-                    : 'text-white hover:text-orange-500'
-                } text-xl font-semibold tracking-wide`}
+                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
+                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
                 الجدول الزمني
               </a>
@@ -122,9 +118,9 @@ const Header = () => {
                 href="/trainers"
                 className={`${
                   scrolled
-                    ? 'text-blue-800 hover:border-b-2 hover:border-orange-500'
-                    : 'text-white hover:text-orange-500'
-                } text-xl font-semibold tracking-wide`}
+                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
+                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
                 المدربون
               </a>
@@ -134,9 +130,9 @@ const Header = () => {
                 href="/news"
                 className={`${
                   scrolled
-                    ? 'text-blue-800 hover:border-b-2 hover:border-orange-500'
-                    : 'text-white hover:text-orange-500'
-                } text-xl font-semibold tracking-wide`}
+                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
+                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
                 الأخبار
               </a>
@@ -146,9 +142,9 @@ const Header = () => {
                 href="/contact-us"
                 className={`${
                   scrolled
-                    ? 'text-blue-800 hover:border-b-2 hover:border-orange-500'
-                    : 'text-white hover:text-orange-500'
-                } text-xl font-semibold tracking-wide`}
+                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
+                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
                 تواصل معنا
               </a>
@@ -159,7 +155,7 @@ const Header = () => {
         <div className="lg:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`text-${scrolled ? 'blue-800' : 'white'} text-2xl focus:outline-none`}
+            className={`text-${scrolled ? 'hawar-orange' : 'white'} text-2xl focus:outline-none`}
           >
             {menuOpen ? (
               <XMarkIcon className="h-6 w-6" />
@@ -171,7 +167,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-hawar-blue-darker text-white p-4 lg:hidden">
+        <div className="absolute top-21 left-0 w-full bg-hawar-blue text-center font-bold text-white p-4 lg:hidden">
           <ul className="space-y-4">
             <li>
               <a href="/" className="block hover:text-orange-500">

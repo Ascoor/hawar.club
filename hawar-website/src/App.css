@@ -1541,6 +1541,9 @@ ul.tags-list li a:hover {
     padding: 7px 10px;
     font-size: 14px !important;
   }
+  .flickr-photos{
+    padding-bottom: 50px;
+  }
   .feature-list .col-xs-12,
   .news-list .col-xs-12,
   .trainers-list .col-xs-12 {

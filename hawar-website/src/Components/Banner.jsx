@@ -50,17 +50,19 @@ const Banner = () => {
 
   const VIDEO_DURATION = 58;
   const SLOGAN_DURATION = 4500;
+
+  // شعارات مع معرفات فريدة
   const slogans = [
-    'كن جزءًا من الحدث',
-    'التعاون هو جوهر النجاح، والأساس الذي نبني عليه رؤيتنا.',
-    'معًا، نؤسس مجتمعًا ملهم يستطيع  أن يحقق التغيير.',
-    'لنكمل تاريخ من الإنجازات، ومستقبل من الطموحات',
-    'رؤيتنا تتجاوز الحدود، لنحقق أثرًا لا يُنسى.',
-    'الشغف هنا ليس مجرد فكرة.',
-    'بل هو الطريق نحو إنجازات ملموسة.',
-    'نسعى دائمًا لنرتقي إلى قمم التميز، يدًا بيد.',
-    'بانضمامك إلينا، نقترب من تحقيق رؤيتنا معًا.',
-    'لأن في كل إنجاز بداية لإنجاز أعظم.',
+    { id: 'slogan-1', text: 'كن جزءًا من الحدث' },
+    { id: 'slogan-2', text: 'التعاون هو جوهر النجاح، والأساس الذي نبني عليه رؤيتنا.' },
+    { id: 'slogan-3', text: 'معًا، نؤسس مجتمعًا ملهم يستطيع أن يحقق التغيير.' },
+    { id: 'slogan-4', text: 'لنكمل تاريخ من الإنجازات، ومستقبل من الطموحات' },
+    { id: 'slogan-5', text: 'رؤيتنا تتجاوز الحدود، لنحقق أثرًا لا يُنسى.' },
+    { id: 'slogan-6', text: 'الشغف هنا ليس مجرد فكرة.' },
+    { id: 'slogan-7', text: 'بل هو الطريق نحو إنجازات ملموسة.' },
+    { id: 'slogan-8', text: 'نسعى دائمًا لنرتقي إلى قمم التميز، يدًا بيد.' },
+    { id: 'slogan-9', text: 'بانضمامك إلينا، نقترب من تحقيق رؤيتنا معًا.' },
+    { id: 'slogan-10', text: 'لأن في كل إنجاز بداية لإنجاز أعظم.' },
   ];
 
   const resetState = () => {
@@ -72,7 +74,7 @@ const Banner = () => {
 
   useAnimateText(
     sloganRef,
-    showSlogans ? slogans[activeSlogan] : '',
+    showSlogans ? slogans[activeSlogan].text : '',
     SLOGAN_DURATION,
     () => {
       if (activeSlogan < slogans.length - 1) {
@@ -121,8 +123,7 @@ const Banner = () => {
       }, SLOGAN_DURATION);
       return () => clearInterval(interval);
     }
-  }, [videoReady, activeSlogan, slogans.length]); // أضف slogans.length هنا
-  
+  }, [videoReady, activeSlogan, slogans.length]);
 
   return (
     <div className="relative w-full overflow-hidden min-h-screen">
@@ -137,13 +138,14 @@ const Banner = () => {
           {showSlogans && (
             <div
               ref={sloganRef}
+              id={slogans[activeSlogan].id} // إضافة المعرف الفريد
               className="text-center font-bold italic text-white drop-shadow-lg leading-tight"
               style={{
                 fontSize: 'clamp(1.5rem, 2.5vw, 3rem)',
                 lineHeight: 'clamp(2rem, 3vw, 4rem)',
               }}
             >
-              {slogans[activeSlogan]}
+              {slogans[activeSlogan].text}
             </div>
           )}
 

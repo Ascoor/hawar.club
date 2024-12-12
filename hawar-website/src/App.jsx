@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import './App.css';
 import 'animate.css';
@@ -17,70 +15,21 @@ import VipEvents from './Components/VipEvents.jsx';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [loadingComplete, setLoadingComplete] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    // Initialize AOS
-    AOS.init({
-      duration: 1000,
-    });
-
-    // Detect if the device is desktop
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1024); // اعتبار الشاشة "سطح مكتب" إذا كان العرض 1024 بكسل أو أكثر
-    };
-
-    handleResize(); // Detect on first load
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleLoad = () => {
+    // تأخير لمدة ثانيتين
+    const timer = setTimeout(() => {
       setIsLoading(false);
-    };
+    }, 2000);
 
-    window.addEventListener('load', handleLoad);
-
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
+    // تنظيف المؤقت عند إلغاء التحميل
+    return () => clearTimeout(timer);
   }, []);
-
-  const loadComponents = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // تأخير إضافي لمحاكاة التحميل
-    setLoadingComplete(true);
-  };
-
-  useEffect(() => {
-    if (!isLoading) {
-      loadComponents();
-    }
-  }, [isLoading]);
 
   return (
     <>
-      {isLoading || !loadingComplete ? (
-        <>
-          <Preloader />
-          {isDesktop && (
-            <>
-              {/* عرض محتوى الموقع مع مكون التحميل على سطح المكتب */}
-              <Header />
-              <Banner />
-              <BuildingOuter />
-              <VipEvents />
-              <MuscleSection />
-              <Trainers />
-              <CounterSection />
-              <Footer />
-            </>
-          )}
-        </>
+      {isLoading ? (
+        <Preloader />
       ) : (
         <>
           {/* عرض الموقع بشكل طبيعي بعد اكتمال التحميل */}

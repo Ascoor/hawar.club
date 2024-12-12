@@ -1322,7 +1322,7 @@ ul.follow-us li a {
 	}
 	.navbar-toggler-icon {
 		float: left;
-		background: url(../images/menu_icon.png) no-repeat center!important;
+		background: url(./assets/images/menu_icon.png) no-repeat center!important;
 	}
 	.header_search_outer {
 		position: static;

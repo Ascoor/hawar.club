@@ -1,8 +1,7 @@
+/* eslint-disable  no-undef */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{html,js,jsx,ts,tsx}",
-  ],
+  content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -35,12 +34,13 @@ module.exports = {
         '24px': '24px',
       },
       boxShadow: {
-        'custom': '0 4px 6px rgba(0, 0, 0, 0.1)',
-        'soft-orange': '0 4px 6px rgba(251, 146, 33, 0.5)', 
+        custom: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        'soft-orange': '0 4px 6px rgba(251, 146, 33, 0.5)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       keyframes: {
         fadeIn: {
@@ -58,11 +58,11 @@ module.exports = {
       },
     },
     screens: {
-      'xs': '400px',
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
+      xs: '400px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
       '2xl': '1536px',
     },
   },

@@ -1,15 +1,15 @@
-import React from "react";
-import Gym7 from "../assets/gym/gym-7.png";
-import CounterBg from "../assets/images/building_bg _blue.png";
+
+import Gym7 from '../assets/gym/gym-7.png';
+import CounterBg from '../assets/images/building_bg _blue.png';
 
 const MuscleSection = () => {
   return (
     <>
       <div
         className="counter-outer py-12 bg-bottom bg-cover bg-fixed "
-        style={{ backgroundImage: `url(${CounterBg})` }} // تعيين الخلفية بشكل صحيح
+        style={{ backgroundImage: `url(${CounterBg})` }}
       >
-        <div className="border-t-8 mb-8 border-orange-500"></div> {/* الحد العلوي */}
+        <div className="border-t-8 mb-8 border-orange-500"></div>
 
         <div className="flex flex-col lg:flex-row items-center max-w-[1200px] mx-auto">
           <figure className="w-full lg:w-[50%] h-[50vh] lg:h-auto overflow-hidden relative group mb-6 lg:mb-0">
@@ -25,7 +25,8 @@ const MuscleSection = () => {
               تغيير حياتك يبدأ هنا
             </h3>
             <p className="text-lg lg:text-2xl text-white leading-relaxed">
-              انضم إلى فريقنا المتخصص وابدأ رحلتك نحو صحة أفضل وحياة أكثر نشاطًا باستخدام أحدث معدات 
+              انضم إلى فريقنا المتخصص وابدأ رحلتك نحو صحة أفضل وحياة أكثر نشاطًا
+              باستخدام أحدث معدات
               <span className="text-hawar-orange"> Tecnogym </span> العالمية.
             </p>
             <a
@@ -37,7 +38,7 @@ const MuscleSection = () => {
           </div>
         </div>
 
-        <div className="border-b-8 mt-8 border-orange-500 "></div> {/* الحد السفلي */}
+        <div className="border-b-8 mt-8 border-orange-500 "></div>
       </div>
     </>
   );

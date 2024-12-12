@@ -1,17 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import News1 from "../assets/images/News1.png";
-import News2 from "../assets/images/News2.jpg";
-import News3 from "../assets/images/News3.jpg";
-import News4 from "../assets/images/News4.jpg";
-import News5 from "../assets/images/News5.jpg";
-import News6 from "../assets/images/News6.jpg";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import { useEffect, useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import News1 from '../assets/images/News1.png';
+import News2 from '../assets/images/News2.jpg';
+import News3 from '../assets/images/News3.jpg';
+import News4 from '../assets/images/News4.jpg';
+import News5 from '../assets/images/News5.jpg';
+import News6 from '../assets/images/News6.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
-import CounterBg from "../assets/images/building_bg _blue.png";
+import CounterBg from '../assets/images/building_bg _blue.png';
 const VipEvents = () => {
   const swiperRef = useRef(null);
   const [showFullText, setShowFullText] = useState([]);
@@ -32,55 +32,58 @@ const VipEvents = () => {
   const eventNews = [
     {
       image: News1,
-      date: "أغسطس 2021",
-      time: "10:00 م",
+      date: 'أغسطس 2021',
+      time: '10:00 م',
       title:
-        "افتتاح المرحلة الجديدة لتوسعة نادي الحوار الرياضي بالمنصورة، والتي شملت تطوير المنشآت لتقديم خدمات أفضل للأعضاء.",
+        'افتتاح المرحلة الجديدة لتوسعة نادي الحوار الرياضي بالمنصورة، والتي شملت تطوير المنشآت لتقديم خدمات أفضل للأعضاء.',
     },
     {
       image: News2,
-      date: "21 أبريل 2022",
-      time: "11:38 م",
+      date: '21 أبريل 2022',
+      time: '11:38 م',
       title:
-        "زيارة وزير الشباب والرياضة لنادي الحوار الرياضي بمدينة المنصورة، حيث أشاد بالمستوى المتميز للخدمات والمنشآت.",
+        'زيارة وزير الشباب والرياضة لنادي الحوار الرياضي بمدينة المنصورة، حيث أشاد بالمستوى المتميز للخدمات والمنشآت.',
     },
     {
       image: News3,
-      date: "مايو 2022",
-      time: "12:00 م",
+      date: 'مايو 2022',
+      time: '12:00 م',
       title:
         "نادي الحوار يستضيف نقطة ختام ماراثون 'قادرين' وينظم يومًا رياضيًا حافلًا بالأنشطة الترفيهية والرياضية.",
     },
     {
       image: News4,
-      date: "يونيو 2023",
-      time: "9:00 ص",
+      date: 'يونيو 2023',
+      time: '9:00 ص',
       title:
-        "بطلات نادي الحوار لكرة اليد ناشئات مواليد 2012 يحققن فوزهن الثاني على نادي النصر في بطولة الجمهورية لكرة اليد.",
+        'بطلات نادي الحوار لكرة اليد ناشئات مواليد 2012 يحققن فوزهن الثاني على نادي النصر في بطولة الجمهورية لكرة اليد.',
     },
     {
       image: News5,
-      date: "أغسطس 2023",
-      time: "3:00 م",
+      date: 'أغسطس 2023',
+      time: '3:00 م',
       title:
-        "أبطال نادي الحوار لكرة اليد مواليد 2010 ينتصرون بفارق كبير على نادي جزيرة الورد ضمن فعاليات بطولة منطقة الدقهلية.",
+        'أبطال نادي الحوار لكرة اليد مواليد 2010 ينتصرون بفارق كبير على نادي جزيرة الورد ضمن فعاليات بطولة منطقة الدقهلية.',
     },
     {
       image: News6,
-      date: "ديسمبر 2022",
-      time: "5:00 م",
+      date: 'ديسمبر 2022',
+      time: '5:00 م',
       title:
-        "فريق كرة القدم مواليد 2011 بنادي الحوار يتصدر مجموعته بدون هزيمة بعد الفوز على نبروه في دوري منطقة الدقهلية.",
+        'فريق كرة القدم مواليد 2011 بنادي الحوار يتصدر مجموعته بدون هزيمة بعد الفوز على نبروه في دوري منطقة الدقهلية.',
     },
   ];
 
   return (
-    <div className="py-12 bg-bottom bg-cover bg-fixed"       style={{ backgroundImage: `url(${CounterBg})` }} // تعيين الخلفية بشكل صحيح
+    <div
+      className="py-12 bg-bottom bg-cover bg-fixed"
+      style={{ backgroundImage: `url(${CounterBg})` }}
     >
       <div className="container mx-auto px-4">
-        {/* Header Section */}
         <div className="head border-b border-hawar-orange mb-8 flex items-center justify-between">
-          <h3 className="text-3xl text-hawar-orange font-semibold">أهم الأحداث</h3>
+          <h3 className="text-3xl text-hawar-orange font-semibold">
+            أهم الأحداث
+          </h3>
           <div className="flex items-center mb-4 space-x-2">
             <button
               onClick={() => swiperRef.current.slidePrev()}
@@ -99,12 +102,10 @@ const VipEvents = () => {
           </div>
         </div>
 
-        {/* Swiper Carousel */}
         <Swiper
           spaceBetween={20}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
-          loop={true} 
-          loopedSlides={eventNews.length} 
+          loop={true}
           breakpoints={{
             1280: { slidesPerView: 3 },
             1024: { slidesPerView: 2 },
@@ -144,7 +145,9 @@ const VipEvents = () => {
                         onClick={() => toggleShowMore(index)}
                         className="text-hawar-orange text-sm hover:underline ml-2"
                       >
-                        {showFullText.includes(index) ? "عرض أقل" : "عرض المزيد"}
+                        {showFullText.includes(index)
+                          ? 'عرض أقل'
+                          : 'عرض المزيد'}
                       </button>
                     )}
                   </h4>

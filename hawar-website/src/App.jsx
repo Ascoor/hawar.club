@@ -1,10 +1,9 @@
-// src/App.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import './App.css'; 
-import 'animate.css'; 
+import './App.css';
+import 'animate.css';
 
 import Header from './Components/Header.jsx';
 import Footer from './Components/Footer.jsx';
@@ -28,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     const handleLoad = () => {
-      console.log("تم إطلاق حدث التحميل");
+      console.log('تم إطلاق حدث التحميل');
       setIsLoading(false);
     };
 
@@ -39,10 +38,8 @@ const App = () => {
     };
   }, []);
 
-  // دالة لتحميل المكونات
   const loadComponents = async () => {
-    // هنا يمكنك استخدام Promise أو أي دالة تتعلق بتحميل المكونات
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // محاكاة التحميل
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     setLoadingComplete(true);
   };
 
@@ -59,15 +56,15 @@ const App = () => {
       ) : (
         <>
           <Header />
-          <Banner/>
+          <Banner />
           <BuildingOuter />
           <VipEvents />
           <MuscleSection />
-          {/* <ClassesSection /> */}
+
           <Trainers />
-          {/* <Gallery /> */}
+
           <CounterSection />
-          {/* <NewsSection /> */}
+
           <Footer />
         </>
       )}

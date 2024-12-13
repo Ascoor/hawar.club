@@ -13,26 +13,23 @@ import Trainers from './Components/Trainers.jsx';
 import CounterSection from './Components/CounterSection.jsx';
 import VipEvents from './Components/VipEvents.jsx';
 
-const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+const App = () => { const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // تأخير لمدة ثانيتين
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
 
-    // تنظيف المؤقت عند إلغاء التحميل
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {isLoading ? (
-        <Preloader />
-      ) : (
+      <div className={`fixed inset-0 z-50 bg-white flex items-center justify-center ${isLoading ? '' : 'hidden'}`}>
+        {isLoading && <Preloader />}
+      </div>
+      {!isLoading && (
         <>
-          {/* عرض الموقع بشكل طبيعي بعد اكتمال التحميل */}
           <Header />
           <Banner />
           <BuildingOuter />

@@ -49,7 +49,7 @@ const Banner = () => {
   const [showButtons, setShowButtons] = useState(false);
 
   const VIDEO_DURATION = 58;
-  const SLOGAN_DURATION = 4600;
+  const SLOGAN_DURATION = 4500;
 
   // شعارات مع معرفات فريدة
   const slogans = [
@@ -126,86 +126,56 @@ const Banner = () => {
   }, [videoReady, activeSlogan, slogans.length]);
 
   return (
-    <div className="relative w-full overflow-hidden min-h-screen">
-      <VideoBackground
-        ref={videoRef}
-        onVideoReady={setVideoReady}
-        onTimeUpdate={handleTimeUpdate}
-      />
+<div className="relative w-full h-screen overflow-hidden">
+  <VideoBackground
+    ref={videoRef}
+    onVideoReady={setVideoReady}
+    onTimeUpdate={handleTimeUpdate}
+  />
 
       {videoReady && (
-        <div className="relative flex flex-col items-center justify-center min-h-screen px-4 py-12 lg:py-[100px]">
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
           {showSlogans && (
-            <div
+            <h1
               ref={sloganRef}
-              id={slogans[activeSlogan].id} // إضافة المعرف الفريد
-              className="text-center font-bold italic text-white drop-shadow-lg leading-tight"
-              style={{
-                fontSize: 'clamp(1.5rem, 2.5vw, 3rem)',
-                lineHeight: 'clamp(2rem, 3vw, 4rem)',
-              }}
+              className="text-white text-center font-bold italic text-2xl sm:text-3xl xs:text-md lg:text-4xl drop-shadow-lg"
             >
               {slogans[activeSlogan].text}
-            </div>
+            </h1>
           )}
-
           {showClubSection && (
             <div
               ref={clubRef}
               className="text-center transition-opacity duration-500"
               style={{ opacity: 1 }}
             >
-              <h2
-                className="font-bold italic text-orange-500 drop-shadow-lg"
-                style={{
-                  fontSize: 'clamp(2rem, 5vw, 6rem)',
-                  lineHeight: 'clamp(2.5rem, 5.5vw, 7rem)',
-                }}
-              >
+              <h1 className="font-bold italic text-hawar-orange drop-shadow-lg text-6xl">
                 نادي الحوار
-              </h2>
-              <p
-                className="text-white mt-4 drop-shadow-md text-center max-w-[520px]"
-                style={{
-                  fontSize: 'clamp(1.2rem, 1.5vw, 1.25rem)',
-                  lineHeight: 'clamp(1.5rem, 2vw, 2.5rem)',
-                }}
-              >
-                انضم الآن وكن شريكًا في كتابة فصول جديدة من رؤية تتطلع دومًا إلى
-                المزيد.
+              </h1>
+              <p className="text-white mt-4 drop-shadow-md text-center max-w-[520px]">
+                انضم الآن وكن شريكًا في كتابة فصول جديدة من رؤية تتطلع دومًا إلى المزيد.
               </p>
             </div>
           )}
-
-{showButtons && (
-  <div className="absolute top-[60%] left-0 right-0 z-10 flex justify-center gap-4">
-    <a
-      href="/activities"
-      className="btn inline-block py-2 px-4 sm:py-3 sm:px-6 bg-orange-500 text-white rounded border-2 border-orange-500 hover:bg-white hover:text-orange-500 transition-all"
-      style={{
-        fontSize: 'clamp(0.875rem, 1.25vw, 1.125rem)',
-        padding: 'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem)',
-      }}
-    >
-      استكشف أنشطتنا
-    </a>
-    <a
-      href="/contact-us"
-      className="btn inline-block py-2 px-4 sm:py-3 sm:px-6 bg-white text-orange-500 rounded border-2 border-orange-500 hover:bg-orange-500 hover:text-white transition-all"
-      style={{
-        fontSize: 'clamp(0.875rem, 1.25vw, 1.125rem)',
-        padding: 'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem)',
-      }}
-    >
-      انضم إلينا الآن
-    </a>
-  </div>
-)}
-
+          {showButtons && (
+            <div
+              className="absolute bottom-8 flex flex-wrap justify-center gap-4"
+              style={{ left: '50%', transform: 'translateX(-50%)' }}
+            >
+    
+              <a
+                href="/contact-us"
+                className="btn bg-hawar-orange text-white px-6 py-3 rounded transition hover:bg-orange-500 hover:text-white"
+              >
+                انضم إلينا الآن
+              </a>
+            </div>
+          )}
         </div>
       )}
     </div>
   );
 };
+
 
 export default Banner;

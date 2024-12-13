@@ -67,7 +67,7 @@ const Footer = () => {
       }}
     >
       <div className="footer-top py-16">
-        <div className="container   mt-32  xs:mt-64 mx-auto px-4">
+        <div className="container   mt-16  xs:mt-32 mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="contact-us">
               <h3 className="text-xl font-bold mb-4 text-hawar-orange">حول</h3>
@@ -103,12 +103,7 @@ const Footer = () => {
                 اشترك في قائمتنا البريدية للحصول على أحدث التحديثات والعروض.
               </p>
               <div className="flex items-center mb-4">
-                <input
-                  type="email"
-                  placeholder="أدخل بريدك الإلكتروني"
-                  className="bg-transparent border-2 border-gray-300 text-white px-4 py-2 rounded-l-md focus:outline-none"
-                />
-                <button className="ml-4 bg-hawar-orange text-white px-4 py-2 rounded-r-md hover:bg-orange-600 transition-colors duration-300">
+              <button className="ml-4 bg-hawar-orange text-white px-4 py-2 rounded-r-md hover:bg-orange-600 transition-colors duration-300">
                   <span className="sr-only">اشتراك</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -125,6 +120,12 @@ const Footer = () => {
                     />
                   </svg>
                 </button>
+                <input
+                  type="email"
+                  placeholder="أدخل بريدك الإلكتروني"
+                  className="bg-transparent border-2 border-gray-300 text-white px-4 py-2 rounded-l-md focus:outline-none"
+                />
+               
               </div>
 
               <ul className="follow-us flex space-x-4">
@@ -132,45 +133,45 @@ const Footer = () => {
                   <a
                     href="#"
                     aria-label="Facebook"
-                    className="flex items-center justify-center ml-4 w-10 h-10 bg-gray-700 rounded-full shadow-md hover:bg-hawar-orange transition-all duration-300"
+                    className="flex items-center justify-center ml-4 w-10 h-10  bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
                   >
-                    <FaFacebook className="text-white hover:text-gray-100" />
+                    <FaFacebook className="text-hawar-blue hover:text-blue-600" />
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
                     aria-label="Twitter"
-                    className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full shadow-md hover:bg-hawar-orange transition-all duration-300"
-                  >
-                    <FaTwitter className="text-white hover:text-gray-100" />
+                    className="flex items-center justify-center w-10 h-10 bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
+                 >
+                    <FaTwitter className="text-hawar-blue hover:text-blue-400   " />
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
                     aria-label="LinkedIn"
-                    className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full shadow-md hover:bg-hawar-orange transition-all duration-300"
-                  >
-                    <FaLinkedinIn className="text-white hover:text-gray-100" />
+                    className="flex items-center justify-center w-10 h-10 bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
+                 >
+                    <FaLinkedinIn className="text-hawar-blue hover:text-yellow-600" />
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
                     aria-label="Instagram"
-                    className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full shadow-md hover:bg-hawar-orange transition-all duration-300"
+                    className="flex items-center justify-center w-10 h-10 bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
                   >
-                    <FaInstagram className="text-white hover:text-gray-100" />
+                    <FaInstagram className="text-hawar-blue hover:text-pink-600   " />
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
                     aria-label="YouTube"
-                    className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full shadow-md hover:bg-hawar-blue-dark transition-all duration-300"
+                    className="flex items-center justify-center w-10 h-10 bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
                   >
-                    <FaYoutube className="text-white hover:text-gray-100" />
+                    <FaYoutube className="text-hawar-blue hover:text-red-600   " />
                   </a>
                 </li>
               </ul>

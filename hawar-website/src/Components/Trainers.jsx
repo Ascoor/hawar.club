@@ -38,7 +38,10 @@ const Trainers = () => {
   ];
 
   return (
-    <div className=" py-12 bg-bottom bg-cover bg-fixed"    style={{ backgroundImage: `url(${BuildingBgBlue})` }}    >
+    <div
+      className=" py-12 bg-bottom bg-cover bg-fixed"
+      style={{ backgroundImage: `url(${BuildingBgBlue})` }}
+    >
       <div className="container mx-auto px-4">
         <div className="head flex items-center justify-between mb-8 border-b border-hawar-orange">
           <h3 className="text-hawar-orange text-3xl font-semibold">

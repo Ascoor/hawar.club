@@ -54,7 +54,10 @@ const Banner = () => {
   // شعارات مع معرفات فريدة
   const slogans = [
     { id: 'slogan-1', text: 'كن جزءًا من الحدث' },
-    { id: 'slogan-2', text: 'التعاون هو جوهر النجاح، والأساس الذي نبني عليه رؤيتنا.' },
+    {
+      id: 'slogan-2',
+      text: 'التعاون هو جوهر النجاح، والأساس الذي نبني عليه رؤيتنا.',
+    },
     { id: 'slogan-3', text: 'معًا، نؤسس مجتمعًا ملهم يستطيع أن يحقق التغيير.' },
     { id: 'slogan-4', text: 'لنكمل تاريخ من الإنجازات، ومستقبل من الطموحات' },
     { id: 'slogan-5', text: 'رؤيتنا تتجاوز الحدود، لنحقق أثرًا لا يُنسى.' },
@@ -126,12 +129,12 @@ const Banner = () => {
   }, [videoReady, activeSlogan, slogans.length]);
 
   return (
-<div className="relative w-full h-screen overflow-hidden">
-  <VideoBackground
-    ref={videoRef}
-    onVideoReady={setVideoReady}
-    onTimeUpdate={handleTimeUpdate}
-  />
+    <div className="relative w-full h-screen overflow-hidden">
+      <VideoBackground
+        ref={videoRef}
+        onVideoReady={setVideoReady}
+        onTimeUpdate={handleTimeUpdate}
+      />
 
       {videoReady && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -153,7 +156,8 @@ const Banner = () => {
                 نادي الحوار
               </h1>
               <p className="text-white mt-4 drop-shadow-md text-center max-w-[520px]">
-                انضم الآن وكن شريكًا في كتابة فصول جديدة من رؤية تتطلع دومًا إلى المزيد.
+                انضم الآن وكن شريكًا في كتابة فصول جديدة من رؤية تتطلع دومًا إلى
+                المزيد.
               </p>
             </div>
           )}
@@ -162,7 +166,6 @@ const Banner = () => {
               className="absolute bottom-8 flex flex-wrap justify-center gap-4"
               style={{ left: '50%', transform: 'translateX(-50%)' }}
             >
-    
               <a
                 href="/contact-us"
                 className="btn bg-hawar-orange text-white px-6 py-3 rounded transition hover:bg-orange-500 hover:text-white"
@@ -176,6 +179,5 @@ const Banner = () => {
     </div>
   );
 };
-
 
 export default Banner;

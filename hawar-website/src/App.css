@@ -94,7 +94,8 @@ label {
 }
 input:focus {
   outline: none;
-}#loading {
+}
+#loading {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -622,8 +623,7 @@ ul.flicker-box li a:hover {
     padding: 7px 10px;
     font-size: 14px !important;
   }
-  .flickr-photos{
+  .flickr-photos {
     padding-bottom: 50px;
   }
 }
-

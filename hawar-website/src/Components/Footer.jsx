@@ -72,9 +72,8 @@ const Footer = () => {
             <div className="contact-us">
               <h3 className="text-xl font-bold mb-4 text-hawar-orange">حول</h3>
               <p className="text-sm mb-4">
-                نادى الحوار للألعاب الرياضية يسعى دائماً إلى تقديم أفضل
-                الخدمات الرياضية لعملائنا، معتمدين على أحدث المعدات وأفضل
-                المدربين.
+                نادى الحوار للألعاب الرياضية يسعى دائماً إلى تقديم أفضل الخدمات
+                الرياضية لعملائنا، معتمدين على أحدث المعدات وأفضل المدربين.
               </p>
               <p className="text-sm mb-2 flex items-center">
                 <FaMapMarkerAlt className="mr-2 text-lg" />
@@ -103,7 +102,7 @@ const Footer = () => {
                 اشترك في قائمتنا البريدية للحصول على أحدث التحديثات والعروض.
               </p>
               <div className="flex items-center mb-4">
-              <button className="ml-4 bg-hawar-orange text-white px-4 py-2 rounded-r-md hover:bg-orange-600 transition-colors duration-300">
+                <button className="ml-4 bg-hawar-orange text-white px-4 py-2 rounded-r-md hover:bg-orange-600 transition-colors duration-300">
                   <span className="sr-only">اشتراك</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +124,6 @@ const Footer = () => {
                   placeholder="أدخل بريدك الإلكتروني"
                   className="bg-transparent border-2 border-gray-300 text-white px-4 py-2 rounded-l-md focus:outline-none"
                 />
-               
               </div>
 
               <ul className="follow-us flex space-x-4">
@@ -143,7 +141,7 @@ const Footer = () => {
                     href="#"
                     aria-label="Twitter"
                     className="flex items-center justify-center w-10 h-10 bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
-                 >
+                  >
                     <FaTwitter className="text-hawar-blue hover:text-blue-400   " />
                   </a>
                 </li>
@@ -152,7 +150,7 @@ const Footer = () => {
                     href="#"
                     aria-label="LinkedIn"
                     className="flex items-center justify-center w-10 h-10 bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
-                 >
+                  >
                     <FaLinkedinIn className="text-hawar-blue hover:text-yellow-600" />
                   </a>
                 </li>
@@ -204,10 +202,8 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-
-
         </div>
-              <div className="copy-rights-section text-center ">
+        <div className="copy-rights-section text-center ">
           <div className="container mx-auto text-center font-bold ">
             <p className="text-white text-sm">
               <a

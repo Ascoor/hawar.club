@@ -13,7 +13,8 @@ import Trainers from './Components/Trainers.jsx';
 import CounterSection from './Components/CounterSection.jsx';
 import VipEvents from './Components/VipEvents.jsx';
 
-const App = () => { const [isLoading, setIsLoading] = useState(true);
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -25,7 +26,9 @@ const App = () => { const [isLoading, setIsLoading] = useState(true);
 
   return (
     <>
-      <div className={`fixed inset-0 z-50 bg-white flex items-center justify-center ${isLoading ? '' : 'hidden'}`}>
+      <div
+        className={`fixed inset-0 z-50 bg-white flex items-center justify-center ${isLoading ? '' : 'hidden'}`}
+      >
         {isLoading && <Preloader />}
       </div>
       {!isLoading && (

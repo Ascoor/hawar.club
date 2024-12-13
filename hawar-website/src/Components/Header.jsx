@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import Logo1 from '../assets/logo-1.png';
 import LogoFix from '../assets/logo-2.png';
-import {
-
-  Bars3Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -60,7 +56,6 @@ const Header = () => {
             src={Logo1}
             alt="شعار النادي الرياضي"
           />
-   
         </a>
 
         <nav className="hidden lg:flex flex-1 justify-center">

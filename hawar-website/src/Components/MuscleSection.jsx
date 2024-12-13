@@ -1,4 +1,3 @@
-
 import Gym7 from '../assets/gym/gym-7.png';
 import CounterBg from '../assets/images/building_bg _blue.png';
 

@@ -33,7 +33,7 @@ const Counter = () => {
   );
 };
 
-const CounterBox = ({   counter }) => {
+const CounterBox = ({ counter }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.5,

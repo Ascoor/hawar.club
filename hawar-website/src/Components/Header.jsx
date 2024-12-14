@@ -65,7 +65,7 @@ const Header = () => {
                 href="/"
                 className={`${
                   scrolled
-                    ? 'text-blue-300 ml-4 hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    ? 'text-hawar-orange ml-4 hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
                     : 'text-white  ml-4 hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
                 } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
@@ -77,7 +77,7 @@ const Header = () => {
                 href="/about-us"
                 className={`${
                   scrolled
-                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
                     : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
                 } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
@@ -89,7 +89,7 @@ const Header = () => {
                 href="/classes"
                 className={`${
                   scrolled
-                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
                     : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
                 } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
@@ -101,7 +101,7 @@ const Header = () => {
                 href="/schedule"
                 className={`${
                   scrolled
-                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
                     : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
                 } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
@@ -113,7 +113,7 @@ const Header = () => {
                 href="/trainers"
                 className={`${
                   scrolled
-                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
                     : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
                 } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
@@ -125,7 +125,7 @@ const Header = () => {
                 href="/news"
                 className={`${
                   scrolled
-                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
                     : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
                 } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
@@ -137,7 +137,7 @@ const Header = () => {
                 href="/contact-us"
                 className={`${
                   scrolled
-                    ? 'text-blue-300  hover:border-b-2  hover:text-hawar-orange hover:border-orange-500'
+                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
                     : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
                 } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >

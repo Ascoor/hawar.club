@@ -94,10 +94,6 @@ ul {
 a {
   text-decoration: none !important;
   outline: none;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 img {
@@ -256,9 +252,7 @@ select:focus {
 .trainers-box figure img {
   transition: transform 0.2s;
 }
-.trainers-box figure img:hover {
-  -ms-transform: scale(1.1); /* IE 9 */
-  -webkit-transform: scale(1.1); /* Safari 3-8 */
+.trainers-box figure img:hover { /* IE 9 */ /* Safari 3-8 */
   transform: scale(1.1);
 }
 .trainers-slider .owl-prev,
@@ -310,10 +304,6 @@ select:focus {
   opacity: 0;
   padding: 10px;
   text-align: center;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   cursor: pointer;
 }
@@ -344,10 +334,6 @@ select:focus {
   background: #979797;
   margin-right: 15px;
   cursor: pointer;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 .tabs li:hover a,
@@ -1007,10 +993,6 @@ ul.tags-list li a:hover {
   border: 2px solid #fb9221;
   font-size: 16px;
   color: #fb9221;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   cursor: pointer;
 }

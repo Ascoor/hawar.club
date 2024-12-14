@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import HawarLogo from '../assets/images/hawar_logo.png';
+import HawarLogo from '../assets/hawar_logo.png';
 import {
   FaFacebook,
   FaTwitter,

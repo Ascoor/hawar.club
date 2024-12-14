@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Logo1 from '../assets/logo-1.png';
-import LogoFix from '../assets/logo-2.png';
+import { motion, AnimatePresence } from "framer-motion";
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const Header = () => {
@@ -93,7 +93,7 @@ const Header = () => {
                     : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
                 } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
-                الدروس
+    النشاط الرياضي
               </a>
             </li>
             <li className="nav-item">
@@ -105,7 +105,7 @@ const Header = () => {
                     : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
                 } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
-                الجدول الزمني
+                أخر الأخبار
               </a>
             </li>
             <li className="nav-item">
@@ -129,7 +129,7 @@ const Header = () => {
                     : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
                 } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
               >
-                الأخبار
+                العضوية
               </a>
             </li>
             <li className="nav-item">
@@ -146,11 +146,10 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-
         <div className="lg:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`text-${scrolled ? 'hawar-orange' : 'white'} text-2xl focus:outline-none`}
+            className={`text-${scrolled ? "hawar-orange" : "white"} text-2xl focus:outline-none`}
           >
             {menuOpen ? (
               <XMarkIcon className="h-6 w-6" />
@@ -160,56 +159,63 @@ const Header = () => {
           </button>
         </div>
       </div>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0, y: -20 }}
+            animate={{ height: "auto", opacity: 1, y: 0 }}
+            exit={{ height: 0, opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden absolute top-21 left-0 w-full bg-hawar-blue-dark border-b-hawar-orange border-b-2 text-center font-bold text-white p-4 lg:hidden"
+          >
+            <ul className="space-y-4">
+              <li>
+                <a href="/" className="block hover:text-orange-500">
+                  الرئيسية
+                </a>
+              </li>
+              <li>
+                <a href="/about-us" className="block hover:text-orange-500">
+                  عن النادي
+                </a>
+              </li>
+              <li>
+                <a href="/classes" className="block hover:text-orange-500">
+                  النشاط الرياضي
+                </a>
+              </li>
+              <li>
+                <a href="/schedule" className="block hover:text-orange-500">
+                  أخر الأخبار
+                </a>
+              </li>
+              <li>
+                <a href="/trainers" className="block hover:text-orange-500">
+                  المدربون
+                </a>
+              </li>
+              <li>
+                <a href="/news" className="block hover:text-orange-500">
+                  العضوية
+                </a>
+              </li>
+              <li>
+                <a href="/contact-us" className="block hover:text-orange-500">
+                  تواصل معنا
+                </a>
+              </li>
+            </ul>
 
-      {menuOpen && (
-        <div className="absolute top-21 left-0 w-full bg-hawar-blue text-center font-bold text-white p-4 lg:hidden">
-          <ul className="space-y-4">
-            <li>
-              <a href="/" className="block hover:text-orange-500">
-                الرئيسية
-              </a>
-            </li>
-            <li>
-              <a href="/about-us" className="block hover:text-orange-500">
-                عن النادي
-              </a>
-            </li>
-            <li>
-              <a href="/classes" className="block hover:text-orange-500">
-                الدروس
-              </a>
-            </li>
-            <li>
-              <a href="/schedule" className="block hover:text-orange-500">
-                الجدول الزمني
-              </a>
-            </li>
-            <li>
-              <a href="/trainers" className="block hover:text-orange-500">
-                المدربون
-              </a>
-            </li>
-            <li>
-              <a href="/news" className="block hover:text-orange-500">
-                الأخبار
-              </a>
-            </li>
-            <li>
-              <a href="/contact-us" className="block hover:text-orange-500">
-                تواصل معنا
-              </a>
-            </li>
-          </ul>
-
-          <div className="mt-4">
-            <input
-              type="text"
-              placeholder="البحث"
-              className="px-4 py-2 border border-gray-300 rounded-md w-full text-lg"
-            />
-          </div>
-        </div>
-      )}
+            <div className="mt-4">
+              <input
+                type="text"
+                placeholder="البحث"
+                className="px-4 py-2 border border-gray-300 rounded-md w-full text-lg"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

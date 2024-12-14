@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import HawarLogo from '../assets/images/hawar_logo.png';
 import {
   FaFacebook,
   FaTwitter,
@@ -39,13 +39,13 @@ const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const flickrPhotos = [
@@ -58,177 +58,162 @@ const Footer = () => {
   ];
 
   return (
-    <footer
-      className="footer bg-top  text-white"
-      style={{
-        backgroundImage: `url(${footerBg})`,
-        backgroundBlendMode: 'overlay',
-        backgroundSize: 'cover',
-      }}
-    >
-      <div className="footer-top py-16">
-        <div className="container   mt-16  xs:mt-32 mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="contact-us">
-              <h3 className="text-xl font-bold mb-4 text-hawar-orange">حول</h3>
-              <p className="text-sm mb-4">
-                نادى الحوار للألعاب الرياضية يسعى دائماً إلى تقديم أفضل الخدمات
-                الرياضية لعملائنا، معتمدين على أحدث المعدات وأفضل المدربين.
-              </p>
-              <p className="text-sm mb-2 flex items-center">
-                <FaMapMarkerAlt className="mr-2 text-lg" />
-                23 شارع التصميم الجديد، ملبورن
-              </p>
-              <p className="text-sm mb-2 flex items-center">
-                <FaEnvelope className="mr-2 text-lg" />
-                <a
-                  href="mailto:fitnessgym@gmail.com"
-                  className="hover:text-hawar-orange transition-colors duration-300"
-                >
-                  fitnessgym@gmail.com
-                </a>
-              </p>
-              <p className="text-sm flex items-center">
-                <FaPhone className="mr-2 text-lg" />
-                +880-123-456-7890
-              </p>
+    <div className="bg-hawar-blue-dark pt-9 text-right">
+      <div className="mx-auto w-full max-w-[1166px] px-4 xl:px-0">
+        <div className="flex flex-col justify-between sm:px-[18px] md:flex-row md:px-10">
+          {/* Logo and Description Section */}
+          <div className="md:w-[316px]">
+            <div className="mb-4">
+               
+              <img src={HawarLogo} className='w-56 h-auto' />
             </div>
+            <p className="mt-[18px] text-[15px] font-normal text-white/[80%]">
+              نادي الحوار للألعاب الرياضية هو أحد الأندية الرائدة بمدينة المنصورة، حيث نقدم أنشطة رياضية واجتماعية وثقافية لجميع الأعمار.
+            </p>
 
-            <div className="newletter">
-              <h3 className="text-xl font-bold mb-4 text-hawar-orange">
-                النشرة الإخبارية
-              </h3>
-              <p className="text-sm mb-4">
-                اشترك في قائمتنا البريدية للحصول على أحدث التحديثات والعروض.
-              </p>
-              <div className="flex items-center mb-4">
-                <button className="ml-4 bg-hawar-orange text-white px-4 py-2 rounded-r-md hover:bg-orange-600 transition-colors duration-300">
-                  <span className="sr-only">اشتراك</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </button>
-                <input
-                  type="email"
-                  placeholder="أدخل بريدك الإلكتروني"
-                  className="bg-transparent border-2 border-gray-300 text-white px-4 py-2 rounded-l-md focus:outline-none"
-                />
-              </div>
-
-              <ul className="follow-us flex space-x-4">
-                <li>
-                  <a
-                    href="#"
-                    aria-label="Facebook"
-                    className="flex items-center justify-center ml-4 w-10 h-10  bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
-                  >
-                    <FaFacebook className="text-hawar-blue hover:text-blue-600" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    aria-label="Twitter"
-                    className="flex items-center justify-center w-10 h-10 bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
-                  >
-                    <FaTwitter className="text-hawar-blue hover:text-blue-400   " />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    aria-label="LinkedIn"
-                    className="flex items-center justify-center w-10 h-10 bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
-                  >
-                    <FaLinkedinIn className="text-hawar-blue hover:text-yellow-600" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    aria-label="Instagram"
-                    className="flex items-center justify-center w-10 h-10 bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
-                  >
-                    <FaInstagram className="text-hawar-blue hover:text-pink-600   " />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    aria-label="YouTube"
-                    className="flex items-center justify-center w-10 h-10 bg-hawar-orange rounded-full shadow-md hover:bg-hawar-blue-darker transition-all duration-300"
-                  >
-                    <FaYoutube className="text-hawar-blue hover:text-red-600   " />
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="flickr-photos">
-              <h3 className="text-xl font-bold mb-4 text-hawar-orange">
-                أبطالنا
-              </h3>
-              <ul className="flicker-box clearfix">
-                {flickrPhotos.map((photo, index) => (
-                  <li
-                    key={index}
-                    className="relative overflow-hidden rounded-md"
-                  >
-                    <a
-                      href={photo.imgB}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src={photo.img}
-                        alt={photo.alt}
-                        className="w-full h-24 sm:h-32 object-cover transform transition-transform duration-300 hover:scale-110"
-                        loading="lazy"
-                      />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="copy-rights-section text-center ">
-          <div className="container mx-auto text-center font-bold ">
-            <p className="text-white text-sm">
+            <div className="mt-[18px] flex gap-4">
               <a
-                href="https://www.templateshub.net"
+                className="hover:scale-110 text-white hover:text-hawar-orange transition duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-hawar-orange transition-colors duration-300"
+                href="https://www.facebook.com/HSC.Mansoura/"
               >
-                جميع الحقوق محفوظة نادي الحوار للألعاب الرياضية 2024
+                <FaFacebook size={36} />
               </a>
-            </p>
+              <a
+                className="hover:scale-110 text-white hover:text-hawar-blue-light transition duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com"
+              >
+                <FaLinkedinIn size={36} />
+              </a>
+              <a
+                className="hover:scale-110 text-white hover:text-pink-600 transition duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/hsc.mansoura/"
+              >
+                <FaInstagram size={36} />
+              </a>
+              <a
+                className="hover:scale-110 text-white hover:text-blue-400 transition duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://twitter.com"
+              >
+                <FaTwitter size={36} />
+              </a>
+              <a
+                className="hover:scale-110 text-white hover:text-red-600 transition duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.youtube.com/"
+              >
+                <FaYoutube size={36} />
+              </a>
+            </div>
           </div>
-        </div>
 
+          {/* Contact Information Section */}
+          <div className="md:w-[316px]">
+            <div className="mt-[23px] flex items-center gap-4">
+              <FaPhone size={24} className="text-hawar-orange" />
+              <div className="ml-[18px]">
+                <a
+                  href="tel:+201234567890"
+                  className="font-Inter text-[14px] font-medium text-white"
+                >
+                  +20 123-456-7890
+                </a>
+                <p className="font-Inter text-[12px] font-medium text-white">
+                  رقم الهاتف
+                </p>
+              </div>
+            </div>
+            <div className="mt-[23px] flex items-center gap-4">
+              <FaEnvelope size={24} className="text-hawar-orange" />
+              <div className="ml-[18px]">
+                <a
+                  href="mailto:info@hawarclub.com"
+                  className="font-Inter text-[14px] font-medium text-white"
+                >
+                  info@hawarclub.com
+                </a>
+                <p className="font-Inter text-[12px] font-medium text-white">
+                  البريد الإلكتروني
+                </p>
+              </div>
+            </div>
+            <div className="mt-[23px] flex items-center gap-4">
+              <FaMapMarkerAlt size={24} className="text-hawar-orange" />
+              <div className="ml-[18px]">
+                <p className="font-Inter text-[14px] font-medium text-white">
+                  المنصورة، مصر
+                </p>
+                <p className="font-Inter text-[12px] font-medium text-white">
+                  الموقع الجغرافي
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Pages Section */}
+          <div className="mt-6 flex w-full flex-col justify-between text-white sm:flex-row md:mt-0 md:max-w-[341px]">
+            <div>
+              <p className="text-deutziawhite font-inter text-[18px] font-medium leading-normal">
+                روابط سريعة
+              </p>
+              <ul>
+                <li className="mt-[15px]">
+                  <a
+                    className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
+                    href="/"
+                  >
+                    الرئيسية
+                  </a>
+                </li>
+                <li className="mt-[15px]">
+                  <a
+                    className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
+                    href="/about"
+                  >
+                    عن النادي
+                  </a>
+                </li>
+                <li className="mt-[15px]">
+                  <a
+                    className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
+                    href="/contact"
+                  >
+                    تواصل معنا
+                  </a>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+          
         <button
           onClick={scrollToTop}
-          className={`fixed bottom-8 xs:mb-12 right-8 bg-hawar-orange text-white rounded-full p-4 shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange transition-all duration-300 ${
+          className={`fixed bottom-8 xs:mb-12 left-8 bg-hawar-orange text-white rounded-full p-4 shadow-lg hover:bg-hawar-blue-light hover:text-hawar-orange transition-all duration-300 ${
             visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
           } animate-pulse`}
           aria-label="الرجوع للأعلى"
         >
           <FaArrowUp className="h-5 w-5" />
         </button>
+   
+        </div>
+        <hr className="mt-[30px] text-white" />
+        <div className="flex items-center justify-center pb-8 pt-[9px] md:py-8">
+          <p className="text-[10px] font-normal text-white md:text-[12px]">
+            جميع الحقوق محفوظة © 2024، نادي الحوار للألعاب الرياضية.
+          </p>
+        </div>
+        
       </div>
-    </footer>
+    </div>
   );
 };
 

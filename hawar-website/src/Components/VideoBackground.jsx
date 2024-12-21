@@ -32,19 +32,26 @@ const VideoBackground = forwardRef(
     }, [onVideoReady, onTimeUpdate, replay, ref]);
 
     return (
-      <div className="relative w-full h-screen overflow-hidden">
+      <div className="relative w-full h-[calc(100vh-80px)] sm:h-screen overflow-hidden">
+        {/* فيديو الخلفية */}
         <video
           ref={ref}
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-fill"
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={VideoBanner} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
+        {/* تغطية لونية للشفافية */}
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+
+        {/* محتوى النص أو أي محتوى إضافي */}
+ 
       </div>
     );
   }

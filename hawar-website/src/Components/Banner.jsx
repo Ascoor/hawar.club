@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { animate } from 'motion/react';
 import VideoBackground from './VideoBackground';
-
+import { slogans } from '../Data';
 function useAnimateText(ref, text, duration, callback) {
   useEffect(() => {
     if (!ref.current || !text) return;
@@ -14,6 +14,7 @@ function useAnimateText(ref, text, duration, callback) {
       )
       .join(' ');
 
+    // تأثير الدخول: الكلمات تدخل من اليمين إلى المركز
     words.forEach((_, i) => {
       animate(
         `.word-${i}`,
@@ -22,20 +23,24 @@ function useAnimateText(ref, text, duration, callback) {
       );
     });
 
-    const timeout = setTimeout(() => {
+    // جدولة تأثير الخروج بعد انتهاء العرض
+    const exitTimeout = setTimeout(() => {
       words.forEach((_, i) => {
         animate(
           `.word-${i}`,
-          { opacity: [1, 0], x: [0, 100] },
-          { duration: 0.4, delay: i * 0.2 }
+          { opacity: [1, 0], x: [0, -100] }, // الكلمات تخرج إلى اليسار
+          { duration: 0.4, delay: i * 0.1 }
         );
       });
-      setTimeout(callback, words.length * 0.4 * 200);
+
+      // تنفيذ `callback` بعد انتهاء تأثير الخروج
+      setTimeout(callback, words.length * 0.1 * 400);
     }, duration);
 
-    return () => clearTimeout(timeout);
+    return () => clearTimeout(exitTimeout);
   }, [ref, text, duration, callback]);
 }
+
 
 const Banner = () => {
   const videoRef = useRef(null);
@@ -51,30 +56,12 @@ const Banner = () => {
   const VIDEO_DURATION = 58;
   const SLOGAN_DURATION = 4500;
 
-  // شعارات مع معرفات فريدة
-  const slogans = [
-    { id: 'slogan-1', text: 'كن جزءًا من الحدث' },
-    {
-      id: 'slogan-2',
-      text: 'التعاون هو جوهر النجاح، والأساس الذي نبني عليه رؤيتنا.',
-    },
-    { id: 'slogan-3', text: 'معًا، نؤسس مجتمعًا ملهم يستطيع أن يحقق التغيير.' },
-    { id: 'slogan-4', text: 'لنكمل تاريخ من الإنجازات، ومستقبل من الطموحات' },
-    { id: 'slogan-5', text: 'رؤيتنا تتجاوز الحدود، لنحقق أثرًا لا يُنسى.' },
-    { id: 'slogan-6', text: 'الشغف هنا ليس مجرد فكرة.' },
-    { id: 'slogan-7', text: 'بل هو الطريق نحو إنجازات ملموسة.' },
-    { id: 'slogan-8', text: 'نسعى دائمًا لنرتقي إلى قمم التميز، يدًا بيد.' },
-    { id: 'slogan-9', text: 'بانضمامك إلينا، نقترب من تحقيق رؤيتنا معًا.' },
-    { id: 'slogan-10', text: 'لأن في كل إنجاز بداية لإنجاز أعظم.' },
-  ];
-
   const resetState = () => {
     setActiveSlogan(0);
     setShowSlogans(true);
     setShowClubSection(false);
     setShowButtons(false);
-  };
-
+  }; 
   useAnimateText(
     sloganRef,
     showSlogans ? slogans[activeSlogan].text : '',
@@ -87,6 +74,7 @@ const Banner = () => {
       }
     }
   );
+  
 
   const handleSlogansCompletion = () => {
     setShowSlogans(false);
@@ -129,7 +117,8 @@ const Banner = () => {
   }, [videoReady, activeSlogan, slogans.length]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen  overflow-hidden bg-hawar-blue-darker">
+      {/* فيديو الخلفية */}
       <VideoBackground
         ref={videoRef}
         onVideoReady={setVideoReady}
@@ -138,21 +127,23 @@ const Banner = () => {
 
       {videoReady && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
+          {/* الشعارات */}
           {showSlogans && (
             <h1
               ref={sloganRef}
-              className="text-white text-center font-bold italic text-2xl sm:text-3xl xs:text-md lg:text-4xl drop-shadow-lg"
+              className="text-white text-center font-bold italic text-xl sm:text-2xl lg:text-4xl tracking-wide"
             >
               {slogans[activeSlogan].text}
             </h1>
           )}
+
           {showClubSection && (
             <div
               ref={clubRef}
-              className="text-center transition-opacity duration-500"
+              className="text-center transition-opacity py-12 duration-500"
               style={{ opacity: 1 }}
             >
-              <h1 className="font-bold italic text-hawar-orange drop-shadow-lg text-6xl">
+              <h1 className="font-bold   text-hawar-orange drop-shadow-lg text-6xl">
                 نادي الحوار
               </h1>
               <p className="text-white mt-4 drop-shadow-md text-center max-w-[520px]">

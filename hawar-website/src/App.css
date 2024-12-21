@@ -41,7 +41,7 @@ theme.
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
 
 body {
-  font-family: 'Tajawal', sans-serif;
+  font-family: 'Cairo', sans-serif;
   direction: rtl;
   font-size: 15px;
   color: #3c3c3c;
@@ -54,74 +54,111 @@ body {
     height: 30px;
   }
 }
-
-
-.sk-folding-cube {
-  margin: auto;
-  width: 40px;
-  height: 40px;
-  position: relative;
-  transform: rotateZ(45deg);
+/* الحاوية العامة */
+#loading {
+  transition: opacity 0.5s ease-in-out;
 }
 
-.sk-cube {
-  float: left;
-  width: 50%;
-  height: 50%;
+.h-loader {
   position: relative;
-  transform: scale(1.1);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.sk-cube:before {
-  content: '';
+/* الأعمدة العمودية */
+.h-bar {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 10px;
+  height: 60px;
   background-color: #fb9221;
-  animation: sk-foldCubeAngle 2.4s infinite linear both;
-  transform-origin: 100% 100%;
+  transform-origin: center;
+  animation: h-bar-appear 1.2s infinite ease-in-out;
 }
 
-.sk-cube2 {
-  transform: scale(1.1) rotateZ(90deg);
+/* العمود الأول */
+.h-bar1 {
+  left: 0;
+  animation-delay: 0s;
 }
 
-.sk-cube3 {
-  transform: scale(1.1) rotateZ(180deg);
-}
-
-.sk-cube4 {
-  transform: scale(1.1) rotateZ(270deg);
-}
-
-.sk-cube2:before {
-  animation-delay: 0.3s;
-}
-
-.sk-cube3:before {
+/* العمود الثاني */
+.h-bar2 {
+  right: 0;
   animation-delay: 0.6s;
 }
 
-.sk-cube4:before {
-  animation-delay: 0.9s;
+/* الجسر الأفقي */
+.h-bridge {
+  position: absolute;
+  width: 40px;
+  height: 10px;
+  background-color: #fb9221;
+  top: 25px;
+  transform-origin: center;
+  animation: h-bridge-appear 1.2s infinite ease-in-out;
+  animation-delay: 0.3s;
 }
 
-@keyframes sk-foldCubeAngle {
-  0%,
-  10% {
-    transform: perspective(140px) rotateX(-180deg);
+/* الحركات */
+
+/* حركة الأعمدة */
+@keyframes h-bar-appear {
+  0% {
+    transform: scaleY(0);
     opacity: 0;
   }
-  25%,
-  75% {
-    transform: perspective(140px) rotateX(0deg);
+  50% {
+    transform: scaleY(1);
     opacity: 1;
   }
-  90%,
   100% {
-    transform: perspective(140px) rotateY(180deg);
+    transform: scaleY(0);
     opacity: 0;
+  }
+}
+
+/* حركة الجسر الأفقي */
+@keyframes h-bridge-appear {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+.wave {
+  opacity: 0.9;
+  background: linear-gradient(644deg, #102466, #051020 60%, #ff89022c);
+  animation: wave 6s infinite ease-in-out;
+}
+
+.wave-2 {
+  animation-duration: 4.6s;
+}
+
+.wave-3 {
+  animation-duration: 5.5s;
+  
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
   }
 }

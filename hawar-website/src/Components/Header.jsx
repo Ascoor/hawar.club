@@ -210,7 +210,7 @@ const Header = () => {
               <input
                 type="text"
                 placeholder="البحث"
-                className="px-4 py-2 border border-gray-300 rounded-md w-full text-lg"
+                className="px-4 py-2 border border-gray-300 rounded-md w-half text-lg"
               />
             </div>
           </motion.div>

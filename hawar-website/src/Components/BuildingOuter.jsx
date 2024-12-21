@@ -1,130 +1,100 @@
+import { useState } from "react";
 import { motion } from 'framer-motion';
-import KarateImage from '../assets/images/karate.png';
-import SwimmingImage from '../assets/images/swimming.png';
-import TennisImage from '../assets/images/tennis.png';
-import BuildingBg from '../assets/images/building_bg.png';
 import { FaArrowRight } from 'react-icons/fa';
 
+import CounterBg from '../assets/images/building_bg_blue.png';
+ import {sportsData} from '../Data';
 const BuildingOuter = () => {
+  const [visibleSports, setVisibleSports] = useState(4);
+
+  const handleLoadMore = () => {
+    setVisibleSports((prevVisible) => prevVisible + 4); // عرض 4 إضافية عند كل نقرة
+  };
   return (
     <div
-      className="building-outer py-12 bg-cover bg-center"
-      style={{ backgroundImage: `url(${BuildingBg})` }}
+      className="py-16 bg-fixed bg-center bg-cover"
+      style={{ backgroundImage: `url(${CounterBg})` }}
     >
-      <div className="container mx-auto">
-        <div className="building-list relative mt-36">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div
-              className="building-box bg-white p-10 text-center rounded-lg shadow-lg flex flex-col justify-between h-full"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div>
-                <figure className="mb-6 flex justify-center">
-                  <img
-                    src={KarateImage}
-                    alt="الكاراتيه في نادي الحوار"
-                    className="w-1/5 sm:w-1/3 mx-auto object-contain"
-                    loading="lazy"
-                  />
-                </figure>
-                <h4 className="text-2xl font-bold mb-4">الكاراتيه</h4>
-                <p className="text-gray-600">
-                  يقدم نادي الحوار تدريبات احترافية في الكاراتيه، مع مشاركات
-                  متميزة في البطولات المحلية والدولية.
-                </p>
-              </div>
-              <a
-                href="karate-detail.html"
-                className="inline-flex items-center justify-center mt-6 px-6 py-3 border-2 border-orange-500 text-orange-500 font-medium rounded-full transition duration-300 hover:bg-orange-500 hover:text-white"
-              >
-                <motion.span
-                  className="ml-2"
-                  initial={{ x: -10, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  <FaArrowRight />
-                </motion.span>
-                عرض التفاصيل
-              </a>
-            </motion.div>
+      
+      <div className="flex flex-col-reverse lg:flex-row items-center max-w-[1200px] mx-auto">
+      
+      <div className="container mx-auto px-4">
+       
+      <div className="relative flex justify-center items-center py-8 mb-12 rounded-header bg-gradient-to-r from-hawar-blue-darker  via-hawar-blue-dark   to-hawar-blue-darker  shadow-soft-orange">
+        <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-hawar-orange drop-shadow-xl">
+          الأنشطة الرياضية
+        </h1>
+      </div>
 
-            <motion.div
-              className="building-box bg-white text-hawar-orange p-10 text-center rounded-lg shadow-lg flex flex-col justify-between h-full"
+          <div className="absolute inset-0 rounded-lg border-4 border-hawar-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        {/* Grid layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"   data-aos="fade-up">
+        {sportsData.slice(0, visibleSports).map((sport, index) => (
+          <motion.div
+              key={index}
+              className="relative bg-hawar-blue-dark p-8 text-center  shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden rounded-card group"
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
             >
-              <div>
-                <figure className="mb-6 flex justify-center">
-                  <img
-                    src={SwimmingImage}
-                    alt="السباحة في نادي الحوار"
-                    className="w-1/5 sm:w-1/4 mx-auto object-contain"
-                    loading="lazy"
-                  />
-                </figure>
-                <h4 className="text-2xl font-bold mb-4">السباحة</h4>
-                <p className="text-gray-600">
-                  يضم النادي حمامات سباحة حديثة تناسب جميع الأعمار وتستضيف دورات
-                  تدريبية وبطولات متنوعة.
-                </p>
-              </div>
-              <a
-                href="swimming-detail.html"
-                className="inline-flex items-center justify-center mt-6 px-6 py-3 border-2 border-orange-500 text-orange-500 font-medium rounded-full transition duration-300 hover:bg-orange-500 hover:text-white"
-              >
-                <motion.span
-                  className="ml-2"
-                  initial={{ x: -10, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                >
-                  <FaArrowRight />
-                </motion.span>
-                عرض التفاصيل
-              </a>
-            </motion.div>
+              {/* Border Effect */}
 
-            <motion.div
-              className="building-box bg-white p-10 text-center rounded-lg shadow-lg flex flex-col justify-between h-full"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
+              {/* Icon */}
+              <motion.figure
+                className="mb-6 flex justify-center"
+                whileHover={{ rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img
+                  src={sport.image}
+                  alt={sport.name}
+                  className="w-1/3 sm:w-1/2 lg:w-40 mx-auto object-contain"
+                  loading="lazy"
+                />
+              </motion.figure>
+
+              {/* Content */}
               <div>
-                <figure className="mb-6 flex justify-center">
-                  <img
-                    src={TennisImage}
-                    alt="التنس في نادي الحوار"
-                    className="w-1/5 sm:w-1/4 mx-auto object-contain"
-                    loading="lazy"
-                  />
-                </figure>
-                <h4 className="text-2xl font-bold mb-4">التنس</h4>
-                <p className="text-gray-600">
-                  استمتع بملاعب التنس ذات المواصفات العالمية، مع دورات تدريبية
-                  مناسبة لجميع الأعمار.
+                <h4 className="text-2xl font-bold mb-4 text-hawar-orange group-hover:text-white transition-colors duration-300">
+                  {sport.name}
+                </h4>
+                <p className="text-gray-300 text-lg group-hover:text-gray-100 transition-colors duration-300">
+                  {sport.description}
                 </p>
               </div>
+
+              {/* Button */}
               <a
-                href="tennis-detail.html"
-                className="inline-flex items-center justify-center mt-6 px-6 py-3 border-2 border-orange-500 text-orange-500 font-medium rounded-full transition duration-300 hover:bg-orange-500 hover:text-white"
+                href={sport.link}
+                className="inline-flex items-center justify-center mt-6 px-6 py-3 border-2 border-orange-500 text-hawar-orange font-medium rounded-full transition duration-300 hover:bg-orange-500 hover:text-white"
               >
                 <motion.span
                   className="ml-2"
                   initial={{ x: -10, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
+                  transition={{ duration: 0.5 }}
                 >
                   <FaArrowRight />
                 </motion.span>
-                عرض التفاصيل
+                <span>عرض التفاصيل</span>
               </a>
             </motion.div>
-          </div>
+          ))}
+        </div>
+
+          {/* زر عرض المزيد */}
+          {visibleSports < sportsData.length && (
+            <div className="text-center mt-10">
+              <button
+                onClick={handleLoadMore}
+                className="px-6 py-3 bg-hawar-orange text-white font-bold rounded-full transition duration-300 hover:bg-hawar-blue hover:text-hawar-orange"
+              >
+                عرض المزيد
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -3,6 +3,11 @@ module.exports = {
   content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      borderRadius: {
+        'card': ' 40px',
+        'header': ' 80px',
+        'card2': ' 20px',
+      },
       colors: {
         'hawar-blue': {
           light: '#5a6fd1',
@@ -21,6 +26,7 @@ module.exports = {
           darker: '#F2F2ED',
         },
       },
+      
       spacing: {
         '70px': '70px',
       },
@@ -33,7 +39,7 @@ module.exports = {
         '24px': '24px',
       },
       boxShadow: {
-        custom: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        custom: '0 4px 6px 5px rgba(0, 0, 0, 0.1)',
         'soft-orange': '0 4px 6px rgba(251, 146, 33, 0.5)',
       },
       backgroundImage: {
@@ -42,18 +48,32 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       keyframes: {
-        fadeIn: {
-          from: { opacity: 0 },
-          to: { opacity: 1 },
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
-        fadeOut: {
-          from: { opacity: 1 },
-          to: { opacity: 0 },
+        waveSlow: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        waveMedium: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        waveFast: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
       },
       animation: {
+        waveSlow: 'waveSlow 55s linear infinite',
+        waveMedium: 'waveMedium 50s linear infinite',
+        waveFast: 'waveFast 45s linear infinite',
+
         fadeIn: 'fadeIn 1s ease-in-out',
         fadeOut: 'fadeOut 1s ease-in-out',
+        // إضافة تأثير حركة الزر عند التمرير
+        scrollUp: 'scrollUp 2s cubic-bezier(0.4, 0, 0.2, 1) infinite',
       },
     },
     screens: {

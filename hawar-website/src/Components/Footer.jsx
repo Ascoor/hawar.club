@@ -1,78 +1,46 @@
-import { useState, useEffect } from 'react';
+import { FaFacebook, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
 import HawarLogo from '../assets/hawar_logo.png';
-import {
-  FaFacebook,
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-  FaYoutube,
-  FaMapMarkerAlt,
-  FaEnvelope,
-  FaPhone,
-  FaArrowUp,
-} from 'react-icons/fa';
-import footerBg from '../assets/heros/slide.png';
-import Flickr1 from '../assets/images/flic1.png';
-import Flickr1B from '../assets/images/flic1B.png';
-import Flickr2 from '../assets/images/flic2.png';
-import Flickr2B from '../assets/images/flic2B.png';
-import Flickr3 from '../assets/images/flic3.png';
-import Flickr3B from '../assets/images/flic3B.png';
-import Flickr4 from '../assets/images/flic4.png';
-import Flickr4B from '../assets/images/flic4B.png';
-import Flickr5 from '../assets/images/flic5.png';
-import Flickr5B from '../assets/images/flic5B.png';
-import Flickr6 from '../assets/images/flic6.png';
-import Flickr6B from '../assets/images/flic6B.png';
-
 const Footer = () => {
-  const [visible, setVisible] = useState(false);
-
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setVisible(true);
-    } else {
-      setVisible(false);
-    }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
-
-  const flickrPhotos = [
-    { img: Flickr1, imgB: Flickr1B, alt: 'صورة 1' },
-    { img: Flickr2, imgB: Flickr2B, alt: 'صورة 2' },
-    { img: Flickr3, imgB: Flickr3B, alt: 'صورة 3' },
-    { img: Flickr4, imgB: Flickr4B, alt: 'صورة 4' },
-    { img: Flickr5, imgB: Flickr5B, alt: 'صورة 5' },
-    { img: Flickr6, imgB: Flickr6B, alt: 'صورة 6' },
-  ];
-
   return (
-    <div className="bg-hawar-blue-dark pt-9 text-right">
-      <div className="mx-auto w-full max-w-[1166px] px-4 xl:px-0">
-        <div className="flex flex-col justify-between sm:px-[18px] md:flex-row md:px-10">
-          {/* Logo and Description Section */}
-          <div className="md:w-[316px]">
-            <div className="mb-4">
-               
-              <img src={HawarLogo} className='w-56 h-auto' />
-            </div>
-            <p className="mt-[18px] text-[15px] font-normal text-white/[80%]">
-              نادي الحوار للألعاب الرياضية هو أحد الأندية الرائدة بمدينة المنصورة، حيث نقدم أنشطة رياضية واجتماعية وثقافية لجميع الأعمار.
-            </p>
+    <footer className="bg-gradient-to-r from-hawar-blue-darker via-hawar-blue-dark to-hawar-blue-darker py-10 text-white">
+  <div className="container mx-auto px-4 lg:px-8">
+    {/* الشبكة الرئيسية */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+      {/* القسم الأول: الشعار والوصف */}
+      <div className="text-center md:text-right">
+        <img src={HawarLogo} alt="Hawar Club Logo" className="w-32 h-auto mb-4 mx-auto md:mx-0" />
+        <p className="text-base md:text-lg text-white/90 leading-loose">
+          نادي الحوار للألعاب الرياضية هو أحد الأندية الرائدة بمدينة المنصورة، حيث نقدم أنشطة رياضية واجتماعية وثقافية لجميع الأعمار.
+        </p>
+      
+      </div>
 
-            <div className="mt-[18px] flex gap-4">
-              <a
+      {/* القسم الثاني: الروابط السريعة */}
+      <div className="text-center md:text-right">
+        <h4 className="text-xl text-hawar-orange-dark font-bold mb-4">روابط سريعة</h4>
+        <ul className="space-y-3">
+          <li>
+            <a href="/" className="text-lg hover:text-hawar-orange transition">الرئيسية</a>
+          </li>
+          <li>
+            <a href="/about" className="text-lg hover:text-hawar-orange transition">عن النادي</a>
+          </li>
+          
+          <li>
+            <a href="/contact" className="text-lg hover:text-hawar-orange transition">النشاط الرياضى</a>
+          </li>
+          <li>
+            <a href="/contact" className="text-lg hover:text-hawar-orange transition">أخر الأخبار</a>
+          </li>
+          <li>
+            <a href="/contact" className="text-lg hover:text-hawar-orange transition">المدربين</a>
+          </li>
+          <li>
+            <a href="/contact" className="text-lg hover:text-hawar-orange transition">العضوية</a>
+          </li>
+        </ul>
+        <div className="mt-2 flex justify-center md:justify-start gap-4">
+          <a
                 className="hover:scale-110 text-white hover:text-hawar-orange transition duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -112,108 +80,68 @@ const Footer = () => {
               >
                 <FaYoutube size={36} />
               </a>
-            </div>
-          </div>
+        </div>
+      </div>
 
-          {/* Contact Information Section */}
-          <div className="md:w-[316px]">
-            <div className="mt-[23px] flex items-center gap-4">
-              <FaPhone size={24} className="text-hawar-orange" />
-              <div className="ml-[18px]">
-                <a
-                  href="tel:+201234567890"
-                  className="font-Inter text-[14px] font-medium text-white"
-                >
-                  +20 123-456-7890
-                </a>
-                <p className="font-Inter text-[12px] font-medium text-white">
-                  رقم الهاتف
-                </p>
-              </div>
-            </div>
-            <div className="mt-[23px] flex items-center gap-4">
-              <FaEnvelope size={24} className="text-hawar-orange" />
-              <div className="ml-[18px]">
-                <a
-                  href="mailto:info@hawarclub.com"
-                  className="font-Inter text-[14px] font-medium text-white"
-                >
-                  info@hawarclub.com
-                </a>
-                <p className="font-Inter text-[12px] font-medium text-white">
-                  البريد الإلكتروني
-                </p>
-              </div>
-            </div>
-            <div className="mt-[23px] flex items-center gap-4">
-              <FaMapMarkerAlt size={24} className="text-hawar-orange" />
-              <div className="ml-[18px]">
-                <p className="font-Inter text-[14px] font-medium text-white">
-                  المنصورة، مصر
-                </p>
-                <p className="font-Inter text-[12px] font-medium text-white">
-                  الموقع الجغرافي
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Pages Section */}
-          <div className="mt-6 flex w-full flex-col justify-between text-white sm:flex-row md:mt-0 md:max-w-[341px]">
+      {/* القسم الثالث: معلومات التواصل والخريطة */}
+      <div className="text-center md:text-right">
+        <h4 className="text-xl font-bold  text-hawar-orange-dark mb-4">معلومات التواصل</h4>
+        
+        <div className="space-y-6">
+          
+          <div className="flex items-center justify-center md:justify-start gap-4">
+            <FaPhone size={24} className="text-hawar-orange" />
             <div>
-              <p className="text-deutziawhite font-inter text-[18px] font-medium leading-normal">
-                روابط سريعة
-              </p>
-              <ul>
-                <li className="mt-[15px]">
-                  <a
-                    className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                    href="/"
-                  >
-                    الرئيسية
-                  </a>
-                </li>
-                <li className="mt-[15px]">
-                  <a
-                    className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                    href="/about"
-                  >
-                    عن النادي
-                  </a>
-                </li>
-                <li className="mt-[15px]">
-                  <a
-                    className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                    href="/contact"
-                  >
-                    تواصل معنا
-                  </a>
-                </li>
-              </ul>
+              <a href="tel:+201234567890" className="block text-lg font-medium">
+                +20 123-456-7890
+              </a>
+              <span className="text-sm text-white/70">رقم الهاتف</span>
+            </div>
+          </div>
+          <div className="flex items-center justify-center md:justify-start gap-4">
+            <FaEnvelope size={24} className="text-hawar-orange" />
+            <div>
+              <a href="mailto:info@hawarclub.com" className="block text-lg font-medium">
+                info@hawarclub.com
+              </a>
+              <span className="text-sm text-white/70">البريد الإلكتروني</span>
             </div>
             
           </div>
           
-        <button
-          onClick={scrollToTop}
-          className={`fixed bottom-8 xs:mb-12 left-8 bg-hawar-orange text-white rounded-full p-4 shadow-lg hover:bg-hawar-blue-light hover:text-hawar-orange transition-all duration-300 ${
-            visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          } animate-pulse`}
-          aria-label="الرجوع للأعلى"
-        >
-          <FaArrowUp className="h-5 w-5" />
-        </button>
-   
+          <div className="flex items-center justify-center md:justify-start gap-4">
+            <FaMapMarkerAlt size={24} className="text-hawar-orange" />
+            <div>
+              <p className="text-lg font-medium">المنصورة، مصر</p>
+              <div className="mt-4">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27347.769671999817!2d31.382916456638554!3d31.040979221097462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79dda08b6825b%3A0x35e19c8a157da2c6!2z2YbYp9iv2Yog2KfZhNit2YjYp9ixINmE2YTYo9mE2LnYp9ioINin2YTYsdmK2KfYttmK2KkgLSBIYXdhciBTcG9ydHMgQ2x1Yg!5e0!3m2!1sar!2snl!4v1734766248219!5m2!1sar!2snl"
+                  width="100%"
+                  height="150"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="rounded-lg shadow-md"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+       
         </div>
-        <hr className="mt-[30px] text-white" />
-        <div className="flex items-center justify-center pb-8 pt-[9px] md:py-8">
-          <p className="text-[10px] font-normal text-white md:text-[12px]">
-            جميع الحقوق محفوظة © 2024، نادي الحوار للألعاب الرياضية.
-          </p>
-        </div>
-        
       </div>
     </div>
+
+    {/* الخط الفاصل */}
+    <hr className="my-8 border-white/20" />
+
+    {/* النص السفلي */}
+    <div className="text-center text-sm md:text-base text-white/80">
+      جميع الحقوق محفوظة © 2024، نادي الحوار للألعاب الرياضية.
+    </div>
+  </div>
+</footer>
+
   );
 };
 

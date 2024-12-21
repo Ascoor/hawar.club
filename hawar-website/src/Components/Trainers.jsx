@@ -2,20 +2,11 @@ import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import trainer1 from '../assets/gym/trainer-1.jpg';
-import trainer2 from '../assets/gym/trainer-2.jpg';
-import trainer3 from '../assets/gym/trainer-3.jpg';
-import trainer4 from '../assets/gym/trainer-4.jpg';
-import trainer5 from '../assets/gym/trainer-5.jpg';
-import trainer6 from '../assets/gym/trainer-6.jpg';
-import trainer7 from '../assets/gym/gym-team.jpg';
-import trainer8 from '../assets/gym/gym-team2.jpg';
-
 import BuildingBgBlue from '../assets/images/building_bg _blue.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-
+import { trainers } from '../Data';
 const Trainers = () => {
   const swiperRef = useRef(null);
 
@@ -25,17 +16,6 @@ const Trainers = () => {
       once: false,
     });
   }, []);
-
-  const trainers = [
-    { image: trainer7, name: 'Trainers El Hawar TechnoGym' },
-    { image: trainer1, name: 'Ahmed Raafat' },
-    { image: trainer2, name: 'COACH : Noha Adel' },
-    { image: trainer3, name: 'Nourhan Akll' },
-    { image: trainer4, name: 'Ahmed Ebrahim' },
-    { image: trainer5, name: 'Aya Helal' },
-    { image: trainer6, name: 'Shady El Zeky' },
-    { image: trainer8, name: 'Trainers El Hawar TechnoGym' },
-  ];
 
   return (
     <div
@@ -84,27 +64,29 @@ const Trainers = () => {
         >
           {trainers.map((trainer, index) => (
             <SwiperSlide key={index}>
-              <div className="px-4">
-                <div
-                  className="relative feature-box bg-white p-6 rounded-lg shadow-md"
-                  data-aos="fade-up"
-                >
-                  <figure className="relative">
-                    <img
-                      src={trainer.image}
-                      alt={trainer.name}
-                      className="w-full h-auto object-cover rounded-md"
-                    />
-                  </figure>
-                  <h4 className="text-xl font-semibold mt-4 text-center">
-                    <a
-                      href="/classes-detail.html"
-                      className="hover:text-hawar-orange transition"
-                    >
-                      {trainer.name}
-                    </a>
-                  </h4>
-                </div>
+              <div className="px-4 ">
+              <div
+  className="bg-gradient-to-r from-hawar-blue-darker via-hawar-blue-dark to-hawar-blue-darker p-6 rounded-card opacity-90 relative"
+  data-aos="fade-up"
+>
+  <figure className="relative m-4" data-aos="fade-down">
+    <img
+      src={trainer.image}
+      alt={trainer.name}
+      className="w-full h-auto shadow-soft-orange object-cover rounded-card"
+      data-aos="fade-down"
+    />
+  </figure>
+  <h4 className="text-xl font-semibold mt-4 text-center">
+    <a
+      href="/classes-detail.html"
+      className="text-white font-bold hover:text-hawar-orange transition"
+    >
+      {trainer.name}
+    </a>
+  </h4>
+</div>
+
               </div>
             </SwiperSlide>
           ))}

@@ -30,7 +30,7 @@ const CounterBox = ({ counter }) => {
 
   return (
     <div
-      className="counter-box flex flex-col items-center justify-center p-6 bg-white bg-opacity-10 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+      className="counter-box flex flex-col items-center justify-center p-6 bg-white bg-opacity-10 rounded-card shadow-lg hover:shadow-xl transition duration-300"
       ref={ref}
     >
       <figure className="mb-4">

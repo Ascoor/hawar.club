@@ -32,7 +32,7 @@ const VideoBackground = forwardRef(
     }, [onVideoReady, onTimeUpdate, replay, ref]);
 
     return (
-      <div className="relative w-full h-[calc(100vh-80px)] sm:h-screen overflow-hidden">
+      <div className="relative w-full h-[calc(100vh-80px)] xs:h-screen overflow-hidden">
         {/* فيديو الخلفية */}
         <video
           ref={ref}

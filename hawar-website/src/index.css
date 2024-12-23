@@ -2,3 +2,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities; 
+.active-link {
+    @apply border-b-2 border-orange-500 text-blue-300; 
+   
+  }
+  /* index.css أو App.css */
+
+/* تعريف keyframes لتحريك تأثير النص المحفور والمضيء */
+@keyframes textCarveLight {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.8),
+      0 0 10px rgba(255, 255, 255, 0.6),
+      inset 1px 1px 2px rgba(0, 0, 0, 0.8),
+      inset -1px -1px 2px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 1),
+      0 0 20px rgba(255, 255, 255, 0.8),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.9),
+      inset -2px -2px 4px rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* كلاس مخصص لتطبيق تأثير النص المحفور والمضيء */
+.carved-light-text {
+  font-weight: bold;
+  color: #ffffff; /* لون النص الأساسي */
+  background: linear-gradient(45deg, #ffffff, #ffcc00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textCarveLight 3s infinite alternate;
+}
+@layer utilities {
+  .bg-multi-gradient {
+    background: linear-gradient(to top, #151e2c, #0c1842, #151f3d, #bd6a12, #4b2a06);
+  }
+}

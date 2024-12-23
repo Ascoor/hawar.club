@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Logo1 from '../assets/logo-1.png';
 import { motion, AnimatePresence } from "framer-motion";
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from "react-scroll"; 
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -14,7 +15,6 @@ const Header = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
     };
-
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -43,6 +43,15 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY, isMobile]);
 
+  // ملاحظة: إزالة مؤشر الفأرة pointer --> استخدام cursor-default
+  // بالإضافة إلى إمكانية وضع كلاس active-link لتعريفه في CSS
+  const navLinkClass = (extra = '') =>
+    `${
+      scrolled
+        ? 'text-hawar-orange hover:border-b-2 hover:text-blue-300 hover:border-orange-500'
+        : 'text-white hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
+    } text-xl font-semibold tracking-wide pb-1 transition-all duration-300 cursor-default ${extra}`;
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
@@ -52,100 +61,110 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <a href="/" className="flex items-center">
           <img
-            className={`w-16 transition-all `}
+            className="w-16 transition-all"
             src={Logo1}
             alt="شعار النادي الرياضي"
           />
         </a>
 
+        {/* قائمة الروابط في وضع الديسكتوب */}
         <nav className="hidden lg:flex flex-1 justify-center">
           <ul className="flex space-x-6">
             <li className="nav-item">
-              <a
-                href="/"
-                className={`${
-                  scrolled
-                    ? 'text-hawar-orange ml-4 hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
-                    : 'text-white  ml-4 hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
-                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
+              <Link
+                to="banner"
+                smooth="easeInOutQuint"
+                duration={1500}
+                offset={-70}
+                spy={true}
+                activeClass="active-link" 
+                className={navLinkClass('ml-4')}
               >
                 الرئيسية
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="/about-us"
-                className={`${
-                  scrolled
-                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
-                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
-                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
+              <Link
+                to="about"
+                smooth="easeInOutQuint"
+                duration={1500}
+                offset={-70}
+                spy={true}
+                activeClass="active-link"
+                className={navLinkClass()}
               >
                 عن النادي
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="/classes"
-                className={`${
-                  scrolled
-                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
-                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
-                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
+              <Link
+                to="building"
+                smooth="easeInOutQuint"
+                duration={1500}
+                offset={-70}
+                spy={true}
+                activeClass="active-link"
+                className={navLinkClass()}
               >
-    النشاط الرياضي
-              </a>
+                النشاط الرياضي
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="/schedule"
-                className={`${
-                  scrolled
-                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
-                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
-                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
+              <Link
+                to="events"
+                smooth="easeInOutQuint"
+                duration={1500}
+                offset={-70}
+                spy={true}
+                activeClass="active-link"
+                className={navLinkClass()}
               >
-                أخر الأخبار
-              </a>
+                آخر الأخبار
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="/trainers"
-                className={`${
-                  scrolled
-                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
-                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
-                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
+              <Link
+                to="trainers"
+                smooth="easeInOutQuint"
+                duration={1500}
+                offset={-70}
+                spy={true}
+                activeClass="active-link"
+                className={navLinkClass()}
               >
                 المدربون
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="/news"
-                className={`${
-                  scrolled
-                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
-                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
-                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
+              <Link
+                to="counter"
+                smooth="easeInOutQuint"
+                duration={1500}
+                offset={-70}
+                spy={true}
+                activeClass="active-link"
+                className={navLinkClass()}
               >
                 العضوية
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="/contact-us"
-                className={`${
-                  scrolled
-                    ? 'text-hawar-orange  hover:border-b-2  hover:text-blue-300 hover:border-orange-500'
-                    : 'text-white   hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
-                } text-xl font-semibold tracking-wide pb-1 transition-all duration-300`}
+              <Link
+                to="footer"
+                smooth="easeInOutQuint"
+                duration={1500}
+                offset={-70}
+                spy={true}
+                activeClass="active-link"
+                className={navLinkClass()}
               >
                 تواصل معنا
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
+
+        {/* أيقونة القائمة في وضع الموبايل */}
         <div className="lg:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -159,6 +178,8 @@ const Header = () => {
           </button>
         </div>
       </div>
+
+      {/* القائمة المنسدلة في وضع الموبايل */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -166,43 +187,106 @@ const Header = () => {
             animate={{ height: "auto", opacity: 1, y: 0 }}
             exit={{ height: 0, opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden absolute top-21 left-0 w-full bg-hawar-blue-dark border-b-hawar-orange border-b-2 text-center font-bold text-white p-4 lg:hidden"
+            className="overflow-hidden absolute top-16 left-0 w-full bg-hawar-blue-dark border-b-hawar-orange border-b-2 text-center font-bold text-white p-4 lg:hidden"
           >
             <ul className="space-y-4">
               <li>
-                <a href="/" className="block hover:text-orange-500">
+                <Link
+                  to="banner"
+                  smooth="easeInOutQuint"
+                  duration={1500}
+                  offset={-70}
+                  spy={true}
+                  activeClass="active-link"
+                  onClick={() => setMenuOpen(false)}
+                  className="block hover:text-orange-500 cursor-default"
+                >
                   الرئيسية
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/about-us" className="block hover:text-orange-500">
+                <Link
+                  to="about"
+                  smooth="easeInOutQuint"
+                  duration={1500}
+                  offset={-70}
+                  spy={true}
+                  activeClass="active-link"
+                  onClick={() => setMenuOpen(false)}
+                  className="block hover:text-orange-500 cursor-default"
+                >
                   عن النادي
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/classes" className="block hover:text-orange-500">
+                <Link
+                  to="building"
+                  smooth="easeInOutQuint"
+                  duration={1500}
+                  offset={-70}
+                  spy={true}
+                  activeClass="active-link"
+                  onClick={() => setMenuOpen(false)}
+                  className="block hover:text-orange-500 cursor-default"
+                >
                   النشاط الرياضي
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/schedule" className="block hover:text-orange-500">
-                  أخر الأخبار
-                </a>
+                <Link
+                  to="events"
+                  smooth="easeInOutQuint"
+                  duration={1500}
+                  offset={-70}
+                  spy={true}
+                  activeClass="active-link"
+                  onClick={() => setMenuOpen(false)}
+                  className="block hover:text-orange-500 cursor-default"
+                >
+                  آخر الأخبار
+                </Link>
               </li>
               <li>
-                <a href="/trainers" className="block hover:text-orange-500">
+                <Link
+                  to="trainers"
+                  smooth="easeInOutQuint"
+                  duration={1500}
+                  offset={-70}
+                  spy={true}
+                  activeClass="active-link"
+                  onClick={() => setMenuOpen(false)}
+                  className="block hover:text-orange-500 cursor-default"
+                >
                   المدربون
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/news" className="block hover:text-orange-500">
+                <Link
+                  to="counter"
+                  smooth="easeInOutQuint"
+                  duration={1500}
+                  offset={-70}
+                  spy={true}
+                  activeClass="active-link"
+                  onClick={() => setMenuOpen(false)}
+                  className="block hover:text-orange-500 cursor-default"
+                >
                   العضوية
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact-us" className="block hover:text-orange-500">
+                <Link
+                  to="footer"
+                  smooth="easeInOutQuint"
+                  duration={1500}
+                  offset={-70}
+                  spy={true}
+                  activeClass="active-link"
+                  onClick={() => setMenuOpen(false)}
+                  className="block hover:text-orange-500 cursor-default"
+                >
                   تواصل معنا
-                </a>
+                </Link>
               </li>
             </ul>
 

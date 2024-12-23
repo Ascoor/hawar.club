@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-
 import "./App.css";
 import "animate.css";
+import 'aos/dist/aos.css'; // Import AOS styles
+import AOS from "aos";    // استيراد مكتبة AOS
 
 import Header from "./Components/Header.jsx";
 import Footer from "./Components/Footer.jsx";
@@ -13,12 +14,14 @@ import Trainers from "./Components/Trainers.jsx";
 import CounterSection from "./Components/CounterSection.jsx";
 import VipEvents from "./Components/VipEvents.jsx";
 import { FaArrowUp } from "react-icons/fa";
+import AboutSection from "./Components/AboutSection.jsx";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFading, setIsFading] = useState(false);
   const [visible, setVisible] = useState(false);
 
+  // دالة إظهار زر الرجوع للأعلى
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setVisible(true);
@@ -27,6 +30,7 @@ const App = () => {
     }
   };
 
+  // دالة التمرير للأعلى مع عامل تسريع مخصص
   const scrollToTop = () => {
     const start = window.pageYOffset;
     const end = 0;
@@ -38,7 +42,8 @@ const App = () => {
       const progress = timeElapsed / duration;
 
       if (progress < 1) {
-        const easing = cubicBezier(progress);
+        // عامل تسريع مخصص (بطيء في البداية، سريع في المنتصف، بطيء في النهاية)
+        const easing = cubicBezier(progress); 
         window.scrollTo(0, start - (start - end) * easing);
         requestAnimationFrame(scroll);
       } else {
@@ -46,12 +51,15 @@ const App = () => {
       }
     };
 
-    const cubicBezier = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
+    // مثال على دالة cubic-bezier (easeInOutCubic تقريبًا)
+    const cubicBezier = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
     requestAnimationFrame(scroll);
   };
 
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
+
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
@@ -68,6 +76,15 @@ const App = () => {
       clearTimeout(fadeTimeout);
       clearTimeout(loadingTimeout);
     };
+  }, []);
+
+  // تشغيل مكتبة AOS
+  useEffect(() => {
+    AOS.init({ // يمكنك تمرير الإعدادات الافتراضية هنا
+      duration: 1000,  // مدة الحركة الافتراضية
+      offset: 100,     // المسافة قبل بدء الحركة
+      easing: 'ease-in-out', 
+    });
   }, []);
 
   return (
@@ -87,13 +104,43 @@ const App = () => {
       {!isLoading && (
         <>
           <Header />
-          <Banner />
-          <BuildingOuter />
-          <VipEvents />
-          <MuscleSection />
-          <Trainers />
-          <CounterSection />
-          <Footer />
+
+          {/* Banner Section */}
+          <section id="banner" >
+            <Banner />
+          </section>
+          <section id="about" >
+          <AboutSection   />
+          </section>
+
+          {/* BuildingOuter Section */}
+          <section id="building" >
+            <BuildingOuter />
+          </section>
+
+          {/* MuscleSection */}
+          <section id="muscle" >
+            <MuscleSection />
+          </section>
+
+          {/* Trainers */}
+          <section id="trainers" >
+            <Trainers />
+          </section>
+          {/* VipEvents Section */}
+          <section id="events" >
+            <VipEvents />
+          </section>
+
+
+          {/* CounterSection */}
+          <section id="counter" >
+            <CounterSection />
+          </section>
+          <section id="footer" >
+
+          <Footer  />
+          </section>
 
           {/* زر الرجوع للأعلى */}
           <button

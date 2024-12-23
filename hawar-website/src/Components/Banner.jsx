@@ -131,27 +131,30 @@ const Banner = () => {
           {showSlogans && (
             <h1
               ref={sloganRef}
-              className="text-white text-center font-bold italic text-xl sm:text-2xl lg:text-4xl tracking-wide"
+              className="text-white text-center  font-bold italic text-xl xs:text-m sm:text-2xl lg:text-3xl tracking-wide"
             >
               {slogans[activeSlogan].text}
             </h1>
           )}
 
-          {showClubSection && (
-            <div
-              ref={clubRef}
-              className="text-center transition-opacity py-12 duration-500"
-              style={{ opacity: 1 }}
-            >
-              <h1 className="font-bold   text-hawar-orange drop-shadow-lg text-6xl">
-                نادي الحوار
-              </h1>
-              <p className="text-white mt-4 drop-shadow-md text-center max-w-[520px]">
-                انضم الآن وكن شريكًا في كتابة فصول جديدة من رؤية تتطلع دومًا إلى
-                المزيد.
-              </p>
-            </div>
-          )}
+{showClubSection && (
+  <div
+    ref={clubRef}
+    className="text-center transition-opacity duration-500 py-12"
+    style={{ opacity: 1 }}
+  >
+    {/* اسم النادي */}
+    <h1 className="font-bold text-hawar-orange  xs:text-4xl drop-shadow-lg text-5xl sm:text-6xl lg:text-7xl">
+      نادي الحوار
+    </h1>
+
+    {/* النصوص أسفل الاسم */}
+    <p className="text-white mt-6  xs:text-xl  text-lg font-bold sm:text-xl leading-relaxed drop-shadow-md text-center mx-auto max-w-[600px]">
+      انضم الآن وكن شريكًا في كتابة فصول جديدة من رؤية تتطلع دومًا إلى المزيد.
+    </p>
+  </div>
+)}
+
           {showButtons && (
             <div
               className="absolute bottom-8 flex flex-wrap justify-center gap-4"

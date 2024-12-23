@@ -38,10 +38,9 @@ theme.
 /* ================================================== */
 /* 01. General Style */
 /* ================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap'); */
 
 body {
-  font-family: 'Cairo', sans-serif;
   direction: rtl;
   font-size: 15px;
   color: #3c3c3c;
@@ -134,31 +133,28 @@ body {
     transform: scaleX(0);
     opacity: 0;
   }
-}
-
-.wave {
-  opacity: 0.9;
-  background: linear-gradient(644deg, #102466, #051020 60%, #ff89022c);
-  animation: wave 6s infinite ease-in-out;
-}
-
-.wave-2 {
-  animation-duration: 4.6s;
-}
-
-.wave-3 {
-  animation-duration: 5.5s;
-  
-}
-
+} 
 @keyframes wave {
   0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.1);
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg) scale(1);
+    transform: rotate(360deg);
   }
+}
+
+.animate-wave {
+  
+  animation-duration: 1000ms;
+  animation: wave 5s infinite linear;
+}
+
+.animate-wave.delay-300 {
+  
+  animation-delay: 4s infinite linear;;
+}
+
+.animate-wave.delay-600 {
+  animation-delay: 6s;
+  animation-duration: 4000ms;
 }

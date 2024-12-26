@@ -25,11 +25,10 @@ const App = () => {
     setVisible(window.pageYOffset > 300);
   };
 
-
   const scrollToTop = () => {
     const start = window.pageYOffset;
     const end = 0;
-    const duration = 1500; // مدة التمرير
+    const duration = 1500; 
     const startTime = performance.now();
 
     const scroll = (currentTime) => {
@@ -37,7 +36,7 @@ const App = () => {
       const progress = timeElapsed / duration;
 
       if (progress < 1) {
-        // عامل تسريع مخصص (بطيء في البداية، سريع في المنتصف، بطيء في النهاية)
+
         const easing = cubicBezier(progress); 
         window.scrollTo(0, start - (start - end) * easing);
         requestAnimationFrame(scroll);
@@ -46,12 +45,10 @@ const App = () => {
       }
     };
 
-    // مثال على دالة cubic-bezier (easeInOutCubic تقريبًا)
     const cubicBezier = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
     requestAnimationFrame(scroll);
   };
-
 
   useEffect(() => {
     AOS.init({
@@ -81,6 +78,7 @@ const App = () => {
     { id: "trainers", Component: Trainers },
     { id: "events", Component: VipEvents },
     { id: "counter", Component: CounterSection },
+    { id: "footer", Component: [Footer] },
   ];
 
   return (

@@ -119,7 +119,7 @@ const Header = () => {
                 activeClass="active-link"
                 className={navLinkClass()}
               >
-                آخر الأخبار
+                أهم الأحداث
               </Link>
             </li>
             <li className="nav-item">
@@ -243,7 +243,7 @@ const Header = () => {
                   onClick={() => setMenuOpen(false)}
                   className="block hover:text-orange-500 cursor-default"
                 >
-                  آخر الأخبار
+                  أهم الأحداث
                 </Link>
               </li>
               <li>

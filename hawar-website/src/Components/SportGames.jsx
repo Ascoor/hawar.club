@@ -22,12 +22,12 @@ const SportGames = () => {
       <div className="container mx-auto px-6">
         {}
         <div className="mb-12 text-center">
-          <div className="inline-block px-10 py-6    animate-lightSweep bg-gradient-to-b from-hawar-blue-darker via-hawar-blue-dark to-hawar-blue-darker shadow-glow rounded-header">
+          <div className="inline-block px-10 py-6     bg-gradient-to-b from-hawar-blue-darker via-hawar-blue-dark to-hawar-blue-darker shadow-orange-glow rounded-header">
             <h1
               className="text-3xl md:text-4xl lg:text-5xl xs:text-xl   italic font-bold text-hawar-orange tracking-wide"
               data-aos="fade-in"
             >
-              الألعاب الرياضية
+              الأنشطة الرياضية
             </h1>
           </div>
         </div>

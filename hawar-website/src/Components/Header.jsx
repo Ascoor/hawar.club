@@ -106,7 +106,7 @@ const Header = () => {
                 activeClass="active-link"
                 className={navLinkClass()}
               >
-                النشاط الرياضي
+                الأنشطة الرياضية
               </Link>
             </li>
             <li className="nav-item">
@@ -229,7 +229,7 @@ const Header = () => {
                   onClick={() => setMenuOpen(false)}
                   className="block hover:text-orange-500 cursor-default"
                 >
-                  النشاط الرياضي
+                  الأنشطة الرياضية
                 </Link>
               </li>
               <li>

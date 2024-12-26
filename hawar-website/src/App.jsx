@@ -100,7 +100,9 @@ const App = () => {
               <Component />
             </section>
           ))}
-          <Footer id="footer"  />
+          <section id="footer"  >
+          <Footer />
+          </section>
           <button
             onClick={scrollToTop}
             className={`fixed bottom-8 right-8 bg-hawar-orange text-white rounded-full p-4 shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange transition-all duration-300 z-50 ${

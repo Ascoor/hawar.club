@@ -25,9 +25,33 @@ const App = () => {
     setVisible(window.pageYOffset > 300);
   };
 
+
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const start = window.pageYOffset;
+    const end = 0;
+    const duration = 1500; // مدة التمرير
+    const startTime = performance.now();
+
+    const scroll = (currentTime) => {
+      const timeElapsed = currentTime - startTime;
+      const progress = timeElapsed / duration;
+
+      if (progress < 1) {
+        // عامل تسريع مخصص (بطيء في البداية، سريع في المنتصف، بطيء في النهاية)
+        const easing = cubicBezier(progress); 
+        window.scrollTo(0, start - (start - end) * easing);
+        requestAnimationFrame(scroll);
+      } else {
+        window.scrollTo(0, end);
+      }
+    };
+
+    // مثال على دالة cubic-bezier (easeInOutCubic تقريبًا)
+    const cubicBezier = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+    requestAnimationFrame(scroll);
   };
+
 
   useEffect(() => {
     AOS.init({

@@ -78,7 +78,7 @@ const App = () => {
     { id: "trainers", Component: Trainers },
     { id: "events", Component: VipEvents },
     { id: "counter", Component: CounterSection },
-    { id: "footer", Component: [Footer] },
+    { id: "footer", Component: Footer },
   ];
 
   return (

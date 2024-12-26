@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import "animate.css";
-import 'aos/dist/aos.css'; // Import AOS styles
-import AOS from "aos";    // استيراد مكتبة AOS
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { FaArrowUp } from "react-icons/fa";
 
 import Header from "./Components/Header.jsx";
 import Footer from "./Components/Footer.jsx";
 import Preloader from "./Components/Preloader.jsx";
 import Banner from "./Components/Banner.jsx";
-import BuildingOuter from "./Components/BuildingOuter.jsx";
+import SportGames from "./Components/SportGames.jsx";
 import MuscleSection from "./Components/MuscleSection.jsx";
 import Trainers from "./Components/Trainers.jsx";
 import CounterSection from "./Components/CounterSection.jsx";
 import VipEvents from "./Components/VipEvents.jsx";
-import { FaArrowUp } from "react-icons/fa";
 import AboutSection from "./Components/AboutSection.jsx";
 
 const App = () => {
@@ -21,75 +21,46 @@ const App = () => {
   const [isFading, setIsFading] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  // دالة إظهار زر الرجوع للأعلى
   const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setVisible(true);
-    } else {
-      setVisible(false);
-    }
+    setVisible(window.pageYOffset > 300);
   };
 
-  // دالة التمرير للأعلى مع عامل تسريع مخصص
   const scrollToTop = () => {
-    const start = window.pageYOffset;
-    const end = 0;
-    const duration = 1500; // مدة التمرير
-    const startTime = performance.now();
-
-    const scroll = (currentTime) => {
-      const timeElapsed = currentTime - startTime;
-      const progress = timeElapsed / duration;
-
-      if (progress < 1) {
-        // عامل تسريع مخصص (بطيء في البداية، سريع في المنتصف، بطيء في النهاية)
-        const easing = cubicBezier(progress); 
-        window.scrollTo(0, start - (start - end) * easing);
-        requestAnimationFrame(scroll);
-      } else {
-        window.scrollTo(0, end);
-      }
-    };
-
-    // مثال على دالة cubic-bezier (easeInOutCubic تقريبًا)
-    const cubicBezier = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-    requestAnimationFrame(scroll);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      offset: 100,
+      easing: "ease-in-out",
+      once: false,
+    });
     window.addEventListener("scroll", toggleVisibility);
-
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   useEffect(() => {
-    const fadeTimeout = setTimeout(() => {
-      setIsFading(true);
-    }, 1500); // يبدأ التلاشي بعد 1.5 ثانية
-
-    const loadingTimeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // ينتهي التحميل بعد 2 ثانية
-
+    const fadeTimeout = setTimeout(() => setIsFading(true), 3500);
+    const loadingTimeout = setTimeout(() => setIsLoading(false), 3000);
     return () => {
       clearTimeout(fadeTimeout);
       clearTimeout(loadingTimeout);
     };
   }, []);
 
-  // تشغيل مكتبة AOS
-  useEffect(() => {
-    AOS.init({ // يمكنك تمرير الإعدادات الافتراضية هنا
-      duration: 1000,  // مدة الحركة الافتراضية
-      offset: 100,     // المسافة قبل بدء الحركة
-      easing: 'ease-in-out', 
-    });
-  }, []);
+  const sections = [
+    { id: "banner", Component: Banner },
+    { id: "about", Component: AboutSection },
+    { id: "building", Component: SportGames },
+    { id: "muscle", Component: MuscleSection },
+    { id: "trainers", Component: Trainers },
+    { id: "events", Component: VipEvents },
+    { id: "counter", Component: CounterSection },
+  ];
 
   return (
     <>
-      {/* مكون التحميل */}
       {isLoading && (
         <div
           className={`fixed inset-0 z-50 bg-white flex items-center justify-center transition-opacity duration-500 ${
@@ -100,49 +71,15 @@ const App = () => {
         </div>
       )}
 
-      {/* محتوى الصفحة */}
       {!isLoading && (
         <>
           <Header />
-
-          {/* Banner Section */}
-          <section id="banner" >
-            <Banner />
-          </section>
-          <section id="about" >
-          <AboutSection   />
-          </section>
-
-          {/* BuildingOuter Section */}
-          <section id="building" >
-            <BuildingOuter />
-          </section>
-
-          {/* MuscleSection */}
-          <section id="muscle" >
-            <MuscleSection />
-          </section>
-
-          {/* Trainers */}
-          <section id="trainers" >
-            <Trainers />
-          </section>
-          {/* VipEvents Section */}
-          <section id="events" >
-            <VipEvents />
-          </section>
-
-
-          {/* CounterSection */}
-          <section id="counter" >
-            <CounterSection />
-          </section>
-          <section id="footer" >
-
-          <Footer  />
-          </section>
-
-          {/* زر الرجوع للأعلى */}
+          {sections.map(({ id, Component }) => (
+            <section id={id} key={id}>
+              <Component />
+            </section>
+          ))}
+          <Footer />
           <button
             onClick={scrollToTop}
             className={`fixed bottom-8 right-8 bg-hawar-orange text-white rounded-full p-4 shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange transition-all duration-300 z-50 ${

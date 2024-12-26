@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useEffect, forwardRef } from 'react';
 import VideoBanner from '../assets/videos/hawar-intro.mp4';
 
@@ -33,7 +32,7 @@ const VideoBackground = forwardRef(
 
     return (
       <div className="relative w-full h-[calc(100vh-80px)] xs:h-screen overflow-hidden">
-        {/* فيديو الخلفية */}
+        {}
         <video
           ref={ref}
           autoPlay
@@ -47,11 +46,11 @@ const VideoBackground = forwardRef(
           Your browser does not support the video tag.
         </video>
 
-        {/* تغطية لونية للشفافية */}
+        {}
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
-        {/* محتوى النص أو أي محتوى إضافي */}
- 
+        {}
+
       </div>
     );
   }

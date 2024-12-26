@@ -13,7 +13,8 @@ export default defineConfig({
     open: true,  // فتح المتصفح تلقائيًا عند بدء الخادم
   },
   build: {
-    outDir: 'dist',  // إعداد المجلد الناتج
+    chunkSizeWarningLimit: 1000,
+    outDir: 'dist',  
     minify: 'esbuild',  // تحسين الكود لتقليل الحجم
     sourcemap: true,  // إنشاء خريطة المصادر
   },

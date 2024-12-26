@@ -1,20 +1,20 @@
-import { useEffect, useRef, useState } from 'react';
-import { animate } from 'motion/react';
-import VideoBackground from './VideoBackground';
-import { slogans } from '../Data';
+import { useEffect, useRef, useState } from "react";
+import { animate } from "motion/react";
+import VideoBackground from "./VideoBackground";
+import { slogans } from "../Data";
+
 function useAnimateText(ref, text, duration, callback) {
   useEffect(() => {
     if (!ref.current || !text) return;
 
-    const words = text.split(' ');
+    const words = text.split(" ");
     ref.current.innerHTML = words
       .map(
         (word, i) =>
           `<span style="opacity:0; transform:translateX(100px);" class="word-${i}">${word}</span>`
       )
-      .join(' ');
+      .join(" ");
 
-    // تأثير الدخول: الكلمات تدخل من اليمين إلى المركز
     words.forEach((_, i) => {
       animate(
         `.word-${i}`,
@@ -23,24 +23,21 @@ function useAnimateText(ref, text, duration, callback) {
       );
     });
 
-    // جدولة تأثير الخروج بعد انتهاء العرض
     const exitTimeout = setTimeout(() => {
       words.forEach((_, i) => {
         animate(
           `.word-${i}`,
-          { opacity: [1, 0], x: [0, -100] }, // الكلمات تخرج إلى اليسار
+          { opacity: [1, 0], x: [0, -100] },
           { duration: 0.4, delay: i * 0.1 }
         );
       });
 
-      // تنفيذ `callback` بعد انتهاء تأثير الخروج
       setTimeout(callback, words.length * 0.1 * 400);
     }, duration);
 
     return () => clearTimeout(exitTimeout);
   }, [ref, text, duration, callback]);
 }
-
 
 const Banner = () => {
   const videoRef = useRef(null);
@@ -61,10 +58,11 @@ const Banner = () => {
     setShowSlogans(true);
     setShowClubSection(false);
     setShowButtons(false);
-  }; 
+  };
+
   useAnimateText(
     sloganRef,
-    showSlogans ? slogans[activeSlogan].text : '',
+    showSlogans ? slogans[activeSlogan].text : "",
     SLOGAN_DURATION,
     () => {
       if (activeSlogan < slogans.length - 1) {
@@ -74,7 +72,6 @@ const Banner = () => {
       }
     }
   );
-  
 
   const handleSlogansCompletion = () => {
     setShowSlogans(false);
@@ -83,12 +80,10 @@ const Banner = () => {
 
   const handleTimeUpdate = (currentTime) => {
     if (currentTime >= VIDEO_DURATION - 8 && showClubSection) {
-      animate(clubRef.current, { opacity: [1, 0] }, { duration: 1 }).then(
-        () => {
-          setShowClubSection(false);
-          setShowButtons(true);
-        }
-      );
+      animate(clubRef.current, { opacity: [1, 0] }, { duration: 1 }).then(() => {
+        setShowClubSection(false);
+        setShowButtons(true);
+      });
     }
 
     if (currentTime >= VIDEO_DURATION) {
@@ -117,8 +112,7 @@ const Banner = () => {
   }, [videoReady, activeSlogan, slogans.length]);
 
   return (
-    <div className="relative w-full h-screen  overflow-hidden bg-hawar-blue-darker">
-      {/* فيديو الخلفية */}
+    <div className="relative w-full h-screen overflow-hidden bg-hawar-blue-darker">
       <VideoBackground
         ref={videoRef}
         onVideoReady={setVideoReady}
@@ -127,42 +121,62 @@ const Banner = () => {
 
       {videoReady && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          {/* الشعارات */}
           {showSlogans && (
             <h1
               ref={sloganRef}
-              className="text-white text-center  font-bold italic text-xl xs:text-m sm:text-2xl lg:text-3xl tracking-wide"
+              className="text-white font-amiri font-bold text-xl xs:text-2xl sm:text-4xl lg:text-5xl text-center tracking-wide"
             >
               {slogans[activeSlogan].text}
             </h1>
           )}
 
-{showClubSection && (
-  <div
-    ref={clubRef}
-    className="text-center transition-opacity duration-500 py-12"
-    style={{ opacity: 1 }}
-  >
-    {/* اسم النادي */}
-    <h1 className="font-bold text-hawar-orange  xs:text-4xl drop-shadow-lg text-5xl sm:text-6xl lg:text-7xl">
-      نادي الحوار
-    </h1>
-
-    {/* النصوص أسفل الاسم */}
-    <p className="text-white mt-6  xs:text-xl  text-lg font-bold sm:text-xl leading-relaxed drop-shadow-md text-center mx-auto max-w-[600px]">
-      انضم الآن وكن شريكًا في كتابة فصول جديدة من رؤية تتطلع دومًا إلى المزيد.
-    </p>
-  </div>
-)}
+          {showClubSection && (
+            <div
+              ref={clubRef}
+              className="text-center transition-opacity duration-500 py-12"
+              style={{ opacity: 1 }}
+            >
+              <h1
+                className="
+                  font-bold 
+                  text-hawar-orange 
+                  xs:text-4xl 
+                  text-5xl 
+                  sm:text-6xl 
+                  lg:text-7xl 
+                  xl:text-8xl
+                  leading-tight 
+                  font-tharwat
+                "
+              >
+                نادي الحوار
+              </h1>
+              <p
+                className="
+                  text-white 
+                  mt-8 
+                  xs:text-lg 
+                  sm:text-xl 
+                  lg:text-2xl 
+                  xl:text-3xl 
+                  font-semibold 
+                  leading-relaxed 
+                  drop-shadow-md 
+                  text-center 
+                  mx-auto 
+                  max-w-[700px]
+                "
+              >
+                انضم الآن وكن شريكًا في كتابة فصول جديدة من رؤية تتطلع دومًا إلى المزيد.
+              </p>
+            </div>
+          )}
 
           {showButtons && (
-            <div
-              className="absolute bottom-8 flex flex-wrap justify-center gap-4"
-              style={{ left: '50%', transform: 'translateX(-50%)' }}
-            >
+            <div className="absolute bottom-8 flex flex-wrap justify-center gap-4">
               <a
                 href="/contact-us"
-                className="btn bg-hawar-orange text-white px-6 py-3 rounded transition hover:bg-orange-500 hover:text-white"
+                className="px-6 py-3 bg-hawar-orange text-white font-bold rounded-full shadow-lg hover:bg-orange-500 transition duration-300"
               >
                 انضم إلينا الآن
               </a>

@@ -41,3 +41,7 @@
     background: linear-gradient(to top, #151e2c, #0c1842, #151f3d, #bd6a12, #4b2a06);
   }
 }
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}

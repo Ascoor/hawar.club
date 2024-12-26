@@ -39,11 +39,13 @@ theme.
 /* 01. General Style */
 /* ================================================== */
 /* @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap'); */
+@import './assets/css/Fonts.css';
 
 body {
   direction: rtl;
   font-size: 15px;
   color: #3c3c3c;
+  background-color: rgb(33, 44, 78);
   line-height: 25px;
   font-weight: 400;
 }
@@ -52,56 +54,58 @@ body {
     width: 30px;
     height: 30px;
   }
-}
-/* الحاوية العامة */
+}/* الحاوية العامة */
 #loading {
   transition: opacity 0.5s ease-in-out;
+  background: linear-gradient(135deg, #172554, #1b2b5a);
 }
 
+/* الحاوية */
 .h-loader {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: pulse-scale 1.5s infinite ease-in-out;
 }
 
 /* الأعمدة العمودية */
 .h-bar {
   position: absolute;
-  width: 10px;
-  height: 60px;
+  width: 12px;
+  height: 70px;
   background-color: #fb9221;
+  border-radius: 6px;
   transform-origin: center;
   animation: h-bar-appear 1.2s infinite ease-in-out;
 }
 
 /* العمود الأول */
 .h-bar1 {
-  left: 0;
+  left: 10px;
   animation-delay: 0s;
 }
 
 /* العمود الثاني */
 .h-bar2 {
-  right: 0;
+  right: 10px;
   animation-delay: 0.6s;
 }
 
 /* الجسر الأفقي */
 .h-bridge {
   position: absolute;
-  width: 40px;
-  height: 10px;
+  width: 60px;
+  height: 12px;
   background-color: #fb9221;
-  top: 25px;
+  border-radius: 6px;
+  top: 35px;
   transform-origin: center;
   animation: h-bridge-appear 1.2s infinite ease-in-out;
   animation-delay: 0.3s;
 }
-
-/* الحركات */
 
 /* حركة الأعمدة */
 @keyframes h-bar-appear {
@@ -110,7 +114,7 @@ body {
     opacity: 0;
   }
   50% {
-    transform: scaleY(1);
+    transform: scaleY(1.2);
     opacity: 1;
   }
   100% {
@@ -126,14 +130,25 @@ body {
     opacity: 0;
   }
   50% {
-    transform: scaleX(1);
+    transform: scaleX(1.2);
     opacity: 1;
   }
   100% {
     transform: scaleX(0);
     opacity: 0;
   }
-} 
+}
+
+/* حركة نبضية للحاوية */
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
 @keyframes wave {
   0% {
     transform: rotate(0deg);

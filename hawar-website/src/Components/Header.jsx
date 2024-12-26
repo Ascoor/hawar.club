@@ -48,8 +48,8 @@ const Header = () => {
   const navLinkClass = (extra = '') =>
     `${
       scrolled
-        ? 'text-hawar-orange hover:border-b-2 hover:text-blue-300 hover:border-orange-500'
-        : 'text-white hover:text-blue-300 hover:border-b-2 hover:border-orange-500'
+        ? 'text-hawar-orange hover:border-b-2 hover:text-blue-100 hover:border-orange-500'
+        : 'text-white hover:text-blue-200 hover:border-b-2 hover:border-orange-500'
     } text-xl font-semibold tracking-wide pb-1 transition-all duration-300 cursor-default ${extra}`;
 
   return (

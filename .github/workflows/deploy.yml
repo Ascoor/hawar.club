@@ -1,0 +1,42 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # أو الفرع الذي تستخدمه للنشر
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # الخطوة 1: التحقق من المستودع
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # الخطوة 2: إعداد Node.js 20
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # الخطوة 3: تثبيت Yarn
+      - name: Install Yarn
+        run: npm install --global yarn
+
+      # الخطوة 4: تثبيت التبعيات باستخدام Yarn
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./hawar-website  # تأكد من المسار الصحيح
+
+      # الخطوة 5: بناء المشروع
+      - name: Build project
+        run: yarn build
+        working-directory: ./hawar-website  # تأكد من المسار الصحيح
+
+      # الخطوة 6: نشر إلى GitHub Pages باستخدام peaceiris/actions-gh-pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./hawar-website/dist  # تأكد من مسار مجلد البناء

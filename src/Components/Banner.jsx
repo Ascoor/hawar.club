@@ -112,12 +112,12 @@ const Banner = () => {
   }, [videoReady, activeSlogan, slogans.length]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-hawar-blue-darker">
-      <VideoBackground
-        ref={videoRef}
-        onVideoReady={setVideoReady}
-        onTimeUpdate={handleTimeUpdate}
-      />
+<div className="relative w-full h-screen overflow-hidden bg-hawar-blue-darker">
+  <VideoBackground
+    ref={videoRef}
+    onVideoReady={setVideoReady}
+    onTimeUpdate={handleTimeUpdate}
+  />
 
       {videoReady && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">

@@ -173,7 +173,7 @@ const Banner = () => {
           )}
 
           {showButtons && (
-            <div className="absolute bottom-8 flex flex-wrap justify-center gap-4">
+            <div className="absolute bottom-16 flex flex-wrap justify-center gap-4">
               <a
                 href="/contact-us"
                 className="px-6 py-3 bg-hawar-orange text-white font-bold rounded-full shadow-lg hover:bg-orange-500 transition duration-300"

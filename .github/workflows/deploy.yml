@@ -3,7 +3,7 @@ name: Deploy React App to GitHub Pages
 on:
   push:
     branches:
-      - master  # أو الفرع الذي تستخدمه للنشر
+      - master  # أو الفرع الرئيسي لديك
 
 jobs:
   build-and-deploy:
@@ -14,29 +14,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # الخطوة 2: إعداد Node.js 20
+      # الخطوة 2: إعداد Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '20'  # أو الإصدار المطلوب
 
-      # الخطوة 3: تثبيت Yarn
-      - name: Install Yarn
-        run: npm install --global yarn
-
-      # الخطوة 4: تثبيت التبعيات باستخدام Yarn
+      # الخطوة 3: تثبيت التبعيات
       - name: Install dependencies
         run: yarn install
 
-      # الخطوة 5: بناء المشروع
+      # الخطوة 4: بناء المشروع
       - name: Build project
         run: yarn build
 
- 
-          
-      # الخطوة 7: نشر إلى GitHub Pages باستخدام peaceiris/actions-gh-pages
+      # الخطوة 5: نشر إلى GitHub Pages باستخدام peaceiris/actions-gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # مسار مجلد البناء الجديد في الجذر
+          publish_dir: ./dist  # مسار مجلد البناء

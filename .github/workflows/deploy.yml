@@ -39,5 +39,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./hawar-websites/dist  # تأكد من مسار مجلد البناء
+          publish_dir: ./hawar-website/dist  # تأكد من مسار مجلد البناء
           # إذا كان مجلد البناء هو 'dist' بدلاً من 'build', قم بتعديل publish_dir accordingly

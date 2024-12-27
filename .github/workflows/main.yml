@@ -3,7 +3,7 @@ name: نشر الموقع إلى GitHub Pages
 on:
   push:
     branches:
-      - master  # يمكنك تغيير الفرع إذا كان مختلفًا
+      - master  # تأكد من أن هذا يعكس اسم الفرع الرئيسي لديك
 
 jobs:
   build-and-deploy:
@@ -18,16 +18,30 @@ jobs:
         with:
           node-version: '20'  # تأكد من استخدام الإصدار المناسب لمشروعك
 
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            hawar-website/node_modules
+            hawar-website/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('hawar-website/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Install dependencies
         working-directory: hawar-website
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Build project
         working-directory: hawar-website
         run: yarn build  # تأكد من أن هذا الأمر يقوم ببناء ملفات الموقع في مجلد مثل dist/ أو build/
 
+      - name: List build directory
+        run: ls -la hawar-website/dist  # تحقق من وجود الملفات
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4  # تحديث إلى الإصدار الأحدث
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: hawar-website/dist  # تأكد من أن هذا المسار يشير إلى مجلد البناء الناتج
+          force_orphan: true  # يسمح بإنشاء فرع جديد بدون التاريخ السابق

@@ -32,7 +32,7 @@ const VideoBackground = forwardRef(
 
     return (
       <div className="relative w-full h-[calc(100vh-80px)] xs:h-screen overflow-hidden">
-        {}
+   
         <video
           ref={ref}
           autoPlay
@@ -46,11 +46,10 @@ const VideoBackground = forwardRef(
           Your browser does not support the video tag.
         </video>
 
-        {}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        {/* التدرج الأسود */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black/30"></div>
 
-        {}
-
+     
       </div>
     );
   }

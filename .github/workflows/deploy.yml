@@ -20,7 +20,8 @@ jobs:
         cache: 'yarn'
 
     - name: Install dependencies
-      run: yarn install
+      run: yarn build --mode gh-pages
+
 
     - name: Build project
       run: yarn build --mode gh-pages

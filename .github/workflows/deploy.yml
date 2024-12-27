@@ -20,11 +20,10 @@ jobs:
         cache: 'yarn'
 
     - name: Install dependencies
-      run: yarn build --mode gh-pages
-
+      run: yarn install
 
     - name: Build project
-      run: yarn build --mode gh-pages
+      run: yarn build-gh-pages
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3

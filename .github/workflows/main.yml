@@ -3,7 +3,7 @@ name: نشر الموقع إلى GitHub Pages
 on:
   push:
     branches:
-      - master  # تأكد من أن هذا يعكس اسم الفرع الرئيسي لديك
+      - master  # تأكد من أن هذا يعكس اسم الفرع الرئيسي لديك (قد يكون 'main')
 
 jobs:
   build-and-deploy:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # لجلب كل السجل التاريخي
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -39,9 +41,12 @@ jobs:
       - name: List build directory
         run: ls -la hawar-website/dist  # تحقق من وجود الملفات
 
+      - name: Create .nojekyll file
+        run: touch hawar-website/dist/.nojekyll
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4  # تحديث إلى الإصدار الأحدث
+        uses: peaceiris/actions-gh-pages@v4  # تأكد من استخدام الإصدار الأحدث
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: hawar-website/dist  # تأكد من أن هذا المسار يشير إلى مجلد البناء الناتج
-          force_orphan: true  # يسمح بإنشاء فرع جديد بدون التاريخ السابق
+          publish_dir: hawar-website/dist
+          force_orphan: true  # يسمح بإنشاء فرع جديد بدون التاريخ السابق إذا لزم الأمر

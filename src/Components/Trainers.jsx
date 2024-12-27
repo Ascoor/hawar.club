@@ -86,12 +86,11 @@ const Trainers = () => {
            <div
              className="
                m-2 
-               p-6 
+               p-2 
                relative 
                shadow-soft-orange
                rounded-header
                opacity-90 
-               bg-gradient-to-t
                w-full 
                bg-multi-gradient
                transition-transform 

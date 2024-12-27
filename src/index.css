@@ -38,7 +38,7 @@
 }
 @layer utilities {
   .bg-multi-gradient {
-    background: linear-gradient(to top, #151e2c, #0c1842, #151f3d, #bd6a12, #4b2a06);
+    background: linear-gradient(to top, #0c1842, #151f3d, #dd8c35, #4b2a06);
   }
 }
 button:hover {

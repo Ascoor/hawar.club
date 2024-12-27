@@ -1,0 +1,33 @@
+name: نشر الموقع إلى GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # يمكنك تغيير الفرع إذا كان مختلفًا
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # تأكد من استخدام الإصدار المناسب لمشروعك
+
+      - name: Install dependencies
+        working-directory: hawar-website
+        run: yarn install
+
+      - name: Build project
+        working-directory: hawar-website
+        run: yarn build  # تأكد من أن هذا الأمر يقوم ببناء ملفات الموقع في مجلد مثل dist/ أو build/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: hawar-website/dist  # تأكد من أن هذا المسار يشير إلى مجلد البناء الناتج

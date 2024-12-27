@@ -9,8 +9,7 @@ module.exports = {
       },
       borderRadius: {
         'card': '40px',
-        'header': '80px',
-        'card2': '20px',
+        'header': '80px'
       },
       colors: {
         'icon-color': {

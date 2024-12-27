@@ -15,7 +15,7 @@ import Trainers from "./Components/Trainers.jsx";
 import CounterSection from "./Components/CounterSection.jsx";
 import VipEvents from "./Components/VipEvents.jsx";
 import AboutSection from "./Components/AboutSection.jsx";
-import { BrowserRouter } from "react-router-dom";
+
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFading, setIsFading] = useState(false);
@@ -81,10 +81,7 @@ const App = () => {
   ];
 
   return (
-    <BrowserRouter basename="/hawar.club">
-
     <>
-
       {isLoading && (
         <div
           className={`fixed inset-0 z-50 bg-white flex items-center justify-center transition-opacity duration-500 ${
@@ -118,8 +115,6 @@ const App = () => {
         </>
       )}
     </>
-    </BrowserRouter>
-
   );
 };
 

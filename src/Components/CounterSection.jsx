@@ -21,7 +21,6 @@ const Counter = () => {
       className="counter-outer py-16 bg-cover bg-center text-center"
       style={{
         backgroundImage: `url(${CounterBg})`,
-      
       }}
     >
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">

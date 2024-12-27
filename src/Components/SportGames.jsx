@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
-import CounterBg from "../assets/images/building_bg_blue.png";
-import { sportsData } from "../Data";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaArrowRight } from 'react-icons/fa';
+import CounterBg from '../assets/images/building_bg_blue.png';
+import { sportsData } from '../Data';
 
 const SportGames = () => {
   const [visibleSports, setVisibleSports] = useState(4);

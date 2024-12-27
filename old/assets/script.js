@@ -40,20 +40,20 @@ const comingSoon = document.querySelector('.coming-soon');
 
 // مباشرة عرض العناصر دون تأثير التلاشي
 // clubName.style.display = "block"; // عرض "Hawar"
-header.classList.add("show"); // تفعيل صنف "show" للشريط العلوي لعرضه
-comingSoon.style.display = "block"; // عرض "Coming Soon"
+header.classList.add('show'); // تفعيل صنف "show" للشريط العلوي لعرضه
+comingSoon.style.display = 'block'; // عرض "Coming Soon"
 
 // لا حاجة لاستدعاء fadeOutContent هنا
 
 function toggleMenu() {
-    const sideMenu = document.getElementById('sideMenu');
-    sideMenu.classList.toggle('show');
+  const sideMenu = document.getElementById('sideMenu');
+  sideMenu.classList.toggle('show');
 }
 // Function to close the side menu
 function closeMenu() {
-    // Get the side menu element
-    const sideMenu = document.querySelector('.side-menu');
-    
-    // Remove the 'show' class to hide the menu
-    sideMenu.classList.remove('show');
+  // Get the side menu element
+  const sideMenu = document.querySelector('.side-menu');
+
+  // Remove the 'show' class to hide the menu
+  sideMenu.classList.remove('show');
 }

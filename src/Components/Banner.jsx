@@ -1,19 +1,19 @@
-import { useEffect, useRef, useState } from "react";
-import { animate } from "motion/react";
-import VideoBackground from "./VideoBackground";
-import { slogans } from "../Data";
+import { useEffect, useRef, useState } from 'react';
+import { animate } from 'motion/react';
+import VideoBackground from './VideoBackground';
+import { slogans } from '../Data';
 
 function useAnimateText(ref, text, duration, callback) {
   useEffect(() => {
     if (!ref.current || !text) return;
 
-    const words = text.split(" ");
+    const words = text.split(' ');
     ref.current.innerHTML = words
       .map(
         (word, i) =>
           `<span style="opacity:0; transform:translateX(100px);" class="word-${i}">${word}</span>`
       )
-      .join(" ");
+      .join(' ');
 
     words.forEach((_, i) => {
       animate(
@@ -62,7 +62,7 @@ const Banner = () => {
 
   useAnimateText(
     sloganRef,
-    showSlogans ? slogans[activeSlogan].text : "",
+    showSlogans ? slogans[activeSlogan].text : '',
     SLOGAN_DURATION,
     () => {
       if (activeSlogan < slogans.length - 1) {
@@ -80,10 +80,12 @@ const Banner = () => {
 
   const handleTimeUpdate = (currentTime) => {
     if (currentTime >= VIDEO_DURATION - 8 && showClubSection) {
-      animate(clubRef.current, { opacity: [1, 0] }, { duration: 1 }).then(() => {
-        setShowClubSection(false);
-        setShowButtons(true);
-      });
+      animate(clubRef.current, { opacity: [1, 0] }, { duration: 1 }).then(
+        () => {
+          setShowClubSection(false);
+          setShowButtons(true);
+        }
+      );
     }
 
     if (currentTime >= VIDEO_DURATION) {
@@ -112,12 +114,12 @@ const Banner = () => {
   }, [videoReady, activeSlogan, slogans.length]);
 
   return (
-<div className="relative w-full h-screen overflow-hidden bg-hawar-blue-darker">
-  <VideoBackground
-    ref={videoRef}
-    onVideoReady={setVideoReady}
-    onTimeUpdate={handleTimeUpdate}
-  />
+    <div className="relative w-full h-screen overflow-hidden bg-hawar-blue-darker">
+      <VideoBackground
+        ref={videoRef}
+        onVideoReady={setVideoReady}
+        onTimeUpdate={handleTimeUpdate}
+      />
 
       {videoReady && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -153,21 +155,21 @@ const Banner = () => {
               </h1>
               <p
                 className="
-                  text-white 
-                  mt-8 
-                  xs:text-lg 
-                  sm:text-xl 
-                  lg:text-2xl 
-                  xl:text-3xl 
-                  font-semibold 
-                  leading-relaxed 
-                  drop-shadow-md 
-                  text-center 
-                  mx-auto 
-                  max-w-[700px]
-                "
+    text-white 
+    mt-8 
+    xs:text-lg 
+    sm:text-xl 
+    lg:text-2xl 
+    xl:text-3xl 
+    font-semibold 
+    leading-relaxed 
+    drop-shadow-md 
+    text-center 
+    mx-auto 
+    max-w-[700px]
+  "
               >
-                انضم الآن وكن شريكًا في كتابة فصول جديدة من رؤية تتطلع دومًا إلى المزيد.
+                حيث تبدأ الأحلام، وتنطلق الرؤى، وتُصنع الإنجازات.
               </p>
             </div>
           )}

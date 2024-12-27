@@ -1,5 +1,5 @@
-import Gym7 from "../assets/gym/gym-7.png";
-import CounterBg from "../assets/images/building_bg _blue.png";
+import Gym7 from '../assets/gym/gym-7.png';
+import CounterBg from '../assets/images/building_bg _blue.png';
 
 const MuscleSection = () => {
   return (
@@ -26,9 +26,9 @@ const MuscleSection = () => {
               className="text-base sm:text-lg lg:text-2xl leading-relaxed text-white"
               data-aos="fade-up"
             >
-              انضم إلى فريقنا المتخصص وابدأ رحلتك نحو صحة أفضل وحياة أكثر نشاطًا باستخدام أحدث
-              معدات{" "}
-              <span className="text-hawar-orange font-semibold">Tecnogym</span>{" "}
+              انضم إلى فريقنا المتخصص وابدأ رحلتك نحو صحة أفضل وحياة أكثر نشاطًا
+              باستخدام أحدث معدات{' '}
+              <span className="text-hawar-orange font-semibold">Tecnogym</span>{' '}
               العالمية.
             </p>
             <a

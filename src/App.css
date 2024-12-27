@@ -54,7 +54,7 @@ body {
     width: 30px;
     height: 30px;
   }
-}/* الحاوية العامة */
+} /* الحاوية العامة */
 #loading {
   transition: opacity 0.5s ease-in-out;
   background: linear-gradient(135deg, #172554, #1b2b5a);
@@ -141,7 +141,8 @@ body {
 
 /* حركة نبضية للحاوية */
 @keyframes pulse-scale {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -159,14 +160,12 @@ body {
 }
 
 .animate-wave {
-  
   animation-duration: 1000ms;
   animation: wave 5s infinite linear;
 }
 
 .animate-wave.delay-300 {
-  
-  animation-delay: 4s infinite linear;;
+  animation-delay: 4s infinite linear;
 }
 
 .animate-wave.delay-600 {

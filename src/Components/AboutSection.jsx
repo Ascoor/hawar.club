@@ -1,15 +1,21 @@
-import React, { useEffect } from "react";
-import { FaFacebook, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
-import aboutImage from "../assets/hawar-about-1.jpg";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useEffect } from 'react';
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+} from 'react-icons/fa';
+import aboutImage from '../assets/hawar-about-1.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const AboutSection = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
       offset: 100,
-      easing: "ease-in-out",
+      easing: 'ease-in-out',
       once: true,
     });
   }, []);
@@ -34,17 +40,20 @@ const AboutSection = () => {
             className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
             data-aos="fade-up"
           >
-            يُعد نادي الحوار للألعاب الرياضية واحدًا من أبرز الأندية الرياضية في مدينة{" "}
-            <span className="text-hawar-orange font-semibold">المنصورة</span> بمحافظة الدقهلية. يتميز
-            النادي بمرافقه الرياضية المتنوعة وخدماته المميزة، مما يوفّر بيئة مثالية للتمرين
-            والاستمتاع بأجواء صحية واجتماعية.
+            يُعد نادي الحوار للألعاب الرياضية واحدًا من أبرز الأندية الرياضية في
+            مدينة{' '}
+            <span className="text-hawar-orange font-semibold">المنصورة</span>{' '}
+            بمحافظة الدقهلية. يتميز النادي بمرافقه الرياضية المتنوعة وخدماته
+            المميزة، مما يوفّر بيئة مثالية للتمرين والاستمتاع بأجواء صحية
+            واجتماعية.
           </p>
           <p
             className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
             data-aos="fade-up"
           >
-            يقدم النادي أنشطة رياضية متعددة مثل كرة القدم، كرة السلة، السباحة، والتنس. كما يشارك
-            في بطولات محلية وإقليمية ويهتم بالجانب الثقافي والاجتماعي عبر فعاليات وأنشطة متنوعة.
+            يقدم النادي أنشطة رياضية متعددة مثل كرة القدم، كرة السلة، السباحة،
+            والتنس. كما يشارك في بطولات محلية وإقليمية ويهتم بالجانب الثقافي
+            والاجتماعي عبر فعاليات وأنشطة متنوعة.
           </p>
           <p
             className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"

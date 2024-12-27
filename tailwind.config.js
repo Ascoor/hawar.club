@@ -3,13 +3,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-
-        'arabic': ['Tajawal', 'sans-serif'],
-
+        arabic: ['Tajawal', 'sans-serif'],
       },
       borderRadius: {
-        'card': '40px',
-        'header': '80px'
+        card: '40px',
+        header: '80px',
       },
       colors: {
         'icon-color': {
@@ -28,42 +26,40 @@ module.exports = {
         'hawar-orange': {
           DEFAULT: '#fb9221',
           dark: '#fb7921',
-          light: '#ffa726', 
+          light: '#ffa726',
         },
         'hawar-terq': {
-          DEFAULT: '#3BAEA6', 
-          light: '#A3DDCF', 
-          dark: '#1A736A', 
+          DEFAULT: '#3BAEA6',
+          light: '#A3DDCF',
+          dark: '#1A736A',
         },
-
       },
       spacing: {
         '70px': '70px',
       },
       fontSize: {
-        'xxs': '0.7rem',    
-        'xs': '0.75rem',
-        'sm': '0.875rem',
-        'base': '1rem',   
-        'lg': '1.125rem', 
-        'xl': '1.25rem',  
-        '2xl': '1.5rem',  
+        xxs: '0.7rem',
+        xs: '0.75rem',
+        sm: '0.875rem',
+        base: '1rem',
+        lg: '1.125rem',
+        xl: '1.25rem',
+        '2xl': '1.5rem',
         '3xl': '1.875rem',
-        '4xl': '2.25rem', 
-        '5xl': '3rem',    
+        '4xl': '2.25rem',
+        '5xl': '3rem',
 
-        '6xl': '3.75rem', 
-        '7xl': '4.5rem',  
+        '6xl': '3.75rem',
+        '7xl': '4.5rem',
       },
       boxShadow: {
-
-        custom: '0 4px 6px 5px rgba(0, 0, 0, 0.1)', 
-        'soft-orange': '0 4px 6px rgba(251, 146, 33, 0.5)', 
-        'dark-blue': '0 4px 10px rgba(0, 0, 139, 0.6)', 
-        'red-glow': '0 0 10px rgba(255, 0, 0, 0.5)', 
-        'blue-glow': '0 0 15px rgba(0, 0, 255, 0.4)', 
-        'led-orange': '0 0 20px rgba(251, 146, 33, 0.8)', 
-        'orange-glow': '0 0 30px rgba(251, 146, 33, 0.6)', 
+        custom: '0 4px 6px 5px rgba(0, 0, 0, 0.1)',
+        'soft-orange': '0 4px 6px rgba(251, 146, 33, 0.5)',
+        'dark-blue': '0 4px 10px rgba(0, 0, 139, 0.6)',
+        'red-glow': '0 0 10px rgba(255, 0, 0, 0.5)',
+        'blue-glow': '0 0 15px rgba(0, 0, 255, 0.4)',
+        'led-orange': '0 0 20px rgba(251, 146, 33, 0.8)',
+        'orange-glow': '0 0 30px rgba(251, 146, 33, 0.6)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -74,10 +70,12 @@ module.exports = {
       keyframes: {
         wave: {
           '0%': { transform: 'translateX(0) translateY(0) rotate(0deg)' },
-          '50%': { transform: 'translateX(-10%) translateY(15px) rotate(180deg)' },
+          '50%': {
+            transform: 'translateX(-10%) translateY(15px) rotate(180deg)',
+          },
           '100%': { transform: 'translateX(0) translateY(0) rotate(360deg)' },
-        },  
-           borderGlow: {
+        },
+        borderGlow: {
           '0%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },

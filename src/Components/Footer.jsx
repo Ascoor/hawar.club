@@ -1,4 +1,4 @@
-import { Link } from "react-scroll";
+import { Link } from 'react-scroll';
 import {
   FaFacebook,
   FaTwitter,
@@ -8,8 +8,8 @@ import {
   FaMapMarkerAlt,
   FaEnvelope,
   FaPhone,
-} from "react-icons/fa";
-import HawarLogo from "../assets/hawar_logo.png";
+} from 'react-icons/fa';
+import HawarLogo from '../assets/hawar_logo.png';
 
 const Footer = () => {
   return (
@@ -24,14 +24,16 @@ const Footer = () => {
               className="w-32 h-auto mb-4 mx-auto md:mx-0"
             />
             <p className="text-base md:text-lg text-white/90 leading-loose">
-              نادي الحوار للألعاب الرياضية هو أحد الأندية الرائدة بمدينة المنصورة،
-              حيث نقدم أنشطة رياضية واجتماعية وثقافية لجميع الأعمار.
+              نادي الحوار للألعاب الرياضية هو أحد الأندية الرائدة بمدينة
+              المنصورة، حيث نقدم أنشطة رياضية واجتماعية وثقافية لجميع الأعمار.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="text-center md:text-right">
-            <h4 className="text-xl text-hawar-orange-dark font-bold mb-4">روابط سريعة</h4>
+            <h4 className="text-xl text-hawar-orange-dark font-bold mb-4">
+              روابط سريعة
+            </h4>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -129,7 +131,9 @@ const Footer = () => {
                   >
                     info@hawarclub.com
                   </a>
-                  <span className="text-sm text-white/70">البريد الإلكتروني</span>
+                  <span className="text-sm text-white/70">
+                    البريد الإلكتروني
+                  </span>
                 </div>
               </div>
               <div className="flex items-center justify-center md:justify-start gap-4">
@@ -144,7 +148,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <hr className="my-8 border-white/20" />
-        <div className="text-center text-sm md:text-base text-white/80">
+        <div className="text-center text-sm md:text-base text-hawar-orange">
           جميع الحقوق محفوظة © 2024، نادي الحوار للألعاب الرياضية.
         </div>
       </div>

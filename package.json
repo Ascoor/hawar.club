@@ -6,10 +6,8 @@
   "homepage": "https://ascoor.github.io/hawar.club/",
   "type": "module",
   "scripts": {
-    
-  "build-gh-pages": "vite build --mode gh-pages",
-"deploy": "yarn build-gh-pages && gh-pages -d dist",
-
+    "build-gh-pages": "vite build --mode gh-pages",
+    "deploy": "yarn build-gh-pages && gh-pages -d dist",
     "ins-new": "rm -rf node_modules dist yarn.lock && yarn install && yarn build",
     "dev": "vite --host 0.0.0.0",
     "format": "prettier --write .",

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Logo1 from '../assets/logo-1.png';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from "react-scroll"; 
+import { Link } from 'react-scroll';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -77,7 +77,7 @@ const Header = () => {
                 duration={1500}
                 offset={-70}
                 spy={true}
-                activeClass="active-link" 
+                activeClass="active-link"
                 className={navLinkClass('ml-4')}
               >
                 الرئيسية
@@ -168,7 +168,7 @@ const Header = () => {
         <div className="lg:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`text-${scrolled ? "hawar-orange" : "white"} text-2xl focus:outline-none`}
+            className={`text-${scrolled ? 'hawar-orange' : 'white'} text-2xl focus:outline-none`}
           >
             {menuOpen ? (
               <XMarkIcon className="h-6 w-6" />
@@ -184,9 +184,9 @@ const Header = () => {
         {menuOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0, y: -20 }}
-            animate={{ height: "auto", opacity: 1, y: 0 }}
+            animate={{ height: 'auto', opacity: 1, y: 0 }}
             exit={{ height: 0, opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden absolute top-16 left-0 w-full bg-hawar-blue-dark border-b-hawar-orange border-b-2 text-center font-bold text-white p-4 lg:hidden"
           >
             <ul className="space-y-4">

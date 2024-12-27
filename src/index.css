@@ -1,16 +1,16 @@
 /* Tailwind CSS Directives */
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
 .active-link {
-    @apply border-b-2 border-orange-500 text-blue-300; 
-   
-  }
-  /* index.css أو App.css */
+  @apply border-b-2 border-orange-500 text-blue-300;
+}
+/* index.css أو App.css */
 
 /* تعريف keyframes لتحريك تأثير النص المحفور والمضيء */
 @keyframes textCarveLight {
-  0%, 100% {
+  0%,
+  100% {
     text-shadow:
       0 0 5px rgba(255, 255, 255, 0.8),
       0 0 10px rgba(255, 255, 255, 0.6),

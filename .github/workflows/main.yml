@@ -47,6 +47,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4  # تأكد من استخدام الإصدار الأحدث
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # أو استخدم PAT إذا لزم الأمر
           publish_dir: hawar-website/dist
           force_orphan: true  # يسمح بإنشاء فرع جديد بدون التاريخ السابق إذا لزم الأمر

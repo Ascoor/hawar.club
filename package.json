@@ -3,11 +3,12 @@
   "private": true,
   "license": "MIT",
   "version": "0.0.0", 
-  "homepage": "https://ascoor.github.io/hawar.club",
+  "homepage": "https://ascoor.github.io/hawar.club/",
   "type": "module",
 "scripts": {
   "predeploy": "yarn build",
   "deploy": "gh-pages -d dist",
+
     "ins-new": "rm -rf node_modules dist yarn.lock && yarn install && yarn build",
     "dev": "vite --host 0.0.0.0",
     "format": "prettier --write .",

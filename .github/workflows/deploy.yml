@@ -27,17 +27,16 @@ jobs:
       # الخطوة 4: تثبيت التبعيات باستخدام Yarn
       - name: Install dependencies
         run: yarn install
-        working-directory: ./hawar-website  # تأكد من المسار الصحيح
 
       # الخطوة 5: بناء المشروع
       - name: Build project
         run: yarn build
-        working-directory: ./hawar-website  # تأكد من المسار الصحيح
 
-      # الخطوة 6: نشر إلى GitHub Pages باستخدام peaceiris/actions-gh-pages
+ 
+          
+      # الخطوة 7: نشر إلى GitHub Pages باستخدام peaceiris/actions-gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./hawar-website/dist  # تأكد من مسار مجلد البناء
-          # إذا كان مجلد البناء هو 'dist' بدلاً من 'build', قم بتعديل publish_dir accordingly
+          publish_dir: ./dist  # مسار مجلد البناء الجديد في الجذر

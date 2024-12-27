@@ -19,7 +19,7 @@ import PadelImage from './assets/images/sports/padel.png';
 import counter1 from './assets/images/counters/members-counter.png';
 import counter2 from './assets/images/counters/waitinglist-counter.png';
 import counter3 from './assets/images/counter3.png';
-import counter4 from './assets/images/counters/sports-counter.png'; 
+import counter4 from './assets/images/counters/sports-counter.png';
 import trainer1 from './assets/gym/trainer-1.jpg';
 import trainer2 from './assets/gym/trainer-2.jpg';
 import trainer3 from './assets/gym/trainer-3.jpg';
@@ -189,16 +189,16 @@ const trainers = [
   { id: 30, image: trainer8, name: ' مدربو نادي الحوار - تكنوجيم' },
 ];
 
-// الشعارات التحفيزية
 const slogans = [
-  { id: '31', text: 'نتطلع إلى بناء مجتمع يلهم التغيير.' },
-  { id: '32', text: 'التعاون هو سر النجاح، وهو جوهر رؤيتنا.' },
-  { id: 33, text: 'رؤيتنا تتخطى الحدود لنصنع أثرًا دائمًا.' },
-  { id: 34, text: 'نواصل تحقيق الإنجازات لنصنع مستقبلاً مشرقًا.' },
-  { id: 35, text: 'نحن معك لنصل إلى قمم التميز.' },
-  { id: 36, text: 'كن جزءًا من نجاحنا.' },
-  { id: 37, text: 'الشغف هنا ليس فكرة، بل أسلوب حياة.' },
-  { id: 38, text: 'مع كل إنجاز، نبدأ مسيرة جديدة.' },
+  { id: 31, text: 'في نادي الحوار, نؤسس مجتمعًا ملهم يستطيع أن يصنع التغيير.' },
+  { id: 32, text: 'لأننا نؤمن بأن التعاون هو جوهر النجاح، والأساس الذي نبني عليه رؤيتنا.', },
+  { id: 33, text: 'رؤيتنا تتجاوز الحدود، لنحقق أثرًا لا يُنسى.' },
+  { id: 34, text: 'لنكمل تاريخ من الإنجازات، ومستقبل من الطموحات' },
+  { id: 35, text: 'الشغف هنا ليس مجرد فكرة.' },
+  { id: 36, text: 'بل هو الطريق نحو إنجازات ملموسة.' },
+  { id: 37, text: 'حيث يجتمع الفكر، فتبدأ قصص النجاح.' },
+  { id: 38, text: 'كن جزءًا من الحدث.' },
+  { id: 39, text: 'لأن في كل إنجاز بداية لإنجاز أعظم.' },
 ];
 
 export { eventNews, sportsData, trainers, counters, slogans };

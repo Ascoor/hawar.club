@@ -1,4 +1,4 @@
-name: Deploy React App to GitHub Pages
+name: Deploy React App to Server
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: '20'  # أو الإصدار المطلوب
 
-      # الخطوة 3: تثبيت التبعيات
+      # الخطوة 3: تثبيت التبعيات باستخدام Yarn
       - name: Install dependencies
         run: yarn install
 
@@ -28,9 +28,14 @@ jobs:
       - name: Build project
         run: yarn build
 
-      # الخطوة 5: نشر إلى GitHub Pages باستخدام peaceiris/actions-gh-pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # مسار مجلد البناء
+      # # الخطوة 5: إعداد مفتاح SSH
+      # - name: Setup SSH
+      #   uses: webfactory/ssh-agent@v0.5.4
+      #   with:
+      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # # # الخطوة 6: نشر إلى الخادم باستخدام rsync
+      # # - name: Deploy to Server via rsync
+      # #   run: |
+      # #     rsync -avz --delete --exclude='hawar.club' dist/ user@your.server.com:/home/hawar.club/public_html/
+      # #   # استبدل 'user' و 'your.server.com' بمعلومات خادمك

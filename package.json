@@ -14,9 +14,8 @@
     "format": "prettier --write .",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "clean-deploy": "find /home/hawar.club/public_html -mindepth 1 \\( -not -name 'hawar-website' -not -path '/home/hawar.club/public_html/hawar-website/*' -not -name '.git' -not -path '/home/hawar.club/public_html/.git/*' -not -name '.gitignore' -not -name 'old' -not -path '/home/hawar.club/public_html/old/*' \\) -exec rm -rf {} + && cp -r dist/* /home/hawar.club/public_html"
-  },
+    "preview": "vite preview"
+     },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.3.1",
     "@heroicons/react": "^2.2.0",

@@ -3,6 +3,8 @@ import { animate } from 'motion/react';
 import VideoBackground from './VideoBackground';
 import { slogans } from '../Data';
 
+import { Link } from 'react-scroll';
+
 function useAnimateText(ref, text, duration, callback) {
   useEffect(() => {
     if (!ref.current || !text) return;
@@ -126,7 +128,7 @@ const Banner = () => {
           {showSlogans && (
             <h1
               ref={sloganRef}
-              className="text-white font-amiri font-bold text-xl xs:text-2xl sm:text-4xl lg:text-5xl text-center tracking-wide"
+              className="text-white font-amiri font-bold text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-center tracking-wide"
             >
               {slogans[activeSlogan].text}
             </h1>
@@ -142,11 +144,11 @@ const Banner = () => {
                 className="
                   font-bold 
                   text-hawar-orange 
-                  xs:text-4xl 
-                  text-5xl 
-                  sm:text-6xl 
-                  lg:text-7xl 
-                  xl:text-8xl
+                  xs:text-5xl 
+                  text-6xl 
+                  sm:text-7xl 
+                  lg:text-8xl 
+                  xl:text-9xl
                   leading-tight 
                   font-tharwat
                 "
@@ -176,12 +178,13 @@ const Banner = () => {
 
           {showButtons && (
             <div className="absolute bottom-16 flex flex-wrap justify-center gap-4">
-              <a
+              <Link
+                              to="footer"
                 href="/contact-us"
-                className="px-6 py-3 bg-hawar-orange text-white font-bold rounded-full shadow-lg hover:bg-orange-500 transition duration-300"
+                className="px-6 py-3 bg-hawar-orange text-white font-bold rounded-full shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange-light  transition duration-300"
               >
                 انضم إلينا الآن
-              </a>
+              </Link>
             </div>
           )}
         </div>

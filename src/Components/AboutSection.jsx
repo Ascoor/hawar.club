@@ -28,40 +28,50 @@ const AboutSection = () => {
     >
       <div className="absolute inset-0 bg-hawar-blue-darker bg-opacity-80"></div>
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-10 relative z-10">
-        {}
+        {/* Left Content */}
         <div className="flex-1 space-y-6">
           <h2
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold border-b-4 border-hawar-orange pb-6"
             data-aos="fade-right"
           >
-            عن النادى
+            عن نادي الحوار
           </h2>
           <p
             className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
             data-aos="fade-up"
           >
-            يُعد نادي الحوار للألعاب الرياضية واحدًا من أبرز الأندية الرياضية في
-            مدينة{' '}
+            تأسس نادي الحوار للألعاب الرياضية بمدينة{' '}
             <span className="text-hawar-orange font-semibold">المنصورة</span>{' '}
-            بمحافظة الدقهلية. يتميز النادي بمرافقه الرياضية المتنوعة وخدماته
-            المميزة، مما يوفّر بيئة مثالية للتمرين والاستمتاع بأجواء صحية
-            واجتماعية.
+            بمحافظة الدقهلية ليكون وجهة رياضية واجتماعية رائدة. منذ إنشائه،
+            يهدف النادي إلى تقديم تجربة متميزة تجمع بين الرياضة والترفيه
+            والثقافة.
           </p>
           <p
             className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
             data-aos="fade-up"
           >
-            يقدم النادي أنشطة رياضية متعددة مثل كرة القدم، كرة السلة، السباحة،
-            والتنس. كما يشارك في بطولات محلية وإقليمية ويهتم بالجانب الثقافي
-            والاجتماعي عبر فعاليات وأنشطة متنوعة.
+            على مر السنوات، حقق النادي تطورات ملحوظة في البنية التحتية،
+            تضمنت توسعات رياضية واجتماعية، مما جعله نقطة جذب للرياضيين
+            والهواة. يتميز النادي بمرافقه الحديثة مثل حمامات السباحة
+            الأولمبية، ملاعب التنس، وصالات اللياقة البدنية المجهزة بأحدث
+            الأجهزة.
           </p>
           <p
             className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
             data-aos="fade-up"
           >
-            لمزيد من التفاصيل، تابعونا على مواقع التواصل الاجتماعي:
+            يشمل النادي مجموعة متنوعة من الأنشطة الرياضية والاجتماعية التي
+            تلبي احتياجات جميع الأعمار، مثل كرة القدم، كرة السلة، الجمباز،
+            السباحة، والعديد من الرياضات الأخرى.
           </p>
-          {}
+          <p
+            className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
+            data-aos="fade-up"
+          >
+            لمزيد من المعلومات حول فعاليات وأنشطة النادي، ندعوكم للانضمام
+            ومتابعتنا على مواقع التواصل الاجتماعي:
+          </p>
+          {/* Social Media Links */}
           <div className="flex gap-4" data-aos="fade-left">
             <a
               href="https://www.facebook.com/HSC.Mansoura/"
@@ -105,7 +115,7 @@ const AboutSection = () => {
             </a>
           </div>
         </div>
-        {}
+        {/* Right Image */}
         <div className="flex-1 relative" data-aos="fade-up">
           <div className="shadow-led-orange rounded-lg overflow-hidden">
             <img

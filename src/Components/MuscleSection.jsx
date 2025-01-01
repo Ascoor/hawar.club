@@ -1,3 +1,4 @@
+import { Link } from 'react-scroll';
 import Gym7 from '../assets/gym/gym-7.png';
 import CounterBg from '../assets/images/building_bg _blue.png';
 
@@ -31,13 +32,13 @@ const MuscleSection = () => {
               <span className="text-hawar-orange font-semibold">Tecnogym</span>{' '}
               العالمية.
             </p>
-            <a
-              href="/contact-us"
-              className="inline-block bg-hawar-orange text-white font-bold text-base sm:text-lg lg:text-xl py-3 px-8 rounded-full shadow-lg transition-transform duration-300 transform hover:-translate-y-1 hover:bg-white hover:text-hawar-orange border-2 border-transparent hover:border-hawar-orange"
+            <Link
+             to="offer"
+              className="inline-block bg-hawar-orange text-white font-bold rounded-full shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange-light  transition duration-300 text-base sm:text-lg lg:text-xl py-3 px-8   transform hover:-translate-y-1  border-2 border-transparent hover:border-hawar-orange"
               data-aos="fade-up"
             >
               اشترك الآن
-            </a>
+            </Link>
           </div>
 
           {}

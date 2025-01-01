@@ -13,8 +13,11 @@ import HawarLogo from '../assets/hawar_logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-hawar-blue-darker via-hawar-blue-dark to-hawar-blue-darker py-10 text-white">
-      <div className="container mx-auto px-4 lg:px-8">
+    <footer className="relative bg-gradient-to-b from-hawar-blue-darker via-hawar-blue-darker to-hawar-blue-dark py-10 text-white overflow-hidden">
+      {/* Background Waves */}
+      
+      {/* Content */}
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           {/* Club Logo & Description */}
           <div className="text-center md:text-right">
@@ -27,6 +30,48 @@ const Footer = () => {
               نادي الحوار للألعاب الرياضية هو أحد الأندية الرائدة بمدينة
               المنصورة، حيث نقدم أنشطة رياضية واجتماعية وثقافية لجميع الأعمار.
             </p>
+                 <div className="flex gap-4 mt-6" data-aos="fade-left">
+                        <a
+                          href="https://www.facebook.com/HSC.Mansoura/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-icon-color-fb transition duration-300"
+                        >
+                          <FaFacebook size={36} />
+                        </a>
+                        <a
+                          href="https://www.linkedin.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-icon-color-link transition duration-300"
+                        >
+                          <FaLinkedinIn size={36} />
+                        </a>
+                        <a
+                          href="https://www.instagram.com/hsc.mansoura/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-icon-color-insta transition duration-300"
+                        >
+                          <FaInstagram size={36} />
+                        </a>
+                        <a
+                          href="https://twitter.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-icon-color-twitter transition duration-300"
+                        >
+                          <FaTwitter size={36} />
+                        </a>
+                        <a
+                          href="https://www.youtube.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-icon-color-tube transition duration-300"
+                        >
+                          <FaYoutube size={36} />
+                        </a>
+                      </div>
           </div>
 
           {/* Quick Links */}

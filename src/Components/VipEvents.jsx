@@ -32,7 +32,7 @@ const VipEvents = () => {
 
   return (
     <div
-      className="py-12 bg-hawar-blue-darker bg-fixed bg-center bg-cover font-arabic"
+      className="py-12 bg-hawar-blue-darker bg-fixed bg-center bg-cover  "
       id="vip-events"
     >
       <div className="container mx-auto px-4">
@@ -104,9 +104,9 @@ const VipEvents = () => {
                       </span>
                     </div>
 
-                    <div className="absolute w-[540px] h-[700px] left-1/2 top-[60px]  transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-t from-hawar-blue-dark via-hawar-blue-dark to-hawar-blue-dark opacity-50 shadow-led-orange rounded-[70%] animate-wave delay-300"></div>
-                    <div className="absolute w-[540px] h-[700px] left-1/6 top-[50px] transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b from-hawar-blue-darker  via-hawar-blue-dark to-hawar-blue-dark opacity-40  rounded-[80%] animate-wave delay-300"></div>
-                    <div className="absolute w-[540px] h-[700px] right-1/2 top-[50px]  transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b  from-hawar-blue-dark  via-hawar-blue-darker to-hawar-blue-dark opacity-30 rounded-[90%] shadow-led-orange animate-wave delay-300"></div>
+                    <div className="absolute w-[740px] h-[700px] right-1/2 top-[80x]  transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b  from-hawar-blue-dark  via-hawar-blue-darker to-hawar-blue-dark opacity-30 rounded-[90%] shadow-led-orange animate-wave delay-300"></div>
+                    <div className="absolute w-[740px] h-[700px] left-1/4 top-[8px] transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b from-hawar-blue-darker  via-hawar-blue-dark to-hawar-blue-dark opacity-40  rounded-[80%] animate-wave delay-300"></div>
+                    <div className="absolute w-[740px] h-[700px] left-1/6 top-[8px]  transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-t from-hawar-blue-dark via-hawar-blue-dark to-hawar-blue-dark opacity-50 shadow-led-orange rounded-[70%] animate-wave delay-300"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
                       {/* النص الأساسي */}
                       <div className="text-center max-w-2xl mx-auto">

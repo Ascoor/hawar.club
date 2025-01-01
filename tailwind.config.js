@@ -1,9 +1,12 @@
+const plugin = require("tailwindcss/plugin");
 module.exports = {
   content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
-        arabic: ['Tajawal', 'sans-serif'],
+        tajawal: ['"Tajawal"', 'sans-serif'],
+        tharwat: ['"Tharwat-Omara"', "sans-serif"],
+        amiri: ['"Amiri"', "serif"],
       },
       borderRadius: {
         card: '40px',
@@ -17,11 +20,11 @@ module.exports = {
           twitter: '#3297f0',
           tube: '#ff1a30',
         },
-        'hawar-blue': {
-          light: '#5a6fd1',
-          DEFAULT: '#172554',
-          dark: '#1b2b5a',
-          darker: '#031023',
+      'hawar-blue': {
+  light: '#396dcc',      
+  DEFAULT: '#0c3066',    
+  dark: '#1b2b5a',
+  darker: '#031023',
         },
         'hawar-orange': {
           DEFAULT: '#fb9221',
@@ -119,5 +122,43 @@ module.exports = {
       '2xl': '1536px',
     },
   },
-  plugins: [],
+  
+  plugins: [
+    plugin(function ({ addBase }) {
+      addBase({
+        '@font-face': [
+          {
+            fontFamily: 'Tharwat-Omara',
+            src: "url('./src/assets/fonts/THARWATEMARARUQAALIGHT.ttf') format('truetype')",
+            fontWeight: 'normal',
+            fontStyle: 'normal',
+          },
+          {
+            fontFamily: 'Amiri',
+            src: "url('./src/assets/fonts/Amiri/Amiri-Regular.ttf') format('truetype')",
+            fontWeight: 'normal',
+            fontStyle: 'normal',
+          },
+          {
+            fontFamily: 'Amiri',
+            src: "url('./src/assets/fonts/Amiri/Amiri-Bold.ttf') format('truetype')",
+            fontWeight: 'bold',
+            fontStyle: 'normal',
+          },
+          {
+            fontFamily: 'Amiri',
+            src: "url('./src/assets/fonts/Amiri/Amiri-Italic.ttf') format('truetype')",
+            fontWeight: 'normal',
+            fontStyle: 'italic',
+          },
+          {
+            fontFamily: 'Amiri',
+            src: "url('./src/assets/fonts/Amiri/Amiri-BoldItalic.ttf') format('truetype')",
+            fontWeight: 'bold',
+            fontStyle: 'italic',
+          },
+        ],
+      });
+    }),
+  ],
 };

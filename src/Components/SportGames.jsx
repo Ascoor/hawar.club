@@ -24,7 +24,7 @@ const SportGames = () => {
         <div className="mb-12 text-center">
           <div className="inline-block px-10 py-6     bg-gradient-to-b from-hawar-blue-darker via-hawar-blue-dark to-hawar-blue-darker shadow-orange-glow rounded-header">
             <h1
-              className="text-3xl md:text-4xl lg:text-5xl xs:text-xl   italic font-bold text-hawar-orange tracking-wide"
+              className="text-2xl md:text-3xl lg:text-4xl xs:text-xl   font-tajawal font-bold text-hawar-orange tracking-wide"
               data-aos="fade-in"
             >
               الأنشطة الرياضية

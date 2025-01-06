@@ -109,4 +109,4 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             }
           }
           `})}),t?j.jsx("div",{className:`fixed inset-0 z-50 bg-white flex items-center justify-center transition-opacity duration-500 ${r?"opacity-0":"opacity-100"}`,children:j.jsx(QC,{})}):j.jsxs(j.Fragment,{children:[j.jsx(KC,{}),m.map(({id:g,Component:y})=>j.jsx("section",{id:g,children:j.jsx(y,{})},g)),j.jsx("div",{ref:p,id:"footer",children:j.jsx(XC,{})}),j.jsx("button",{onClick:l,className:`fixed bottom-8 right-8 bg-hawar-blue-dark text-white border-2 border-hawar-orange rounded-full p-4 shadow-lg transition-transform transform duration-300 ease-in-out ${o&&!f?"opacity-100":"opacity-0 pointer-events-none"} hover:bg-hawar-orange hover:text-hawar-blue-dark hover:scale-110 z-30`,"aria-label":"الرجوع للأعلى",children:j.jsx(bS,{className:"h-5 w-5"})})]})]})};fS.createRoot(document.getElementById("root")).render(j.jsx(K.StrictMode,{children:j.jsx(b_,{})}));
-//# sourceMappingURL=index-eMRyheDj.js.map
+//# sourceMappingURL=index-BnpT2Ic3.js.map

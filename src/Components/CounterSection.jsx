@@ -1,7 +1,7 @@
 import React from 'react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import AOS from 'aos';
 import { motion } from 'framer-motion';
 import 'aos/dist/aos.css';
@@ -44,16 +44,24 @@ const CounterBox = ({ counter, animationDelay }) => {
     triggerOnce: true,
     threshold: 0.5,
   });
-  const [hovered, setHovered] = useState(false);
 
   return (
     <motion.div
       ref={ref}
-      className="group bg-hawar-blue-dark rounded-header opacity-90 flex flex-col items-center justify-center p-6 shadow-lg transition-shadow duration-300 relative"
+      className="
+        bg-hawar-blue-dark 
+        rounded-header 
+        opacity-90 
+        flex 
+        flex-col 
+        items-center 
+        justify-center 
+        p-6 
+        shadow-lg 
+        transition-shadow 
+        duration-300"
       data-aos="fade-up"
       data-aos-delay={animationDelay}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
       whileHover={{
         scale: 1.1,
         rotate: 2,
@@ -61,7 +69,7 @@ const CounterBox = ({ counter, animationDelay }) => {
       }}
       whileTap={{ scale: 0.95 }}
     >
-      {/* Icon */}
+      {}
       <motion.figure
         className="mb-4"
         initial={{ scale: 1 }}
@@ -75,21 +83,28 @@ const CounterBox = ({ counter, animationDelay }) => {
           loading="lazy"
         />
       </motion.figure>
-
-      {/* Hidden Count */}
-      <motion.div
-        className={`absolute inset-0 flex flex-col items-center justify-center bg-hawar-blue-darker bg-opacity-90 transition-opacity duration-300 ${
-          hovered ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+      {}
+      <strong
+        className="
+          counter 
+          text-white 
+          text-4xl 
+          sm:text-5xl 
+          lg:text-6xl 
+          font-extrabold 
+          leading-tight"
       >
-        <strong className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-          {inView && hovered ? <CountUp end={counter.count} duration={3} /> : ''}
-        </strong>
-      </motion.div>
-
-      {/* Label */}
+        {inView ? <CountUp end={counter.count} duration={3} /> : '0'}
+      </strong>
+      {}
       <small
-        className="text-hawar-orange font-semibold text-sm sm:text-lg lg:text-xl mt-2"
+        className="
+          text-hawar-orange 
+          font-semibold 
+          text-sm 
+          sm:text-lg 
+          lg:text-xl 
+          mt-2"
       >
         {counter.label}
       </small>

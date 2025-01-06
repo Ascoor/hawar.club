@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import AOS from 'aos';
+import './assets/css/Fonts.css';
 import { FaArrowUp } from 'react-icons/fa';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 

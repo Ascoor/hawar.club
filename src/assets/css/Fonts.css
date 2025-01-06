@@ -1,10 +1,4 @@
 @font-face {
-  font-family: 'Tharwat-Omara';
-  src: url('/fonts/THARWATEMARARUQAALIGHT.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
   font-family: 'Amiri';
   src: url('/fonts/Amiri/Amiri-Regular.ttf') format('truetype');
   font-weight: normal;

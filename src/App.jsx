@@ -21,6 +21,8 @@ const App = () => {
   const [isFading, setIsFading] = useState(false);
   const { visible, scrollToTop } = useScrollToTop();
   const aosInitialized = useRef(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const footerRef = useRef(null);
 
   useEffect(() => {
     if (!aosInitialized.current) {
@@ -41,6 +43,19 @@ const App = () => {
       clearTimeout(fadeTimeout);
       clearTimeout(loadingTimeout);
     };
+  }, []);
+
+  // Handle footer visibility on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (footerRef.current) {
+        const footerPosition = footerRef.current.getBoundingClientRect();
+        const isFooterInView = footerPosition.top < window.innerHeight && footerPosition.bottom > 0;
+        setIsFooterVisible(isFooterInView);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const sections = [
@@ -74,7 +89,6 @@ const App = () => {
         </script>
       </Helmet>
 
-      {}
       {isLoading ? (
         <div
           className={`fixed inset-0 z-50 bg-white flex items-center justify-center transition-opacity duration-500 ${
@@ -85,30 +99,29 @@ const App = () => {
         </div>
       ) : (
         <>
-          {}
           <Header />
 
-          {}
           {sections.map(({ id, Component }) => (
             <section id={id} key={id}>
               <Component />
             </section>
           ))}
 
-          {}
-          <Footer />
+          <div ref={footerRef} id="footer">
+            <Footer />
+          </div>
 
-          {}
           <button
-  onClick={scrollToTop}
-  className={`fixed bottom-8 right-8 bg-hawar-blue-dark text-white border-2 border-hawar-orange rounded-full p-4 shadow-lg transition-transform transform duration-300 ease-in-out ${
-    visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
-  } hover:bg-hawar-orange hover:text-hawar-blue-dark hover:scale-110 z-30`}
-  aria-label="الرجوع للأعلى"
->
-  <FaArrowUp className="h-5 w-5" />
-</button>
-
+            onClick={scrollToTop}
+            className={`fixed bottom-8 right-8 bg-hawar-blue-dark text-white border-2 border-hawar-orange rounded-full p-4 shadow-lg transition-transform transform duration-300 ease-in-out ${
+              visible && !isFooterVisible
+                ? 'opacity-100'
+                : 'opacity-0 pointer-events-none'
+            } hover:bg-hawar-orange hover:text-hawar-blue-dark hover:scale-110 z-30`}
+            aria-label="الرجوع للأعلى"
+          >
+            <FaArrowUp className="h-5 w-5" />
+          </button>
         </>
       )}
     </HelmetProvider>

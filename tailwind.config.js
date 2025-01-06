@@ -1,12 +1,12 @@
-const plugin = require("tailwindcss/plugin");
+const plugin = require('tailwindcss/plugin');
 module.exports = {
   content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
         tajawal: ['"Tajawal"', 'sans-serif'],
-        tharwat: ['"Tharwat-Omara"', "sans-serif"],
-        amiri: ['"Amiri"', "serif"],
+        tharwat: ['"Tharwat-Omara"', 'sans-serif'],
+        amiri: ['"Amiri"', 'serif'],
       },
       borderRadius: {
         card: '40px',
@@ -20,11 +20,11 @@ module.exports = {
           twitter: '#3297f0',
           tube: '#ff1a30',
         },
-      'hawar-blue': {
-  light: '#396dcc',      
-  DEFAULT: '#0c3066',    
-  dark: '#1b2b5a',
-  darker: '#031023',
+        'hawar-blue': {
+          light: '#396dcc',
+          DEFAULT: '#0c3066',
+          dark: '#1b2b5a',
+          darker: '#031023',
         },
         'hawar-orange': {
           DEFAULT: '#fb9221',
@@ -122,7 +122,7 @@ module.exports = {
       '2xl': '1536px',
     },
   },
-  
+
   plugins: [
     plugin(function ({ addBase }) {
       addBase({

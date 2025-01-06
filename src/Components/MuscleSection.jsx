@@ -4,16 +4,19 @@ import CounterBg from '../assets/images/building_bg _blue.png';
 
 const MuscleSection = () => {
   return (
-    <div
+    <section
       className="relative bg-gradient-to-b from-hawar-blue-darker to-hawar-blue bg-cover bg-center text-white py-16 px-4 lg:px-12 overflow-hidden"
       style={{ backgroundImage: `url(${CounterBg})` }}
       id="muscle"
     >
+      {}
       <div className="absolute inset-0 bg-hawar-blue-dark bg-opacity-40"></div>
 
       <div className="container mx-auto relative z-10">
+        {}
         <div className="border-t-4 border-hawar-orange mb-12"></div>
 
+        {}
         <div className="flex flex-col-reverse lg:flex-row items-center gap-10">
           {}
           <div className="flex-1 text-center lg:text-right space-y-6">
@@ -33,9 +36,12 @@ const MuscleSection = () => {
               العالمية.
             </p>
             <Link
-             to="offer"
-              className="inline-block bg-hawar-orange text-white font-bold rounded-full shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange-light  transition duration-300 text-base sm:text-lg lg:text-xl py-3 px-8   transform hover:-translate-y-1  border-2 border-transparent hover:border-hawar-orange"
+              to="offer"
+              smooth="easeInOutQuint"
+              duration={1500}
+              className="inline-block bg-hawar-orange text-white font-bold rounded-full shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange-light transition duration-300 text-base sm:text-lg lg:text-xl py-3 px-8 transform hover:-translate-y-1 border-2 border-transparent hover:border-hawar-orange"
               data-aos="fade-up"
+              aria-label="اشترك الآن"
             >
               اشترك الآن
             </Link>
@@ -49,7 +55,7 @@ const MuscleSection = () => {
             <figure className="relative w-full aspect-w-16 aspect-h-9 lg:aspect-h-10">
               <img
                 src={Gym7}
-                alt="Muscle Building"
+                alt="تمارين بناء العضلات"
                 className="
                   w-full 
                   h-full 
@@ -59,15 +65,17 @@ const MuscleSection = () => {
                   duration-500 
                   group-hover:scale-105
                 "
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
             </figure>
           </div>
         </div>
 
+        {}
         <div className="border-b-4 border-hawar-orange mt-12"></div>
       </div>
-    </div>
+    </section>
   );
 };
 

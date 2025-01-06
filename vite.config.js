@@ -1,21 +1,39 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import sitemap from 'vite-plugin-sitemap';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [react()],
-  base: mode === 'gh-pages' ? '/hawar.club/' : '/', // ضبط المسار الأساسي بناءً على البيئة
+  plugins: [
+    react(),
+    viteStaticCopy({
+      targets: [
+        { src: 'src/assets/fonts/*', dest: 'fonts' }, 
+      ],
+    }),
+    sitemap({
+      hostname: 'https://hawar.club',
+      routes: [
+        { path: '/', lastmod: new Date().toISOString() },
+        { path: '/about', lastmod: new Date().toISOString() },
+        { path: '/sports', lastmod: new Date().toISOString() },
+      ],
+    }),
+  ],
+  assetsInclude: ['**/*.ttf', '**/*.woff', '**/*.woff2'], 
+
+  base: mode === 'gh-pages' ? '/hawar.club/' : '/',
   optimizeDeps: {
-    include: ['swiper'], // إذا كنت تستخدم مكتبات إضافية مثل Swiper
+    include: ['swiper'],
   },
   server: {
-    port: 3000, // إعداد المنفذ
-    open: true, // فتح المتصفح تلقائيًا عند بدء الخادم
+    port: 3000,
+    open: true,
   },
   build: {
     chunkSizeWarningLimit: 1000,
     outDir: 'dist',
-    minify: 'esbuild', // تحسين الكود لتقليل الحجم
-    sourcemap: true, // إنشاء خريطة المصادر
+    minify: 'esbuild',
+    sourcemap: true,
   },
 }));

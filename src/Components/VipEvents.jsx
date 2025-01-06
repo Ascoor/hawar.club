@@ -9,8 +9,8 @@ import { eventNews } from '../Data';
 
 const VipEvents = () => {
   const swiperRef = useRef(null);
-  const [modalData, setModalData] = useState(null); // لتخزين بيانات المودال
-  const [isModalOpen, setIsModalOpen] = useState(false); // لتتبع حالة المودال
+  const [modalData, setModalData] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -22,11 +22,11 @@ const VipEvents = () => {
     if (event) {
       setModalData(event);
       setIsModalOpen(true);
-      document.body.style.overflow = 'hidden'; // تعطيل التمرير
+      document.body.style.overflow = 'hidden';
     } else {
       setIsModalOpen(false);
       setModalData(null);
-      document.body.style.overflow = 'auto'; // استعادة التمرير
+      document.body.style.overflow = 'auto';
     }
   };
 
@@ -91,25 +91,25 @@ const VipEvents = () => {
                   <div className="absolute inset-0 border-[6px] border-hawar-blue-dark rounded-xl opacity-60 transition-opacity duration-300 group-hover:opacity-100"></div>
                 </div>
                 <div
-                  className="relative w-full text-white overflow-hidden shadow-blue-glow mt-4 rounded-[25%] "
+                  className="relative w-full text-white overflow-hidden shadow-orange-glow mt-4 rounded-[25%] "
                   data-aos="fade-up"
                 >
                   <div className="relative w-full h-[300px] bg-gradient-to-t from-hawar-blue  to-w ">
-                    <div className="flex justify-center space-x-3 mt-4">
-                      <span className="bg-orange-500 text-white text-xs md:text-sm px-3 py-1 rounded-full shadow-md transform transition-transform hover:scale-105">
+                    <div className="flex justify-center space-x-3 mt-4 ">
+                      <span className="bg-orange-500 text-white text-xs z-30 md:text-sm px-3 py-1 rounded-full shadow-md transform transition-transform hover:scale-105">
                         {event.date}
                       </span>
-                      <span className="bg-blue-500 text-white text-xs md:text-sm px-3 py-1 rounded-full shadow-md transform transition-transform hover:scale-105">
+                      <span className="bg-blue-500 text-white text-xs z-30 md:text-sm px-3 py-1 rounded-full shadow-md transform transition-transform hover:scale-105">
                         {event.time}
                       </span>
                     </div>
 
-                    <div className="absolute w-[740px] h-[700px] right-1/2 top-[80x]  transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b  from-hawar-blue-dark  via-hawar-blue-darker to-hawar-blue-dark opacity-30 rounded-[90%] shadow-led-orange animate-wave delay-300"></div>
-                    <div className="absolute w-[740px] h-[700px] left-1/4 top-[8px] transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b from-hawar-blue-darker  via-hawar-blue-dark to-hawar-blue-dark opacity-40  rounded-[80%] animate-wave delay-300"></div>
-                    <div className="absolute w-[740px] h-[700px] left-1/6 top-[8px]  transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-t from-hawar-blue-dark via-hawar-blue-dark to-hawar-blue-dark opacity-50 shadow-led-orange rounded-[70%] animate-wave delay-300"></div>
+                    <div className="absolute w-[640px] h-[700px] left-1/4 top-[100px]  transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b  from-hawar-blue-dark  via-hawar-blue-darker to-hawar-blue-dark opacity-30 rounded-[50%] shadow-led-orange animate-wave delay-300"></div>
+                    <div className="absolute w-[540px] h-[700px] left-1/6 top-[120px] transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-t from-hawar-orange-dark  via-hawar-blue-dark to-hawar-blue-dark opacity-40  rounded-[80%] animate-wave delay-600"></div>
+                    <div className="absolute w-[540px] h-[700px] right-1/4 top-[110px]  transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-t from-hawar-blue-dark via-hawar-blue-dark to-hawar-blue-dark opacity-50 shadow-led-orange rounded-[70%] animate-wave delay-300"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                      {/* النص الأساسي */}
                       <div className="text-center max-w-2xl mx-auto">
+                
                         <h4 className="text-base md:text-lg font-medium leading-relaxed tracking-wide drop-shadow-sm">
                           {event.title.length > 50
                             ? `${event.title.substring(0, 150)}...`
@@ -126,7 +126,7 @@ const VipEvents = () => {
                         </h4>
                       </div>
 
-                      {/* المعلومات الإضافية */}
+                      {}
                     </div>
                   </div>
                 </div>
@@ -138,13 +138,13 @@ const VipEvents = () => {
       {isModalOpen && modalData && (
         <div
           className="fixed inset-0 z-50  flex items-center justify-center bg-black bg-opacity-70"
-          onClick={() => toggleModal(null)} // إغلاق المودال عند النقر خارج المحتوى
+          onClick={() => toggleModal(null)}
         >
           <div
             className="bg-hawar-blue-dark  rounded-card shadow-lg max-w-4xl w-full mx-4 sm:mx-8 p-16 relative"
-            onClick={(e) => e.stopPropagation()} // منع إغلاق المودال عند النقر داخل المحتوى
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* زر الإغلاق */}
+            {}
             <button
               onClick={() => toggleModal(null)}
               className="absolute top-6 right-6 text-gray-100 hover:text-hawar-orange text-2xl"
@@ -152,14 +152,14 @@ const VipEvents = () => {
               ✕
             </button>
 
-            {/* الصورة */}
+            {}
             <img
               src={modalData.image}
               alt={modalData.title}
               className="w-full  shadow-soft-orange mb-4 rounded-card max-h-[50vh] object-cover"
             />
 
-            {/* النص */}
+            {}
             <h2 className="text-lg md:text-m   mb-2 text-hawar-orange-light">
               {modalData.title}
             </h2>

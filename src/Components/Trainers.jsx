@@ -22,9 +22,11 @@ const Trainers = () => {
       style={{ backgroundImage: `url(${BuildingBgBlue})` }}
       id="muscle"
     >
+      {}
       <div className="absolute inset-0 bg-hawar-blue-dark bg-opacity-40"></div>
 
       <div className="container mx-auto relative z-10">
+        {}
         <div className="head flex items-center justify-between mb-8 border-b border-hawar-orange">
           <h3 className="text-hawar-orange text-xl font-semibold">
             لدينا أفضل المدربين
@@ -32,121 +34,87 @@ const Trainers = () => {
           <div className="flex items-center space-x-2">
             <button
               onClick={() => swiperRef.current.slidePrev()}
-              className="
-                bg-hawar-orange 
-                text-white 
-                p-2 
-                ml-2
-                rounded-full 
-                hover:bg-hawar-blue-dark 
-                hover:text-hawar-orange 
-                transition
-              "
-              aria-label="عرض الشريحة السابقة"
+              className="bg-hawar-orange text-white ml-2 p-2 rounded-full hover:bg-hawar-blue-dark hover:text-hawar-orange transition duration-300"
+              aria-label="عرض الشريحة التالية"
             >
               <ChevronRightIcon className="h-6 w-6" />
             </button>
             <button
               onClick={() => swiperRef.current.slideNext()}
-              className="
-                bg-hawar-orange 
-                text-white 
-                p-2 
-                rounded-full 
-                hover:bg-hawar-blue-dark 
-                hover:text-hawar-orange 
-                transition
-              "
-              aria-label="عرض الشريحة التالية"
+              className="bg-hawar-orange text-white p-2 ml-2 rounded-full hover:bg-hawar-blue-dark hover:text-hawar-orange transition duration-300"
+              aria-label="عرض الشريحة السابقة"
             >
               <ChevronLeftIcon className="h-6 w-6" />
             </button>
           </div>
         </div>
 
-        <Swiper
-          spaceBetween={20}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
-          loop={true}
-          modules={[Navigation, Autoplay]}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          speed={1000}
-          breakpoints={{
-            1280: { slidesPerView: 3 },
-            1024: { slidesPerView: 2 },
-            640: { slidesPerView: 1 },
-          }}
-        >
-          {trainers.map((trainer, index) => (
-            <SwiperSlide key={index}>
-              <div className="px-4">
-                <div
-                  className="
-               m-2 
-               p-2 
-               relative 
-               shadow-soft-orange
-               rounded-header
-               opacity-90 
-               w-full 
-               bg-multi-gradient
-               transition-transform 
-               duration-300 
-               hover:scale-105
-               overflow-hidden
-             "
-                  data-aos="fade-up"
-                >
-                  {/* البرواز العلوي مع تأثير الإضاءة */}
+        {}
+        {trainers.length > 0 ? (
+          <Swiper
+            spaceBetween={20}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            loop={true}
+            modules={[Navigation, Autoplay]}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            speed={1000}
+            breakpoints={{
+              1280: { slidesPerView: 3 },
+              1024: { slidesPerView: 2 },
+              640: { slidesPerView: 1 },
+              320: { slidesPerView: 1 },
+            }}
+          >
+            {trainers.map((trainer, index) => (
+              <SwiperSlide key={trainer.id || index}>
+                <div className="px-4">
                   <div
                     className="
-                 absolute 
-                 top-0 
-                 left-0 
-                 w-full 
-                 h-1/2 
-                 bg-light-gradient 
-                 animate-lightSweep
-                 rounded-header 
-                 pointer-events-none
-               "
-                    style={{
-                      backgroundImage:
-                        'linear-gradient(to left, rgba(251, 146, 33, 0.8), rgba(255, 255, 255, 0))',
-                      backgroundSize: '200% 100%', // تفعيل حركة الإضاءة
-                    }}
-                  ></div>
-
-                  <figure className="relative m-4" data-aos="flip-up">
-                    <img
-                      src={trainer.image}
-                      alt={trainer.name}
-                      className="
-                   w-full 
-                   h-auto 
-                   object-cover 
-                   rounded-card 
-                   shadow-led-orange
-                 "
-                      data-aos="flip-up"
-                    />
-                  </figure>
-                  <h4 className="text-xl font-semibold mt-4 text-center">
-                    <a
-                      href="/classes-detail.html"
-                      className="text-white font-bold hover:text-hawar-orange transition"
-                    >
-                      {trainer.name}
-                    </a>
-                  </h4>
+                     m-2 
+                     p-2 
+                     relative 
+                     shadow-soft-orange
+                     rounded-header
+                     opacity-90 
+                     w-full 
+                     bg-multi-gradient
+                     transition-transform 
+                     duration-300 
+                     hover:scale-105
+                     overflow-hidden
+                   "
+                    data-aos="fade-up"
+                  >
+                    {}
+                    <figure className="relative m-4" data-aos="flip-up">
+                      <img
+                        src={trainer.image}
+                        alt={`صورة للمدرب ${trainer.name}`}
+                        className="w-full h-auto object-cover rounded-card shadow-led-orange"
+                        loading="lazy"
+                      />
+                    </figure>
+                    <h4 className="text-xl font-semibold mt-4 text-center">
+                      <a
+                        href="/classes-detail.html"
+                        className="text-white font-bold hover:text-hawar-orange transition"
+                      >
+                        {trainer.name}
+                      </a>
+                    </h4>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <div className="text-center text-gray-400 text-lg mt-12">
+            لا توجد بيانات عن المدربين حاليًا.
+          </div>
+        )}
       </div>
     </div>
   );

@@ -109,7 +109,6 @@ const VipEvents = () => {
                     <div className="absolute w-[540px] h-[700px] right-1/4 top-[110px]  transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-t from-hawar-blue-dark via-hawar-blue-dark to-hawar-blue-dark opacity-50 shadow-led-orange rounded-[70%] animate-wave delay-300"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
                       <div className="text-center max-w-2xl mx-auto">
-                
                         <h4 className="text-base md:text-lg font-medium leading-relaxed tracking-wide drop-shadow-sm">
                           {event.title.length > 50
                             ? `${event.title.substring(0, 150)}...`

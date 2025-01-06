@@ -7,9 +7,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     viteStaticCopy({
-      targets: [
-        { src: 'src/assets/fonts/*', dest: 'fonts' }, 
-      ],
+      targets: [{ src: 'src/assets/fonts/*', dest: 'fonts' }],
     }),
     sitemap({
       hostname: 'https://hawar.club',
@@ -20,7 +18,7 @@ export default defineConfig(({ mode }) => ({
       ],
     }),
   ],
-  assetsInclude: ['**/*.ttf', '**/*.woff', '**/*.woff2'], 
+  assetsInclude: ['**/*.ttf', '**/*.woff', '**/*.woff2'],
 
   base: mode === 'gh-pages' ? '/hawar.club/' : '/',
   optimizeDeps: {

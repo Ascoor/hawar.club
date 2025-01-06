@@ -81,7 +81,6 @@ const eventNews = [
   },
 ];
 
-
 const sportsData = [
   {
     id: 7,

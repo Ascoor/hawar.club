@@ -50,7 +50,8 @@ const App = () => {
     const handleScroll = () => {
       if (footerRef.current) {
         const footerPosition = footerRef.current.getBoundingClientRect();
-        const isFooterInView = footerPosition.top < window.innerHeight && footerPosition.bottom > 0;
+        const isFooterInView =
+          footerPosition.top < window.innerHeight && footerPosition.bottom > 0;
         setIsFooterVisible(isFooterInView);
       }
     };

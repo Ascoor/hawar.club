@@ -43,7 +43,7 @@ const AboutSection = () => {
             data-aos="fade-up"
           >
             تأسس{' '}
-            <span className="text-hawar-orange font-semibold">نادي الحوار</span>{' '}
+            <span className="text-hawar-orange font-bold">نادي الحوار</span>{' '}
             للألعاب الرياضية بمدينة المنصورة ليكون وجهة رياضية واجتماعية متميزة.
             النادي يهدف إلى تقديم خدمات رياضية، اجتماعية، وثقافية عالية الجودة
             تناسب جميع الأعمار.

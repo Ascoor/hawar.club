@@ -3,11 +3,14 @@ module.exports = {
   content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
   theme: {
     extend: {
-      fontFamily: {
-        tajawal: ['"Tajawal"', 'sans-serif'],
-        tharwat: ['"Tharwat-Omara"', 'sans-serif'],
-        amiri: ['"Amiri"', 'serif'],
+      extend: {
+        fontFamily: {
+          amiri: ['Amiri', 'serif'],
+          tharwat: ['Tharwat', 'sans-serif'],
+          tajawal: ['Tajawal', 'sans-serif'],
+        },
       },
+      
       borderRadius: {
         card: '40px',
         header: '80px',
@@ -124,36 +127,38 @@ module.exports = {
   },
 
   plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
     plugin(function ({ addBase }) {
       addBase({
         '@font-face': [
           {
-            fontFamily: 'Tharwat-Omara',
-            src: "url('./src/assets/fonts/THARWATEMARARUQAALIGHT.ttf') format('truetype')",
+            fontFamily: 'Tharwat',
+            src: "url('./assets/fonts/TharwatOmaraa.ttf') format('truetype')",
             fontWeight: 'normal',
             fontStyle: 'normal',
           },
           {
             fontFamily: 'Amiri',
-            src: "url('./src/assets/fonts/Amiri/Amiri-Regular.ttf') format('truetype')",
+            src: "url('./assets/fonts/Amiri/Amiri-Regular.ttf') format('truetype')",
             fontWeight: 'normal',
             fontStyle: 'normal',
           },
           {
             fontFamily: 'Amiri',
-            src: "url('./src/assets/fonts/Amiri/Amiri-Bold.ttf') format('truetype')",
+            src: "url('./assets/fonts/Amiri/Amiri-Bold.ttf') format('truetype')",
             fontWeight: 'bold',
             fontStyle: 'normal',
           },
           {
             fontFamily: 'Amiri',
-            src: "url('./src/assets/fonts/Amiri/Amiri-Italic.ttf') format('truetype')",
+            src: "url('./assets/fonts/Amiri/Amiri-Italic.ttf') format('truetype')",
             fontWeight: 'normal',
             fontStyle: 'italic',
           },
           {
             fontFamily: 'Amiri',
-            src: "url('./src/assets/fonts/Amiri/Amiri-BoldItalic.ttf') format('truetype')",
+            src: "url('./assets/fonts/Amiri/Amiri-BoldItalic.ttf') format('truetype')",
             fontWeight: 'bold',
             fontStyle: 'italic',
           },

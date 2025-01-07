@@ -6,11 +6,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
-    viteStaticCopy({
-      targets: [
-        { src: 'src/assets/fonts/*', dest: 'fonts' }, // نقل الخطوط إلى مجلد الإنتاج
-      ],
-    }),
+
 
     sitemap({
       hostname: 'https://hawar.club',
@@ -21,6 +17,7 @@ export default defineConfig(({ mode }) => ({
       ],
     }),
   ],
+  
   base: mode === 'gh-pages' ? '/hawar.club/' : '/',
   assetsInclude: ['**/*.ttf'],
   optimizeDeps: {

@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
 import AOS from 'aos';
 import { motion } from 'framer-motion';
 import 'aos/dist/aos.css';
@@ -40,10 +38,28 @@ const Counter = () => {
 };
 
 const CounterBox = ({ counter, animationDelay }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
+  const [inView, setInView] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect(); // مراقبة لمرة واحدة فقط
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) observer.disconnect();
+    };
+  }, []);
 
   return (
     <motion.div

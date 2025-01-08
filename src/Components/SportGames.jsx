@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
-import SportGamesBg from '../assets/images/building_bg_blue.png';
+import BuildingBgBlue from '../assets/images/building_bg _blue.png';
 import { sportsData } from '../Data';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 const SportGames = () => {
   const [visibleSports, setVisibleSports] = useState(4);
 
@@ -18,11 +18,11 @@ const SportGames = () => {
       id="building"
       className="relative py-16  bg-center text-white"
       style={{
-        backgroundImage: `url(${SportGamesBg})`,
+        backgroundImage: `url(${BuildingBgBlue})`,
       }}
     >
       {}
-      <div className="absolute inset-0 bg-hawar-blue-dark bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-hawar-blue-dark bg-opacity-40"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         {}
@@ -53,7 +53,7 @@ const SportGames = () => {
               whileHover={{ scale: 1.05 }}
             >
               {}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-hawar-blue-dark opacity-20 animate-wave pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-hawar-blue-dark opacity-20  pointer-events-none"></div>
 
               {}
               <motion.figure
@@ -61,11 +61,11 @@ const SportGames = () => {
                 whileHover={{ rotate: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                <img
+                <LazyLoadImage
+                  effect="opacity"
                   src={sport.image}
                   alt={`صورة لـ ${sport.name}`}
                   className="w-32 h-32 object-contain rounded-full shadow-md"
-                  loading="lazy"
                 />
               </motion.figure>
 
@@ -104,7 +104,7 @@ const SportGames = () => {
           {visibleSports < sportsData.length ? (
             <button
               onClick={handleLoadMore}
-              className="px-6 py-3 bg-hawar-orange text-white font-bold rounded-full shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange transition-all duration-300"
+              className=" btn-dark  px-6 py-3 font-bold transition-all duration-300"
             >
               عرض المزيد
             </button>

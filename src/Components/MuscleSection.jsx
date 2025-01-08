@@ -1,11 +1,11 @@
 import { Link } from 'react-scroll';
 import Gym7 from '../assets/gym/gym-7.png';
 import CounterBg from '../assets/images/building_bg _blue.png';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 const MuscleSection = () => {
   return (
     <section
-      className="relative bg-gradient-to-b from-hawar-blue-darker to-hawar-blue bg-cover bg-center text-white py-16 px-4 lg:px-12 overflow-hidden"
+      className="relative py-16  bg-center text-white bg-gradient-to-b from-hawar-blue-darker to-hawar-blue   text-white py-16 px-4 lg:px-12 overflow-hidden"
       style={{ backgroundImage: `url(${CounterBg})` }}
       id="muscle"
     >
@@ -35,16 +35,15 @@ const MuscleSection = () => {
               <span className="text-hawar-orange font-semibold">Tecnogym</span>{' '}
               العالمية.
             </p>
-            <Link
-              to="offer"
+            <button
+              className="btn-dark"
               smooth="easeInOutQuint"
               duration={1500}
-              className="inline-block bg-hawar-orange text-white font-bold rounded-full shadow-lg hover:bg-hawar-blue-dark hover:text-hawar-orange-light transition duration-300 text-base sm:text-lg lg:text-xl py-3 px-8 transform hover:-translate-y-1 border-2 border-transparent hover:border-hawar-orange"
               data-aos="fade-up"
               aria-label="اشترك الآن"
             >
               اشترك الآن
-            </Link>
+            </button>
           </div>
 
           {}
@@ -53,7 +52,8 @@ const MuscleSection = () => {
             data-aos="fade-left"
           >
             <figure className="relative w-full aspect-w-16 aspect-h-9 lg:aspect-h-10">
-              <img
+              <LazyLoadImage
+                effect="opacity"
                 src={Gym7}
                 alt="تمارين بناء العضلات"
                 className="

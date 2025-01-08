@@ -34,50 +34,54 @@ const Banner = () => {
   const [state, dispatch] = useReducer(bannerReducer, initialState);
 
   const VIDEO_DURATION = 58;
-  const SLOGAN_DURATION = 4500;
+  const SLOGAN_DURATION = 4200;
 
   const resetState = () => {
     dispatch({ type: 'RESET' });
   };
-
   const useAnimateText = (ref, text, duration, callback) => {
     useEffect(() => {
       if (!ref.current || !text) return;
 
+      // تقسيم النص إلى كلمات
       const words = text.split(' ');
       ref.current.innerHTML = words
         .map(
           (word, i) =>
-            `<span style="opacity:0; transform:translateX(100px);" class="word-${i}">${word}</span>`
+            `<span style="opacity:0; transform:translateY(20px);" class="word-${i}">${word}</span>`
         )
         .join(' ');
 
+      // تأثير ظهور الكلمات تدريجياً
       words.forEach((_, i) => {
         setTimeout(() => {
           const element = document.querySelector(`.word-${i}`);
           if (element) {
             element.style.opacity = '1';
-            element.style.transform = 'translateX(0)';
-            element.style.transition = `all 0.4s ease ${i * 0.1}s`;
+            element.style.transform = 'translateY(0)';
+            element.style.transition = `opacity 0.8s ease, transform 0.8s ease`;
           }
-        }, 0);
+        }, i * 200); // التأخير لكل كلمة (200 مللي ثانية)
       });
 
+      // تأثير اختفاء النص بالكامل
       const exitTimeout = setTimeout(() => {
         words.forEach((_, i) => {
           const element = document.querySelector(`.word-${i}`);
           if (element) {
             element.style.opacity = '0';
-            element.style.transform = 'translateX(-100px)';
+            element.style.transform = 'translateY(-20px)';
+            element.style.transition = `opacity 0.8s ease, transform 0.8s ease`;
           }
         });
-        setTimeout(callback, words.length * 0.1 * 400);
+        // استدعاء الدالة callback بعد انتهاء التأثير
+        setTimeout(callback, 800); // الانتظار حتى انتهاء الحركة (800 مللي ثانية)
       }, duration);
 
+      // تنظيف التايمر عند الإلغاء
       return () => clearTimeout(exitTimeout);
     }, [ref, text, duration, callback]);
   };
-
   useAnimateText(
     sloganRef,
     state.showSlogans ? slogans[state.activeSlogan].text : '',
@@ -124,7 +128,7 @@ const Banner = () => {
           {state.showSlogans && (
             <h1
               ref={sloganRef}
-              className="text-white font-['amiri'] font-bold text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-center tracking-wide"
+              className="text-white font-['cairo'] font-bold text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-center tracking-wide"
             >
               {slogans[state.activeSlogan].text}
             </h1>
@@ -133,8 +137,12 @@ const Banner = () => {
           {state.showClubSection && (
             <div
               ref={clubRef}
-              className="text-center transition-opacity duration-500 py-12"
-              style={{ opacity: 1 }}
+              className="text-center transition-opacity duration-[1000ms] transform transition-transform scale-90 opacity-0"
+              style={{
+                opacity: state.showClubSection ? 1 : 0,
+                transform: state.showClubSection ? 'scale(1)' : 'scale(0.9)',
+                transition: 'all 1s ease',
+              }}
             >
               <h1 className="font-bold text-hawar-orange text-6xl sm:text-7xl lg:text-8xl font-['tharwat']">
                 نادي الحوار

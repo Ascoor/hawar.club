@@ -1,12 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import sitemap from 'vite-plugin-sitemap';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
-
 
     sitemap({
       hostname: 'https://hawar.club',
@@ -17,7 +15,7 @@ export default defineConfig(({ mode }) => ({
       ],
     }),
   ],
-  
+
   base: mode === 'gh-pages' ? '/hawar.club/' : '/',
   assetsInclude: ['**/*.ttf'],
   optimizeDeps: {

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import AOS from 'aos';
@@ -81,7 +82,8 @@ const VipEvents = () => {
                   className="relative w-full aspect-[16/9] shadow-blue-glow rounded-[25%]  overflow-hidden group"
                   data-aos="fade-down"
                 >
-                  <img
+                  <LazyLoadImage
+                    effect="opacity"
                     src={event.image}
                     alt={event.title}
                     className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110 "
@@ -136,35 +138,50 @@ const VipEvents = () => {
       </div>
       {isModalOpen && modalData && (
         <div
-          className="fixed inset-0 z-50  flex items-center justify-center bg-black bg-opacity-70"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
           onClick={() => toggleModal(null)}
         >
-          <div
-            className="bg-hawar-blue-dark  rounded-card shadow-lg max-w-4xl w-full mx-4 sm:mx-8 p-16 relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {}
-            <button
-              onClick={() => toggleModal(null)}
-              className="absolute top-6 right-6 text-gray-100 hover:text-hawar-orange text-2xl"
-            >
-              ✕
-            </button>
-
-            {}
-            <img
+          {/* الصورة */}
+          <div className="relative item-center justify-center">
+            <LazyLoadImage
+              effect="opacity"
               src={modalData.image}
               alt={modalData.title}
-              className="w-full  shadow-soft-orange mb-4 rounded-card max-h-[50vh] object-cover"
+              className="object-cover w-full h-full rounded-t-lg md:rounded-l-lg md:rounded-tr-none"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40 rounded-t-lg md:rounded-l-lg"></div>
 
-            {}
-            <h2 className="text-lg md:text-m   mb-2 text-hawar-orange-light">
-              {modalData.title}
-            </h2>
-            <p className="text-gray-200 leading-relaxed text-sm md:text-base">
-              {modalData.details}
-            </p>
+            {/* النصوص */}
+            <div className="p-8 flex flex-col justify-between">
+              {/* زر الإغلاق */}
+              <button
+                onClick={() => toggleModal(null)}
+                className="absolute top-4 right-4 text-gray-100 hover:text-hawar-orange text-2xl"
+                aria-label="إغلاق المودال"
+              >
+                ✕
+              </button>
+
+              {/* العنوان */}
+              <h2 className="text-2xl font-bold text-hawar-orange mb-4 leading-relaxed">
+                {modalData.title}
+              </h2>
+
+              {/* النص */}
+              <p className="text-gray-300 text-base leading-relaxed md:text-lg font-tharwat mb-4">
+                {modalData.details}
+              </p>
+
+              {/* التاريخ والوقت */}
+              <div className="flex space-x-4 items-center mt-4">
+                <span className="bg-orange-500 text-white text-sm px-3 py-1 rounded-full shadow-md">
+                  {modalData.date}
+                </span>
+                <span className="bg-blue-500 text-white text-sm px-3 py-1 rounded-full shadow-md">
+                  {modalData.time}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       )}

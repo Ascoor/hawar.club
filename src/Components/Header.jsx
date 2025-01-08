@@ -1,4 +1,5 @@
-import { useState, useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Logo1 from '../assets/logo-1.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -72,7 +73,8 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <a href="/" className="flex items-center">
-          <img
+          <LazyLoadImage
+            effect="opacity"
             className="w-16 transition-all"
             src={Logo1}
             alt="شعار النادي الرياضي"

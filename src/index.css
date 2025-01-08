@@ -2,10 +2,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Classes and Animations */
+
+/* Active Link Style */
 .active-link {
-  @apply border-b-2 border-orange-500 text-blue-300;
+  @apply border-b-2 border-orange-500 text-blue-300 font-bold;
 }
-/* تعريف keyframes لتحريك تأثير النص المحفور والمضيء */
+
+/* Keyframes for Glowing and Carved Text */
 @keyframes textCarveLight {
   0%,
   100% {
@@ -24,22 +29,108 @@
   }
 }
 
-/* كلاس مخصص لتطبيق تأثير النص المحفور والمضيء */
+/* Carved and Glowing Text */
 .carved-light-text {
   font-weight: bold;
-  color: #ffffff; /* لون النص الأساسي */
+  color: #ffffff; /* Base text color */
   background: linear-gradient(45deg, #ffffff, #ffcc00);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   animation: textCarveLight 3s infinite alternate;
 }
-@layer utilities {
-  .bg-multi-gradient {
-    background: linear-gradient(to top, #0c1842, #151f3d, #dd8c35, #4b2a06);
+
+/* Gradient Background */
+.bg-multi-gradient {
+  background: linear-gradient(to top, #0c1842, #151f3d, #dd8c35, #4b2a06);
+}
+/* زر مخصص للخلفيات الداكنة */
+.btn-dark {
+  @apply bg-hawar-orange text-hawar-blue-darker font-bold   px-6 py-3 rounded-header  transition-all duration-300;
+}
+
+.btn-dark:hover {
+  @apply bg-hawar-blue  text-white rounded-card shadow-lg scale-105;
+}
+
+/* زر مخصص للخلفيات البيضاء */
+.btn-white {
+  @apply bg-white text-gray-800 border-2 border-gray-300 rounded-lg px-6 py-3 font-medium transition-all duration-300;
+}
+
+.btn-white:hover {
+  @apply bg-gray-200 text-gray-900 shadow-lg scale-105;
+}
+
+/* Navbar Links */
+.nav-link {
+  @apply text-white font-semibold hover:text-orange-500 transition duration-200;
+}
+
+/* Hero Section Animation */
+@keyframes heroSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+.hero-animate {
+  animation: heroSlideIn 1s ease-out forwards;
+}
+
+/* Section Title */
+.section-title {
+  @apply text-4xl font-extrabold text-center text-hawar-blue-dark py-4 mb-6;
+  letter-spacing: 1px;
+}
+
+/* Footer */
+.footer-bg {
+  @apply bg-gray-900 text-white py-10 px-4;
+}
+
+.footer-link {
+  @apply text-gray-300 hover:text-orange-500 transition duration-200;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .section-title {
+    @apply text-3xl;
+  }
+
+  .btn-dark {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .btn-white {
+    @apply px-4 py-2 text-sm;
+  }
+}
+
+/* Additional Hover Effects for Links and Buttons */
+.link-hover-effect {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.link-hover-effect::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: -100%;
+  background: #ffcc00;
+  transition: left 0.3s ease-out;
+}
+
+.link-hover-effect:hover::after {
+  left: 0;
 }

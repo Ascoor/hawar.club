@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import CountUp from 'react-countup';
 import AOS from 'aos';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import { motion } from 'framer-motion';
 import 'aos/dist/aos.css';
-import CounterBg from '../assets/images/building_bg_blue.png';
+import BuildingBgBlue from '../assets/images/building_bg _blue.png';
 import { counters } from '../Data';
 
 const Counter = () => {
@@ -16,13 +18,14 @@ const Counter = () => {
   }, []);
 
   return (
-    <section
-      className="counter-outer py-16 bg-cover bg-center text-center"
-      style={{
-        backgroundImage: `url(${CounterBg})`,
-      }}
+    <div
+      className="relative bg-gradient-to-b from-hawar-blue-darker to-hawar-blue bg-cover bg-center text-white py-16 px-4 lg:px-12 overflow-hidden"
+      style={{ backgroundImage: `url(${BuildingBgBlue})` }}
+      id="muscle"
     >
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+      {' '}
+      <div className="absolute inset-0 bg-hawar-blue-dark bg-opacity-40"></div>
+      <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {counters.map((counter, index) => (
             <CounterBox
@@ -33,7 +36,7 @@ const Counter = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
@@ -92,11 +95,11 @@ const CounterBox = ({ counter, animationDelay }) => {
         whileHover={{ scale: 1.15 }}
         transition={{ duration: 0.3 }}
       >
-        <img
+        <LazyLoadImage
+          effect="opacity"
           src={counter.image}
           alt={`أيقونة ${counter.label}`}
           className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-hawar-orange rounded-header object-cover"
-          loading="lazy"
         />
       </motion.figure>
       {}

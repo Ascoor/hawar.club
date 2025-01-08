@@ -1,4 +1,6 @@
 import { Link } from 'react-scroll';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import {
   FaFacebook,
   FaTwitter,
@@ -34,11 +36,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           {}
           <div className="text-center md:text-right">
-            <img
+            <LazyLoadImage
+              effect="opacity"
               src={HawarLogo}
               alt="شعار نادي الحوار"
               className="w-32 h-auto mb-4 mx-auto md:mx-0"
-              loading="lazy"
             />
             <p className="text-base md:text-lg text-white/90 leading-loose">
               نادي الحوار للألعاب الرياضية هو أحد الأندية الرائدة بمدينة
@@ -134,7 +136,7 @@ const Footer = () => {
         </div>
 
         {}
-        <hr className="my-8 border-white/20" />
+        <hr className="my-8 border-hawar-orange-dark" />
         <div className="text-center text-sm md:text-base text-hawar-orange">
           جميع الحقوق محفوظة © 2024، نادي الحوار للألعاب الرياضية.
         </div>

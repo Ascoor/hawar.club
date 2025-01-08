@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {
   FaFacebook,
   FaTwitter,
@@ -124,11 +125,11 @@ const AboutSection = () => {
         {/* Image */}
         <div className="flex-1 relative" data-aos="fade-up">
           <div className="shadow-lg rounded-lg overflow-hidden">
-            <img
+            <LazyLoadImage
               src={aboutImage}
               alt="مرافق نادي الحوار"
               className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-              loading="lazy"
+              effect="opacity"
             />
           </div>
         </div>
